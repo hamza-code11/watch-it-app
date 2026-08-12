@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "app",
+    "name": "Watch It",
     "slug": "app",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -11,13 +11,14 @@
       "icon": "./assets/expo.icon"
     },
     "android": {
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.app",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
-      },
-      "predictiveBackGestureEnabled": false
+      }
     },
     "web": {
       "output": "static",
