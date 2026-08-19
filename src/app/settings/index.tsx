@@ -2,18 +2,18 @@
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import {
-  Image,
-  ScrollView,
-  Share,
-  Text,
-  TouchableOpacity,
-  View,
+    Image,
+    ScrollView,
+    Share,
+    Text,
+    TouchableOpacity,
+    View,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
-import ThemeToggle from "../../../example/src/components/themetoggle/ThemeToggle";
-import { useTheme } from "../../../example/src/context/ThemeContext";
-import { getStyles } from "./settings.styles";
+import ThemeToggle from "../../components/themetoggle/ThemeToggle";
+import { useTheme } from "../../context/ThemeContext";
+import { getStyles } from "../../screens/Settings/Settings.styles";
 
 type SettingItemProps = {
   icon: React.ComponentProps<typeof Ionicons>["name"];

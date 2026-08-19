@@ -1,12 +1,11 @@
 // src/app/settings/settings.styles.ts
 import { StyleSheet } from "react-native";
-import { Theme } from "../../../example/src/constants/theme";
+import { Theme } from "../../constants/theme";
 
 export const getStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: theme.bgPrimary,
     },
 
     scrollContent: {

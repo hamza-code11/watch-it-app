@@ -21,16 +21,26 @@
 
 
 
-import { useState } from "react";
-import { View } from "react-native";
 
-import Header from "../../../example/src/components/header/Header";
-import Hero from "../../../example/src/components/Hero/Hero";
-import QuickActions from "../../../example/src/components/QuickActions/QuickActions";
-import Sidebar from "../../../example/src/components/sidebar/Sidebar";
-// import ThemeToggle from "../../example/src/components/themetoggle/ThemeToggle";
-import { useTheme } from "../../../example/src/context/ThemeContext";
-import { getStyles } from "./index.styles";
+
+
+
+
+
+
+import { useState } from "react";
+import { ScrollView } from "react-native";
+
+import BrandStrip from "../../components/BrandStrip/BrandStrip";
+import ForSellers from "../../components/ForSellers/ForSellers";
+import Hero from "../../components/Hero/Hero";
+import JustDropped from "../../components/JustDropped/JustDropped";
+import QuickActions from "../../components/QuickActions/QuickActions";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import Sidebar from "../../components/sidebar/Sidebar";
+
+import { useTheme } from "../../context/ThemeContext";
+import { getStyles } from "../../screens/Home/Home.styles";
 
 const Index = () => {
   const { theme } = useTheme();
@@ -38,21 +48,39 @@ const Index = () => {
 
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
+  const handleSearch = (query: string) => {
+    console.log("Searching for:", query);
+  };
+
   return (
-    <View style={styles.container}>
-      <Header
-        onProfilePress={() => setSidebarVisible(true)}
+    <ScrollView
+      style={styles.container}
+      contentContainerStyle={{
+        paddingTop: 70,
+        paddingBottom: 160,
+      }}
+    >
+      <SearchBar
+        onSearch={handleSearch}
+        placeholder="Search for watches, brands..."
       />
 
       <Hero />
+
+      <BrandStrip />
+
       <QuickActions />
+
+      <JustDropped />
+
+      <ForSellers />
+
       <Sidebar
         visible={sidebarVisible}
         onClose={() => setSidebarVisible(false)}
       />
-    </View>
+    </ScrollView>
   );
 };
 
 export default Index;
-
