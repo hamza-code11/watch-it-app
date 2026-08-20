@@ -1,4 +1,5 @@
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { useTheme } from "../../context/ThemeContext";
@@ -22,21 +23,22 @@ const ForSellers = () => {
           <Text style={styles.title}>List Your Watches</Text>
 
           <Text style={styles.description}>
-            List in minutes. Get reviewed, reach UAE collectors, and pay only when you sell... 
+            List in minutes. Get reviewed, reach UAE collectors, and pay only when you sell...
           </Text>
 
           <TouchableOpacity
-            style={styles.button}
             onPress={handleLearnMore}
-            activeOpacity={0.8}
+            activeOpacity={0.85}
           >
-            <Text style={styles.buttonText}>Create Listings</Text>
-
-            <Ionicons
-              name="arrow-forward"
-              size={18}
-              color="#FFFFFF"
-            />
+            <LinearGradient
+              colors={["#FFFFFF", "#E9EEF6"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.button}
+            >
+              <Ionicons name="add" size={18} color="#0B0E14" />
+              <Text style={styles.buttonText}>Create Listing</Text>
+            </LinearGradient>
           </TouchableOpacity>
         </View>
 
@@ -54,5 +56,3 @@ const ForSellers = () => {
 };
 
 export default ForSellers;
-
-

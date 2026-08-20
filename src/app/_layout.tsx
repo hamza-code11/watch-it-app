@@ -1,3 +1,4 @@
+// app/_layout.tsx
 import { Montserrat_700Bold, useFonts } from "@expo-google-fonts/montserrat";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack } from "expo-router";
@@ -9,6 +10,7 @@ import { SafeAreaProvider } from "react-native-safe-area-context";
 
 import BottomTabBar from "../components/BottomTabBar/BottomTabBar";
 import Header from "../components/header/Header";
+import Sidebar from "../components/sidebar/Sidebar";
 import SplashScreenView from "../components/SplashScreenView/SplashScreenView";
 import { ThemeProvider, useTheme } from "../context/ThemeContext";
 
@@ -31,34 +33,26 @@ const AppStack = () => {
           contentStyle: {
             backgroundColor: "transparent",
           },
+          headerShown: false,
         }}
       >
+        <Stack.Screen name="index" />
         <Stack.Screen
-          name="home"
+          name="profile"
           options={{
-            headerShown: false,
+            headerShown: false
           }}
         />
-
-        <Stack.Screen
-          name="about"
-          options={{
-            headerShown: false,
-          }}
-        />
-
+        <Stack.Screen name="about" />
+        <Stack.Screen name="swipe" options={{ headerShown: false }} />
         <Stack.Screen
           name="settings"
           options={{
             title: "Settings",
-            headerStyle: {
-              backgroundColor: "transparent",
-            },
+            headerStyle: { backgroundColor: "transparent" },
             headerTransparent: true,
             headerTintColor: theme.textPrimary,
-            headerTitleStyle: {
-              color: theme.textPrimary,
-            },
+            headerTitleStyle: { color: theme.textPrimary },
           }}
         />
       </Stack>
@@ -68,6 +62,7 @@ const AppStack = () => {
 
 const RootLayout = () => {
   const [showCustomSplash, setShowCustomSplash] = useState(true);
+  const [sidebarVisible, setSidebarVisible] = useState(false);
 
   const [fontsLoaded] = useFonts({
     Montserrat_700Bold,
@@ -87,24 +82,31 @@ const RootLayout = () => {
     <SafeAreaProvider>
       <ThemeProvider>
         <View style={styles.root}>
+          <StatusBar style="light" />
 
-          {/* White status bar icons */}
-          <StatusBar
-            style="light"
-          />
+          {/* App Screens - Full screen with gradient */}
+          <View style={styles.content}>
+            <AppStack />
+          </View>
 
-          {/* App Screens */}
-          <AppStack />
-
-          {/* Fixed Header - hidden during splash */}
+          {/* Fixed Header */}
           {!showCustomSplash && (
             <View style={styles.header}>
-              <Header />
+              <Header
+                onProfilePress={() => setSidebarVisible(true)}
+                onNotificationPress={() => console.log("Notification")}
+              />
             </View>
           )}
 
           {/* Fixed Bottom Tab */}
           {!showCustomSplash && <BottomTabBar />}
+
+          {/* Sidebar - Global */}
+          <Sidebar
+            visible={sidebarVisible}
+            onClose={() => setSidebarVisible(false)}
+          />
 
           {/* Custom Splash */}
           {showCustomSplash && (
@@ -123,12 +125,16 @@ const RootLayout = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
+    backgroundColor: '#000', // Fallback color
   },
-
-  gradient: {
+  content: {
     flex: 1,
   },
-
+  gradient: {
+    flex: 1,
+    width: '100%',
+    height: '100%',
+  },
   header: {
     position: "absolute",
     top: 0,
@@ -139,4 +145,3 @@ const styles = StyleSheet.create({
 });
 
 export default RootLayout;
-

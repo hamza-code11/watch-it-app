@@ -4,7 +4,6 @@ import { usePathname, useRouter } from "expo-router";
 import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-
 import { useTheme } from "../../context/ThemeContext";
 import { getStyles } from "./BottomTabBar.styles";
 
@@ -17,11 +16,11 @@ type TabItem = {
 };
 
 const TABS: TabItem[] = [
-  { key: "home", route: "/home", icon: "home-outline", activeIcon: "home", label: "Home" },
-  { key: "explore", route: "/explore", icon: "compass-outline", activeIcon: "compass", label: "Explore" },
-  { key: "sell", route: "/sell", icon: "add-circle-outline", activeIcon: "add-circle", label: "Sell" },
-  { key: "chat", route: "/chat", icon: "chatbubble-ellipses-outline", activeIcon: "chatbubble-ellipses", label: "Chat" },
-  { key: "profile", route: "/profile", icon: "person-outline", activeIcon: "person", label: "Profile" },
+  { key: "home", route: "/pages/home", icon: "home-outline", activeIcon: "home", label: "Home" },
+  { key: "explore", route: "/pages/swipe", icon: "compass-outline", activeIcon: "compass", label: "Explore" },
+  { key: "sell", route: "/pages/sell", icon: "add-circle-outline", activeIcon: "add-circle", label: "Sell" },
+  { key: "chat", route: "/pages/chat", icon: "chatbubble-ellipses-outline", activeIcon: "chatbubble-ellipses", label: "Chat" },
+  { key: "profile", route: "/pages/profile", icon: "person-outline", activeIcon: "person", label: "Profile" },
 ];
 
 const BottomTabBar = () => {
@@ -36,7 +35,9 @@ const BottomTabBar = () => {
       <View style={styles.barContainer}>
         <View style={styles.tabsRow}>
           {TABS.map((tab) => {
-            const active = pathname.startsWith(tab.route);
+            const active =
+              pathname === tab.route || pathname.startsWith(`${tab.route}/`);
+
             return (
               <TouchableOpacity
                 key={tab.key}

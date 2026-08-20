@@ -21,7 +21,6 @@ export const getStyles = (theme: Theme) =>
       borderColor: theme.borderColor,
     },
 
-    // Left Content
     contentContainer: {
       width: "58%",
       padding: 16,
@@ -48,9 +47,8 @@ export const getStyles = (theme: Theme) =>
       flexDirection: "row",
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: theme.accentPrimary,
-      paddingVertical: 9,
-      paddingHorizontal: 14,
+      paddingVertical: 10,
+      paddingHorizontal: 16,
       borderRadius: theme.radiusFull,
       alignSelf: "flex-start",
       gap: 6,
@@ -58,12 +56,11 @@ export const getStyles = (theme: Theme) =>
 
     buttonText: {
       fontSize: 13,
-      fontWeight: "600",
-      color: "#FFFFFF",
+      fontWeight: "700",
+      color: "#0B0E14",
       letterSpacing: 0.3,
     },
 
-    // Right Image
     imageContainer: {
       width: "42%",
       height: "100%",
@@ -74,4 +71,3 @@ export const getStyles = (theme: Theme) =>
       height: "100%",
     },
   });
-

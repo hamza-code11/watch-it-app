@@ -55,18 +55,22 @@ const Header = ({
             <View style={styles.notificationDot} />
           </TouchableOpacity>
 
-          <TouchableOpacity
-            style={styles.avatarButton}
-            onPress={onProfilePress}
-          >
-            {avatarImage ? (
-              <Image
-                source={{ uri: avatarImage }}
-                style={styles.avatarImage}
-              />
-            ) : (
-              <Text style={styles.avatarText}>JD</Text>
-            )}
+          <TouchableOpacity onPress={onProfilePress} activeOpacity={0.85}>
+            <LinearGradient
+              colors={["#FFFFFF", "#E9EEF6"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.avatarButton}
+            >
+              {avatarImage ? (
+                <Image
+                  source={{ uri: avatarImage }}
+                  style={styles.avatarImage}
+                />
+              ) : (
+                <Text style={styles.avatarText}>JD</Text>
+              )}
+            </LinearGradient>
           </TouchableOpacity>
         </View>
       </View>

@@ -18,7 +18,6 @@ export const getStyles = (theme: Theme) =>
       width: "100%",
     },
 
-    // Brand Section
     brandContainer: {
       flex: 1,
     },
@@ -57,7 +56,6 @@ export const getStyles = (theme: Theme) =>
       letterSpacing: 0.3,
     },
 
-    // Right group - notification + profile
     rightGroup: {
       flexDirection: "row",
       alignItems: "center",
@@ -70,7 +68,7 @@ export const getStyles = (theme: Theme) =>
       borderRadius: theme.radiusFull,
       alignItems: "center",
       justifyContent: "center",
-      backgroundColor: "rgba(255,255,255,0.06)", // subtle lighter circle vs header bg
+      backgroundColor: "rgba(255,255,255,0.06)",
       position: "relative",
     },
 
@@ -90,11 +88,8 @@ export const getStyles = (theme: Theme) =>
       width: 40,
       height: 40,
       borderRadius: theme.radiusFull,
-      backgroundColor: "#E4D3B0", // cream/gold circle as per design
       alignItems: "center",
       justifyContent: "center",
-      borderWidth: 1.5,
-      borderColor: theme.borderColor,
     },
 
     avatarImage: {
@@ -106,7 +101,7 @@ export const getStyles = (theme: Theme) =>
     avatarText: {
       fontSize: 15,
       fontWeight: "700",
-      color: "#2A2418", // dark text on cream bg
+      color: "#0B0E14", // dark text on white gradient bg
     },
   });
 
@@ -115,3 +110,4 @@ export const getStyles = (theme: Theme) =>
   "#000000",
   "#151c29",
 ] as const;
+
