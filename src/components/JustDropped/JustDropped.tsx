@@ -1,4 +1,6 @@
+// components/JustDropped/JustDropped.tsx
 import { Ionicons } from "@expo/vector-icons";
+import { useRouter } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { useTheme } from "../../context/ThemeContext";
@@ -11,7 +13,6 @@ type Listing = {
   location: string;
   badge: string;
   imageUrl: string;
-  onPress?: () => void;
 };
 
 const listings: Listing[] = [
@@ -52,12 +53,21 @@ const listings: Listing[] = [
 const JustDropped = () => {
   const { theme } = useTheme();
   const styles = getStyles(theme);
+  const router = useRouter();
+
+  const handleCardPress = () => {
+    router.push("/swip" as any);
+  };
+
+  const handleSeeAllPress = () => {
+    router.push("/swip" as any);
+  };
 
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
         <Text style={styles.headerTitle}>Just Dropped</Text>
-        <TouchableOpacity activeOpacity={0.7}>
+        <TouchableOpacity activeOpacity={0.7} onPress={handleSeeAllPress}>
           <Text style={styles.headerLink}>See all</Text>
         </TouchableOpacity>
       </View>
@@ -68,7 +78,7 @@ const JustDropped = () => {
             key={item.id}
             style={styles.card}
             activeOpacity={0.85}
-            onPress={item.onPress}
+            onPress={handleCardPress}
           >
             <View style={styles.imageWrapper}>
               <Image source={{ uri: item.imageUrl }} style={styles.image} resizeMode="cover" />
@@ -79,14 +89,10 @@ const JustDropped = () => {
                   <Text style={styles.verifiedText}>{item.badge}</Text>
                 </View>
               )}
-
-              <TouchableOpacity style={styles.favButton} activeOpacity={0.7}>
-                <Ionicons name="heart-outline" size={14} color="#fff" />
-              </TouchableOpacity>
             </View>
 
             <View style={styles.info}>
-              <Text style={styles.model} numberOfLines={1}>
+              <Text style={styles.brand} numberOfLines={1}>
                 {item.brand}
               </Text>
 

@@ -1,96 +1,151 @@
-import { useEffect, useRef, useState } from "react";
-import { Animated, Text, TouchableOpacity, View } from "react-native";
+// components/Hero/Hero.tsx
 import { LinearGradient } from "expo-linear-gradient";
+import { Text, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../../context/ThemeContext";
 import { getStyles } from "./Hero.styles";
-
-const banners = [
-  require("@/assets/01.webp"),
-  require("@/assets/02.webp"),
-  require("@/assets/03.webp"),
-];
-
-// Har banner ke liye alag content — agar sab pe same chahiye to ek hi rakh lo
-const bannerContent = [
-  {
-    label: "FEATURED DROP",
-    title: "Two-Tone Icons",
-    cta: "Shop the edit",
-  },
-  {
-    label: "NEW ARRIVAL",
-    title: "Timeless Classics",
-    cta: "Explore collection",
-  },
-  {
-    label: "LIMITED EDITION",
-    title: "Rare Finds",
-    cta: "View pieces",
-  },
-];
 
 const Hero = () => {
   const { theme } = useTheme();
   const styles = getStyles(theme);
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const fadeAnim = useRef(new Animated.Value(1)).current;
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const nextIndex = (currentIndex + 1) % banners.length;
-      Animated.timing(fadeAnim, {
-        toValue: 0,
-        duration: 600,
-        useNativeDriver: true,
-      }).start(() => {
-        setCurrentIndex(nextIndex);
-        Animated.timing(fadeAnim, {
-          toValue: 1,
-          duration: 600,
-          useNativeDriver: true,
-        }).start();
-      });
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [currentIndex]);
-
-  const content = bannerContent[currentIndex];
 
   return (
-    <View style={styles.banner}>
-      <Animated.Image
-        source={banners[currentIndex]}
-        style={[styles.bannerImage, { opacity: fadeAnim }]}
-        resizeMode="cover"
-      />
+    <LinearGradient
+      colors={["#1A1A2E", "#16213E", "#0F0F1A"]}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
+      style={styles.banner}
+    >
+      <View style={styles.content}>
+        <Text style={styles.label}>Dubai's Trusted Watch Marketplace</Text>
+        
+        <Text style={styles.title}>
+          Trade Timepieces.
+          {"\n"}
+          <Text style={styles.titleHighlight}>FIND. SWIPE. OWN.</Text>
+        </Text>
 
-      {/* Dark gradient overlay - bottom se upar ki taraf fade */}
-      <LinearGradient
-        colors={["transparent", "rgba(0,0,0,0.25)", "rgba(0,0,0,0.75)"]}
-        locations={[0, 0.5, 1]}
-        style={styles.gradientOverlay}
-      />
+        <View style={styles.buttonRow}>
+          <TouchableOpacity activeOpacity={0.85} style={styles.ctaWrapper}>
+            <LinearGradient
+              colors={["#FFFFFF", "#E8EDF5", "#D5DCE8"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.ctaButton}
+            >
+              <Text style={styles.ctaText}>Discover Timepieces</Text>
+            </LinearGradient>
+          </TouchableOpacity>
 
-      {/* Text content overlay */}
-      <Animated.View style={[styles.contentContainer, { opacity: fadeAnim }]}>
-        <Text style={styles.label}>{content.label}</Text>
-        <Text style={styles.title}>{content.title}</Text>
-        <TouchableOpacity style={styles.ctaButton} activeOpacity={0.8}>
-          <Text style={styles.ctaText}>{content.cta}</Text>
-        </TouchableOpacity>
-      </Animated.View>
-
-      <View style={styles.dotsContainer}>
-        {banners.map((_, index) => (
-          <View
-            key={index}
-            style={[styles.dot, currentIndex === index && styles.activeDot]}
-          />
-        ))}
+          <TouchableOpacity activeOpacity={0.85} style={styles.secondaryWrapper}>
+            <LinearGradient
+              colors={["rgba(255,255,255,0.08)", "rgba(255,255,255,0.02)"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.secondaryButton}
+            >
+              <Text style={styles.secondaryText}>+ List Your Watch</Text>
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
+    </LinearGradient>
   );
 };
 
 export default Hero;
 
+
+
+
+
+
+
+
+// // components/Hero/Hero.tsx
+
+// import { LinearGradient } from "expo-linear-gradient";
+// import { Text, TouchableOpacity, View } from "react-native";
+
+// import { useTheme } from "../../context/ThemeContext";
+// import { useHero } from "./Hero.hooks";
+// import { getStyles } from "./Hero.styles";
+
+// const Hero = () => {
+//   const { theme } = useTheme();
+//   const styles = getStyles(theme);
+
+//   const { data, isLoading, isError } = useHero();
+
+//   if (isLoading) {
+//     return null;
+//   }
+
+//   if (isError || !data) {
+//     return null;
+//   }
+
+//   return (
+//     <LinearGradient
+//       colors={["#1A1A2E", "#16213E", "#0F0F1A"]}
+//       start={{ x: 0, y: 0 }}
+//       end={{ x: 1, y: 1 }}
+//       style={styles.banner}
+//     >
+//       <View style={styles.content}>
+
+//         <Text style={styles.label}>
+//           {data.label}
+//         </Text>
+
+//         <Text style={styles.title}>
+//           {data.title}
+//           {"\n"}
+//           <Text style={styles.titleHighlight}>
+//             {data.titleHighlight}
+//           </Text>
+//         </Text>
+
+//         <View style={styles.buttonRow}>
+
+//           <TouchableOpacity
+//             activeOpacity={0.85}
+//             style={styles.ctaWrapper}
+//           >
+//             <LinearGradient
+//               colors={["#FFFFFF", "#E8EDF5", "#D5DCE8"]}
+//               start={{ x: 0, y: 0 }}
+//               end={{ x: 1, y: 1 }}
+//               style={styles.ctaButton}
+//             >
+//               <Text style={styles.ctaText}>
+//                 {data.primaryButtonText}
+//               </Text>
+//             </LinearGradient>
+//           </TouchableOpacity>
+
+//           <TouchableOpacity
+//             activeOpacity={0.85}
+//             style={styles.secondaryWrapper}
+//           >
+//             <LinearGradient
+//               colors={[
+//                 "rgba(255,255,255,0.08)",
+//                 "rgba(255,255,255,0.02)",
+//               ]}
+//               start={{ x: 0, y: 0 }}
+//               end={{ x: 1, y: 1 }}
+//               style={styles.secondaryButton}
+//             >
+//               <Text style={styles.secondaryText}>
+//                 {data.secondaryButtonText}
+//               </Text>
+//             </LinearGradient>
+//           </TouchableOpacity>
+
+//         </View>
+//       </View>
+//     </LinearGradient>
+//   );
+// };
+
+// export default Hero;

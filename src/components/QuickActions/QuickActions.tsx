@@ -1,41 +1,46 @@
+// components/QuickActions/QuickActions.tsx
 import { Ionicons } from "@expo/vector-icons";
+import { LinearGradient } from "expo-linear-gradient";
 import { Text, TouchableOpacity, View } from "react-native";
-
 import { useTheme } from "../../context/ThemeContext";
 import { getStyles } from "./QuickActions.styles";
 
 type ActionItem = {
   title: string;
+  subtitle: string;
   icon: React.ComponentProps<typeof Ionicons>["name"];
-  color: string;
-  tint: string;
-  onPress?: () => void;
+  gradient: [string, string];
+  iconColor: string;
 };
 
 const actions: ActionItem[] = [
   {
-    title: "Community",
-    icon: "people-outline",
-    color: "#6366F1",
-    tint: "#12141F",
+    title: "Swipe to Discover",
+    subtitle: "Browse like Tinder — for luxury watches",
+    icon: "swap-horizontal-outline",
+    gradient: ["#4F9FFF", "#22D3EE"],
+    iconColor: "#FFFFFF",
   },
   {
-    title: "Authnticate",
-    icon: "shield-checkmark-outline",
-    color: "#0EA5E9",
-    tint: "#12141F",
-  },
-  {
-    title: "Services",
-    icon: "construct-outline",
-    color: "#F59E0B",
-    tint: "#12141F",
-  },
-  {
-    title: "Auctions",
+    title: "Live Auctions",
+    subtitle: "Bid in real-time on rare timepieces",
     icon: "hammer-outline",
-    color: "#EF4444",
-    tint: "#12141F",
+    gradient: ["#8B5CF6", "#4F9FFF"],
+    iconColor: "#FFFFFF",
+  },
+  {
+    title: "Direct Negotiate",
+    subtitle: "Chat & close deals without middlemen",
+    icon: "chatbubble-outline",
+    gradient: ["#34D399", "#10B981"],
+    iconColor: "#FFFFFF",
+  },
+  {
+    title: "Authentication",
+    subtitle: "Expert-certified with digital certificate",
+    icon: "shield-checkmark-outline",
+    gradient: ["#F472B6", "#EC4899"],
+    iconColor: "#FFFFFF",
   },
 ];
 
@@ -45,26 +50,27 @@ const QuickActions = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.headerRow}>
-        <Text style={styles.headerTitle}>Quick actions</Text>
-        <Text style={styles.headerSubtitle}>Everything you need, one tap away</Text>
-      </View>
-
       <View style={styles.grid}>
-        {actions.map((action) => (
+        {actions.map((action, index) => (
           <TouchableOpacity
-            key={action.title}
-            style={styles.tile}
-            activeOpacity={0.75}
-            onPress={action.onPress}
+            key={index}
+            style={styles.card}
+            activeOpacity={0.85}
           >
-            <View style={[styles.iconChip, { backgroundColor: action.tint }]}>
-              <Ionicons name={action.icon} size={30} color={action.color} />
-            </View>
-
-            <Text style={styles.tileTitle} numberOfLines={2}>
-              {action.title}
-            </Text>
+            <LinearGradient
+              colors={action.gradient}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.cardGradient}
+            >
+              <View style={styles.iconContainer}>
+                <Ionicons name={action.icon} size={28} color={action.iconColor} />
+              </View>
+              <View style={styles.contentContainer}>
+                <Text style={styles.cardTitle}>{action.title}</Text>
+                <Text style={styles.cardSubtitle}>{action.subtitle}</Text>
+              </View>
+            </LinearGradient>
           </TouchableOpacity>
         ))}
       </View>

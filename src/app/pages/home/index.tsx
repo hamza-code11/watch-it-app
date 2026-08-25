@@ -29,14 +29,15 @@
 // app/index.tsx
 import { ScrollView } from "react-native";
 
-import BrandStrip from "../../../components/BrandStrip/BrandStrip";
-import ChronosGold from "../../../components/ChronosGold/ChronosGold";
+import ChronosGold from "../../../components/WatchItGold/WatchItGold";
 import CommunityReferral from "../../../components/CommunityReferral/CommunityReferral";
+import EverythingInOnePlace from "../../../components/EverythingInOnePlace/EverythingInOnePlace";
 import ForSellers from "../../../components/ForSellers/ForSellers";
 import Hero from "../../../components/Hero/Hero";
+import HowItWorks from "../../../components/HowItWorks/HowItWorks";
 import JustDropped from "../../../components/JustDropped/JustDropped";
 import QuickActions from "../../../components/QuickActions/QuickActions";
-import SearchBar from "../../../components/SearchBar/SearchBar";
+import Stats from "../../../components/Stats/Stats";
 
 import { useTheme } from "../../../context/ThemeContext";
 import { getStyles } from "../../../screens/Home/Home.styles";
@@ -45,9 +46,7 @@ const Index = () => {
   const { theme } = useTheme();
   const styles = getStyles(theme);
 
-  const handleSearch = (query: string) => {
-    console.log("Searching for:", query);
-  };
+
 
   return (
     <ScrollView
@@ -58,11 +57,12 @@ const Index = () => {
       }}
       showsVerticalScrollIndicator={false}
     >
-      <SearchBar onSearch={handleSearch} placeholder="Search for watches, brands..." />
       <Hero />
-      <BrandStrip />
+      <Stats />
+      <HowItWorks />
       <QuickActions />
       <JustDropped />
+      <EverythingInOnePlace />
       <ForSellers />
       <ChronosGold />
       <CommunityReferral />

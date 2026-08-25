@@ -13,31 +13,33 @@ export const getStyles = (theme: Theme, bottomInset: number = 0) =>
 
     barContainer: {
       backgroundColor: theme.bgCard ?? "#121212",
-      borderTopLeftRadius: 24,
-      borderTopRightRadius: 24,
-      paddingTop: 16,
-      paddingBottom: bottomInset > 0 ? bottomInset + 8 : 16,
-      paddingHorizontal: 6,
+      borderTopLeftRadius: 20,
+      borderTopRightRadius: 20,
+      paddingTop: 10,
+      paddingBottom: bottomInset > 0 ? bottomInset + 4 : 10,
+      paddingHorizontal: 4,
       shadowColor: "#000",
       shadowOffset: { width: 0, height: -4 },
-      shadowOpacity: 0.25,
-      shadowRadius: 10,
-      elevation: 12,
+      shadowOpacity: 0.2,
+      shadowRadius: 8,
+      elevation: 10,
     },
 
     tabsRow: {
       flexDirection: "row",
+      alignItems: "center",
     },
 
     tabButton: {
       flex: 1,
       alignItems: "center",
       justifyContent: "center",
-      gap: 6,
+      gap: 4,
+      paddingVertical: 4,
     },
 
     label: {
-      fontSize: 11.5,
+      fontSize: 10,
       fontWeight: "500",
       color: theme.textMuted,
     },
@@ -48,3 +50,4 @@ export const getStyles = (theme: Theme, bottomInset: number = 0) =>
     },
   });
 
+  

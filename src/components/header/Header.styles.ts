@@ -8,7 +8,7 @@ export const getStyles = (theme: Theme) =>
       width: "100%",
       paddingHorizontal: 15,
       paddingTop: 10,
-      paddingBottom: theme.spacingSm,
+      paddingBottom: 10,
     },
 
     row: {
@@ -23,7 +23,7 @@ export const getStyles = (theme: Theme) =>
     },
 
     brandTitle: {
-      fontSize: 28,
+      fontSize: 24,
       fontWeight: "700",
       color: theme.textPrimary,
       letterSpacing: 1,
@@ -33,24 +33,24 @@ export const getStyles = (theme: Theme) =>
     brandSubContainer: {
       flexDirection: "row",
       alignItems: "center",
-      marginTop: 1,
+      marginTop: 0,
     },
 
     brandSubUae: {
-      fontSize: 12,
+      fontSize: 10,
       fontWeight: "500",
       color: theme.textSecondary,
       letterSpacing: 0.5,
     },
 
     brandSubSeparator: {
-      fontSize: 12,
+      fontSize: 10,
       color: theme.textMuted,
-      marginHorizontal: 5,
+      marginHorizontal: 4,
     },
 
     brandSubLuxury: {
-      fontSize: 12,
+      fontSize: 10,
       fontWeight: "400",
       color: theme.textSecondary,
       letterSpacing: 0.3,
@@ -59,12 +59,12 @@ export const getStyles = (theme: Theme) =>
     rightGroup: {
       flexDirection: "row",
       alignItems: "center",
-      gap: theme.spacingSm,
+      gap: theme.spacingXs,
     },
 
     notificationButton: {
-      width: 40,
-      height: 40,
+      width: 34,
+      height: 34,
       borderRadius: theme.radiusFull,
       alignItems: "center",
       justifyContent: "center",
@@ -74,10 +74,10 @@ export const getStyles = (theme: Theme) =>
 
     notificationDot: {
       position: "absolute",
-      top: 7,
-      right: 7,
-      width: 9,
-      height: 9,
+      top: 6,
+      right: 6,
+      width: 7,
+      height: 7,
       borderRadius: theme.radiusFull,
       backgroundColor: "#ef4444",
       borderWidth: 1.5,
@@ -85,27 +85,27 @@ export const getStyles = (theme: Theme) =>
     },
 
     avatarButton: {
-      width: 40,
-      height: 40,
+      width: 34,
+      height: 34,
       borderRadius: theme.radiusFull,
       alignItems: "center",
       justifyContent: "center",
     },
 
     avatarImage: {
-      width: 40,
-      height: 40,
+      width: 34,
+      height: 34,
       borderRadius: theme.radiusFull,
     },
 
     avatarText: {
-      fontSize: 15,
+      fontSize: 13,
       fontWeight: "700",
-      color: "#0B0E14", // dark text on white gradient bg
+      color: "#0B0E14",
     },
   });
 
-  export const headerGradient = [
+export const headerGradient = [
   "#151c29",
   "#000000",
   "#151c29",

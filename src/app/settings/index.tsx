@@ -63,7 +63,7 @@ const Settings = () => {
             <Ionicons name="close" size={22} color={theme.textPrimary} />
           </TouchableOpacity>
         </View> */}
-
+  
         {/* Profile */}
         <View style={styles.profileSection}>
           <Image source={{ uri: USER.avatar }} style={styles.avatar} />

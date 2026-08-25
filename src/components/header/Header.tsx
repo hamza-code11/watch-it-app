@@ -1,3 +1,4 @@
+// components/Header/Header.tsx
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { Image, Text, TouchableOpacity, View } from "react-native";
@@ -48,7 +49,7 @@ const Header = ({
           >
             <Ionicons
               name="notifications-outline"
-              size={22}
+              size={20}
               color={theme.textPrimary}
             />
 
@@ -79,3 +80,4 @@ const Header = ({
 };
 
 export default Header;
+

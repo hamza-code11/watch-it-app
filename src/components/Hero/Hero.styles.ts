@@ -1,3 +1,4 @@
+// components/Hero/Hero.styles.ts
 import { Dimensions, StyleSheet } from "react-native";
 import { Theme } from "../../constants/theme";
 
@@ -7,76 +8,93 @@ export const getStyles = (theme: Theme) =>
   StyleSheet.create({
     banner: {
       width: width - 30,
-      height: 180,
       marginHorizontal: 15,
       borderRadius: theme.radiusLg,
       overflow: "hidden",
-      position: "relative",
+      borderWidth: 1,
+      borderColor: "rgba(255,255,255,0.06)",
+      minHeight: 150,
     },
-    bannerImage: {
-      width: "100%",
-      height: "100%",
+
+    content: {
+      paddingHorizontal: 20,
+      paddingVertical: 22,
     },
-    gradientOverlay: {
-      position: "absolute",
-      left: 0,
-      right: 0,
-      bottom: 0,
-      height: "70%",
-    },
-    contentContainer: {
-      position: "absolute",
-      left: 16,
-      bottom: 30,
-      right: 16,
-    },
+
     label: {
       color: "#8FA3B0",
-      fontSize: 10,
+      fontSize: 9,
       fontWeight: "700",
-      letterSpacing: 1.5,
-      marginBottom: 4,
+      letterSpacing: 1.6,
+      marginBottom: 6,
       textTransform: "uppercase",
     },
+
     title: {
       color: "#FFFFFF",
       fontSize: 22,
-      fontFamily: "PlayfairDisplay-Italic", // agar font load nahi hua to fontStyle: "italic" use karo
+      fontWeight: "700",
+      lineHeight: 28,
+      marginBottom: 16,
+      fontFamily: "Georgia",
+    },
+
+    titleHighlight: {
+      color: "#A8C8E8",
       fontStyle: "italic",
-      marginBottom: 12,
     },
+
+    buttonRow: {
+      flexDirection: "row",
+      gap: 10,
+    },
+
+    ctaWrapper: {
+      flex: 1,
+      borderRadius: theme.radiusMd,
+      overflow: "hidden",
+    },
+
     ctaButton: {
-      backgroundColor: "#F5EFE3",
-      alignSelf: "flex-start",
-      paddingHorizontal: 16,
-      paddingVertical: 8,
-      borderRadius: theme.radiusFull,
+      alignItems: "center",
+      justifyContent: "center",
+      paddingVertical: 10,
+      paddingHorizontal: 12,
+      borderRadius: theme.radiusMd,
+      minWidth: 100,
     },
+
     ctaText: {
-      color: "#1A1A1A",
+      color: "#0B0E14",
+      fontSize: 12,
+      fontWeight: "700",
+      letterSpacing: 0.3,
+      textAlign: "center",
+    },
+
+    secondaryWrapper: {
+      flex: 1,
+      borderRadius: theme.radiusMd,
+      overflow: "hidden",
+      borderWidth: 1,
+      borderColor: "rgba(255,255,255,0.15)",
+    },
+
+    secondaryButton: {
+      alignItems: "center",
+      justifyContent: "center",
+      paddingVertical: 10,
+      paddingHorizontal: 12,
+      borderRadius: theme.radiusMd,
+      minWidth: 100,
+    },
+
+    secondaryText: {
+      color: "#FFFFFF",
       fontSize: 12,
       fontWeight: "600",
-    },
-    dotsContainer: {
-      position: "absolute",
-      bottom: 10,
-      left: 0,
-      right: 0,
-      flexDirection: "row",
-      justifyContent: "center",
-      alignItems: "center",
-    },
-    dot: {
-      width: 7,
-      height: 7,
-      borderRadius: theme.radiusFull,
-      backgroundColor: "rgba(255,255,255,0.5)",
-      marginHorizontal: 4,
-    },
-    activeDot: {
-      width: 20,
-      backgroundColor: theme.bgCard,
+      letterSpacing: 0.3,
+      textAlign: "center",
     },
   });
 
-  

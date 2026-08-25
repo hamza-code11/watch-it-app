@@ -50,7 +50,7 @@ const SplashScreenView = ({ onFinish, onLayout, style }: Props) => {
 
         <View style={styles.divider} />
 
-        <Text style={styles.tagline}>Buy. Sell. Trade Timepieces.</Text>
+        <Text style={styles.tagline}>FIND. SWIP. OWN Timepieces.</Text>
       </Animated.View>
 
       <Animated.View style={[styles.footer, { opacity: fade }]}>

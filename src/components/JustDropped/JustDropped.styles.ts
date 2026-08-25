@@ -1,5 +1,5 @@
+// components/JustDropped/JustDropped.styles.ts
 import { Dimensions, StyleSheet } from "react-native";
-
 import { Theme } from "../../constants/theme";
 
 const { width } = Dimensions.get("window");
@@ -83,18 +83,6 @@ export const getStyles = (theme: Theme) =>
       letterSpacing: 0.3,
     },
 
-    favButton: {
-      position: "absolute",
-      top: 8,
-      right: 8,
-      width: 26,
-      height: 26,
-      borderRadius: theme.radiusFull,
-      backgroundColor: "rgba(0,0,0,0.45)",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-
     info: {
       padding: 10,
     },
@@ -105,18 +93,11 @@ export const getStyles = (theme: Theme) =>
       color: theme.textPrimary,
     },
 
-    model: {
-      fontSize: 11,
-      fontWeight: "500",
-      color: theme.accentPrimaryLight,
-      marginTop: 2,
-    },
-
     price: {
       fontSize: 15,
       fontWeight: "700",
       color: theme.textPrimary,
-      marginTop: 8,
+      marginTop: 4,
     },
 
     location: {

@@ -30,13 +30,16 @@ const BottomTabBar = () => {
   const router = useRouter();
   const pathname = usePathname();
 
+  const isActive = (route: string) => {
+    return pathname === route || pathname.startsWith(`${route}/`);
+  };
+
   return (
     <View style={styles.wrapper}>
       <View style={styles.barContainer}>
         <View style={styles.tabsRow}>
           {TABS.map((tab) => {
-            const active =
-              pathname === tab.route || pathname.startsWith(`${tab.route}/`);
+            const active = isActive(tab.route);
 
             return (
               <TouchableOpacity
@@ -47,7 +50,7 @@ const BottomTabBar = () => {
               >
                 <Ionicons
                   name={active ? tab.activeIcon : tab.icon}
-                  size={24}
+                  size={25}
                   color={active ? "#FFFFFF" : theme.textMuted}
                 />
                 <Text style={[styles.label, active && styles.labelActive]}>
@@ -63,3 +66,5 @@ const BottomTabBar = () => {
 };
 
 export default BottomTabBar;
+
+

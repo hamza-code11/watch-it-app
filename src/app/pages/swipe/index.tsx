@@ -1,148 +1,218 @@
-// app/swipe.tsx
+// app/pages/swipe/index.tsx
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import { Animated, Dimensions, Image, Pressable, ScrollView, Text, TouchableOpacity, View } from "react-native";
+import { Animated, Dimensions, Image, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
+import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
 import { useTheme } from "../../../context/ThemeContext";
+import { AUTHENTICATION_STATUS, BRANDS, CONDITIONS, EMIRATES } from "../../../data/filtersData";
+import { WATCHES as ALL_WATCHES, getWatches } from "../../../data/watchesData";
 import { getStyles } from "../../../screens/Swipe/Swipe.styles";
+import { FilterOptions } from "../../../types/filters";
+import { Watch } from "../../../types/watch";
 
-const { width, height } = Dimensions.get("window");
+const { width } = Dimensions.get("window");
 
-type Watch = {
-  id: string;
-  brand: string;
-  name: string;
-  price: string;
-  location: string;
-  year: string;
-  condition: string;
-  reference: string;
-  image: string;
-};
-
-const WATCHES: Watch[] = [
-  {
-    id: "1",
-    brand: "ROLEX",
-    name: "Daytona Two-Tone",
-    price: "AED 118,000",
-    location: "Dubai",
-    year: "2023",
-    condition: "Excellent",
-    reference: "Ref. SBGA211",
-    image: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=800",
+const goldStyles = StyleSheet.create({
+  scrollContent: {
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 16,
+    paddingVertical: 24,
   },
-  {
-    id: "2",
-    brand: "MARINUS",
-    name: "Aquaspace 300m",
-    price: "AED 14,500",
-    location: "Abu Dhabi",
-    year: "2022",
-    condition: "Mint",
-    reference: "Ref. AS300M",
-    image: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=800",
+  card: {
+    backgroundColor: '#0D0F1A',
+    borderWidth: 1,
+    borderRadius: 24,
+    padding: 22,
+    alignItems: 'center',
   },
-  {
-    id: "3",
-    brand: "IWC",
-    name: "Vintage Automatic 18k",
-    price: "AED 32,900",
-    location: "Dubai",
-    year: "2021",
-    condition: "Very Good",
-    reference: "Ref. IW3716",
-    image: "https://images.unsplash.com/photo-1495856458515-0637185db551?w=800",
+  crownWrap: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: 'rgba(253,176,34,0.12)',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 14,
   },
-  {
-    id: "4",
-    brand: "RAYMOND WEIL",
-    name: "Freelancer Black",
-    price: "AED 9,200",
-    location: "Sharjah",
-    year: "2023",
-    condition: "Excellent",
-    reference: "Ref. RW7730",
-    image: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=800",
+  title: {
+    color: '#F5F5FA',
+    fontSize: 19,
+    fontWeight: '700',
+    fontFamily: 'Georgia',
+    textAlign: 'center',
+    marginBottom: 8,
   },
-  {
-    id: "5",
-    brand: "OMEGA",
-    name: "Speedmaster Moonwatch Professional",
-    price: "AED 26,500",
-    location: "Dubai",
-    year: "2022",
-    condition: "Mint",
-    reference: "Ref. 311.30.42.30.01.001",
-    image: "https://images.unsplash.com/photo-1542496658-e33a6d0d50f6?w=800",
+  subtitle: {
+    color: '#8C8FAD',
+    fontSize: 12.5,
+    lineHeight: 18,
+    textAlign: 'center',
+    marginBottom: 16,
   },
-  {
-    id: "6",
-    brand: "TAG HEUER",
-    name: "Carrera Calibre 16",
-    price: "AED 12,800",
-    location: "Abu Dhabi",
-    year: "2023",
-    condition: "Excellent",
-    reference: "Ref. CV2A10",
-    image: "https://images.unsplash.com/photo-1587836374828-4dbafa94cf0e?w=800",
+  divider: {
+    width: '100%',
+    height: 1,
+    backgroundColor: '#1E2038',
+    marginBottom: 16,
   },
-  {
-    id: "7",
-    brand: "BREITLING",
-    name: "Navitimer B01 Chronograph",
-    price: "AED 21,000",
-    location: "Dubai",
-    year: "2022",
-    condition: "Very Good",
-    reference: "Ref. AB0120",
-    image: "https://images.unsplash.com/photo-1603201667141-5a2d4c673378?w=800",
+  benefitsLabelRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 6,
+    marginBottom: 12,
   },
-];
-
-// Track which items have been swiped
-const swipedItems = new Set<string>();
+  benefitsLabel: {
+    fontSize: 11,
+    fontWeight: '700',
+    letterSpacing: 1.2,
+  },
+  grid: {
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    marginBottom: 18,
+  },
+  benefitCell: {
+    width: '48%',
+    borderWidth: 1,
+    borderRadius: 12,
+    paddingVertical: 10,
+    paddingHorizontal: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 8,
+    marginBottom: 10,
+    backgroundColor: 'rgba(253,176,34,0.04)',
+  },
+  benefitText: {
+    color: '#E8E8E8',
+    fontSize: 11,
+    fontWeight: '600',
+    flex: 1,
+  },
+  ctaButton: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: 6,
+    paddingVertical: 14,
+    paddingHorizontal: 20,
+    borderRadius: 999,
+  },
+  ctaText: {
+    color: '#0B0E14',
+    fontSize: 14,
+    fontWeight: '700',
+  },
+  disclaimer: {
+    color: '#5C5F7D',
+    fontSize: 11,
+    marginTop: 10,
+  },
+});
 
 const SwipePage = () => {
   const { theme } = useTheme();
-  const styles = getStyles(theme);
+  const insets = useSafeAreaInsets();
+  const styles = getStyles(theme, insets);
   const router = useRouter();
 
-  const [index, setIndex] = useState(0);
-  const [currentWatch, setCurrentWatch] = useState(WATCHES[0]);
-  const [isAnimating, setIsAnimating] = useState(false);
+  // Track swiped items — scoped to this component instance, not module-level.
+  // Module-level state persisted across Fast Refresh / remounts and caused
+  // stale indices to collide, producing duplicate React keys and crashes.
+  const swipedItems = useRef<Set<string>>(new Set());
 
+  // State
+  const [watches, setWatches] = useState<Watch[]>(ALL_WATCHES);
+  const [index, setIndex] = useState(0);
+  const [currentWatch, setCurrentWatch] = useState<Watch | null>(watches[0] || null);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
+  const [resultsCount, setResultsCount] = useState(watches.length);
+  const [filters, setFilters] = useState<FilterOptions>({
+    model: '',
+    brands: [],
+    emirates: [],
+    conditions: [],
+    priceMin: '',
+    priceMax: '',
+    yearFrom: '',
+    yearTo: '',
+    authenticationStatus: 'any',
+    boxPapersOnly: false,
+    tradeAcceptedOnly: false,
+  });
+
+  // Animation refs
   const translateX = useRef(new Animated.Value(0)).current;
   const rotate = useRef(new Animated.Value(0)).current;
   const opacity = useRef(new Animated.Value(1)).current;
 
-  // Reset animation values when watch changes
+  // Reset animations on index change
   useEffect(() => {
     translateX.setValue(0);
     rotate.setValue(0);
     opacity.setValue(1);
   }, [index]);
 
+  // Apply filters
+  const applyFilters = () => {
+    const filtered = getWatches(filters);
+    swipedItems.current.clear();
+    setWatches(filtered);
+    setResultsCount(filtered.length);
+    setIndex(0);
+    if (filtered.length > 0) setCurrentWatch(filtered[0]);
+    setShowFilters(false);
+  };
+
+  // Reset filters
+  const resetFilters = () => {
+    setFilters({
+      model: '',
+      brands: [],
+      emirates: [],
+      conditions: [],
+      priceMin: '',
+      priceMax: '',
+      yearFrom: '',
+      yearTo: '',
+      authenticationStatus: 'any',
+      boxPapersOnly: false,
+      tradeAcceptedOnly: false,
+    });
+    swipedItems.current.clear();
+    setWatches(ALL_WATCHES);
+    setResultsCount(ALL_WATCHES.length);
+    setIndex(0);
+    setCurrentWatch(ALL_WATCHES[0] || null);
+  };
+
+  // Get next available index
   const getNextAvailableIndex = (startIndex: number, direction: number) => {
     let nextIndex = startIndex;
     let attempts = 0;
-    const total = WATCHES.length;
-    
+    const total = watches.length;
+    if (total === 0) return startIndex;
+
     do {
       nextIndex = (nextIndex + direction + total) % total;
       attempts++;
       if (attempts > total) break;
-    } while (swipedItems.has(WATCHES[nextIndex].id) && attempts < total);
-    
+    } while (watches[nextIndex] && swipedItems.current.has(watches[nextIndex].id) && attempts < total);
+
     return nextIndex;
   };
 
+  // Perform swipe animation
   const performSwipe = (direction: 'left' | 'right') => {
-    if (isAnimating) return;
-    
-    swipedItems.add(currentWatch.id);
+    if (isAnimating || watches.length === 0 || !currentWatch) return;
+
+    swipedItems.current.add(currentWatch.id);
     setIsAnimating(true);
 
     const toValue = direction === 'left' ? -width : width;
@@ -150,262 +220,408 @@ const SwipePage = () => {
 
     Animated.parallel([
       Animated.timing(translateX, {
-        toValue: toValue,
+        toValue,
         duration: 400,
-        useNativeDriver: true,
+        useNativeDriver: false
       }),
       Animated.timing(rotate, {
         toValue: rotateValue,
         duration: 400,
-        useNativeDriver: true,
+        useNativeDriver: false
       }),
       Animated.timing(opacity, {
         toValue: 0,
         duration: 300,
-        useNativeDriver: true,
+        useNativeDriver: false
       }),
     ]).start(() => {
       const nextIndex = getNextAvailableIndex(index, 1);
-      
-      if (nextIndex === index) {
-        setIsAnimating(false);
-        return;
+      if (nextIndex !== index && nextIndex < watches.length && watches[nextIndex]) {
+        setIndex(nextIndex);
+        setCurrentWatch(watches[nextIndex]);
+      } else {
+        // Check if there are any non-swiped items left
+        const remaining = watches.filter(w => !swipedItems.current.has(w.id));
+        if (remaining.length > 0) {
+          const newIndex = watches.indexOf(remaining[0]);
+          setIndex(newIndex);
+          setCurrentWatch(watches[newIndex]);
+        } else {
+          setCurrentWatch(null);
+        }
       }
-
-      setIndex(nextIndex);
-      setCurrentWatch(WATCHES[nextIndex]);
       setIsAnimating(false);
     });
   };
 
-  const handlePass = () => {
-    if (isAnimating) return;
-    performSwipe('left');
-  };
-
-  const handleInterest = () => {
-    if (isAnimating) return;
-    performSwipe('right');
-  };
-
-  const goTo = (i: number) => {
-    if (isAnimating || i === index) return;
-    if (swipedItems.has(WATCHES[i].id)) return;
-    
-    setIndex(i);
-    setCurrentWatch(WATCHES[i]);
-  };
-
-  // Always show 5 thumbnails with active centered at index 2
-  const getVisibleThumbnails = () => {
-    const total = WATCHES.length;
-    const visible: number[] = [];
-    
-    // Always show 5 items with active at center (index 2)
-    // Show 2 before and 2 after
-    for (let i = -2; i <= 2; i++) {
-      let idx = (index + i + total) % total;
-      // Skip swiped items for non-active positions
-      if (i !== 0 && swipedItems.has(WATCHES[idx].id)) {
-        // Find next available
-        let nextIdx = (idx + 1 + total) % total;
-        let attempts = 0;
-        while (swipedItems.has(WATCHES[nextIdx].id) && attempts < total) {
-          nextIdx = (nextIdx + 1 + total) % total;
-          attempts++;
-        }
-        idx = nextIdx;
-      }
-      visible.push(idx);
-    }
-    
-    return visible;
-  };
-
-  const visibleIndices = getVisibleThumbnails();
+  // Handlers
+  const handlePass = () => { if (!isAnimating) performSwipe('left'); };
+  const handleInterest = () => { if (!isAnimating) performSwipe('right'); };
 
   const rotateInterpolate = rotate.interpolate({
     inputRange: [-15, 0, 15],
     outputRange: ['-15deg', '0deg', '15deg'],
   });
 
-  // If no more items
-  if (swipedItems.size >= WATCHES.length) {
+  // No more items view — Gold upgrade / premium collector screen
+  if (swipedItems.current.size >= watches.length || watches.length === 0 || !currentWatch) {
+    if (watches.length === 0) {
+      return (
+        <SafeAreaView style={[styles.container, { justifyContent: 'center', alignItems: 'center' }]}>
+          <Ionicons name="search-outline" size={48} color={theme.textMuted} />
+          <Text style={{ color: theme.textPrimary, fontSize: 20, fontWeight: '700', marginTop: 16 }}>No watches found</Text>
+          <Text style={{ color: theme.textMuted, fontSize: 14, marginTop: 8, textAlign: 'center' }}>
+            No watches match your filters
+          </Text>
+          <TouchableOpacity onPress={resetFilters} style={{ marginTop: 16 }}>
+            <Text style={{ color: theme.accentPrimary, fontSize: 14, fontWeight: '600' }}>Reset Filters</Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      );
+    }
+
+    const benefits = [
+      { icon: 'flash-outline', label: 'Unlimited Swipes' },
+      { icon: 'storefront-outline', label: 'Full Vendor Shop Browsing' },
+      { icon: 'bag-outline', label: 'Complete Shop Inventory' },
+      { icon: 'grid-outline', label: 'Shop Categories' },
+      { icon: 'time-outline', label: 'New Arrivals' },
+      { icon: 'options-outline', label: 'Advanced Filters' },
+      { icon: 'bookmark-outline', label: 'Saved Searches' },
+      { icon: 'notifications-outline', label: 'Price Alerts' },
+      { icon: 'arrow-undo-outline', label: 'Undo Swipe' },
+      { icon: 'star-outline', label: 'Gold-Only Listings' },
+      { icon: 'sparkles-outline', label: 'Gold First Releases' },
+      { icon: 'shield-checkmark-outline', label: 'Gold Badge' },
+    ] as const;
+
     return (
-      <View style={[styles.container, { justifyContent: 'center', alignItems: 'center' }]}>
-        <Text style={{ color: '#FFFFFF', fontSize: 24, fontWeight: 'bold' }}>All caught up!</Text>
-        <Text style={{ color: '#9CA3AF', fontSize: 16, marginTop: 8 }}>No more watches to show</Text>
-      </View>
+      <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+        <ScrollView contentContainerStyle={goldStyles.scrollContent} showsVerticalScrollIndicator={false}>
+          <View style={[goldStyles.card, { borderColor: theme.borderColor }]}>
+            <View style={goldStyles.crownWrap}>
+              <Ionicons name="trophy-outline" size={30} color={theme.warning} />
+            </View>
+
+            <Text style={goldStyles.title}>
+              Premium <Text style={{ color: theme.warning }}>Collector</Text> Experience
+            </Text>
+            <Text style={goldStyles.subtitle}>
+              You've discovered {watches.length} exceptional timepieces today. There are thousands more waiting for
+              you. Continue your journey with Gold and unlock the full collector experience.
+            </Text>
+
+            <View style={goldStyles.divider} />
+
+            <View style={goldStyles.benefitsLabelRow}>
+              <Ionicons name="star" size={13} color={theme.warning} />
+              <Text style={[goldStyles.benefitsLabel, { color: theme.warning }]}>GOLD BENEFITS</Text>
+            </View>
+
+            <View style={goldStyles.grid}>
+              {benefits.map((b) => (
+                <View key={b.label} style={[goldStyles.benefitCell, { borderColor: 'rgba(253,176,34,0.25)' }]}>
+                  <Ionicons name={b.icon as any} size={16} color={theme.warning} />
+                  <Text style={goldStyles.benefitText}>{b.label}</Text>
+                </View>
+              ))}
+            </View>
+
+            <TouchableOpacity activeOpacity={0.85} onPress={() => router.push('/pages/gold' as any)}>
+              <LinearGradient
+                colors={["#D4AF37", "#F7E7B4", "#D4AF37"]}
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+                style={goldStyles.ctaButton}
+              >
+                <Ionicons name="sparkles" size={16} color="#0B0E14" />
+                <Text style={goldStyles.ctaText}>Unlock Premium Collection</Text>
+                <Ionicons name="chevron-forward" size={16} color="#0B0E14" />
+              </LinearGradient>
+            </TouchableOpacity>
+
+            <Text style={goldStyles.disclaimer}>No commitment required. Cancel anytime.</Text>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
     );
   }
 
   return (
-    <View style={styles.container}>
-      <Animated.View 
-        style={[
-          styles.imageWrapper,
-          {
-            transform: [
-              { translateX: translateX },
-              { rotate: rotateInterpolate },
-            ],
-            opacity: opacity,
-          }
-        ]}
-      >
-        <Image source={{ uri: currentWatch.image }} style={styles.image} resizeMode="cover" />
-
-        <Pressable
-          style={[styles.tapZone, styles.tapZoneLeft]}
-          onPress={() => {
-            const prevIndex = getNextAvailableIndex(index, -1);
-            if (prevIndex !== index) {
-              setIndex(prevIndex);
-              setCurrentWatch(WATCHES[prevIndex]);
-            }
-          }}
-        />
-        <Pressable
-          style={[styles.tapZone, styles.tapZoneRight]}
-          onPress={handlePass}
-        />
-
-        <View style={styles.dotsRow}>
-          {WATCHES.map((item, i) => (
-            <View 
-              key={item.id} 
-              style={[
-                styles.dot, 
-                i === index && styles.dotActive,
-                swipedItems.has(item.id) && { opacity: 0.2 }
-              ]} 
-            />
-          ))}
-        </View>
-      </Animated.View>
-
-      <ScrollView style={styles.sheet} showsVerticalScrollIndicator={false}>
-        <Text style={styles.brandName}>{currentWatch.brand}</Text>
-
-        <View style={styles.titleRow}>
-          <Text style={styles.name} numberOfLines={1} ellipsizeMode="tail">
-            {currentWatch.name}
-          </Text>
-          <Text style={styles.price}>{currentWatch.price}</Text>
-        </View>
-
-        <View style={styles.detailsRow}>
-          <View style={styles.detailItem}>
-            <Ionicons name="location-outline" size={14} color={theme.textMuted} />
-            <Text style={styles.detailText}>{currentWatch.location}</Text>
-          </View>
-          <View style={styles.detailDot} />
-          <View style={styles.detailItem}>
-            <Ionicons name="calendar-outline" size={14} color={theme.textMuted} />
-            <Text style={styles.detailText}>{currentWatch.year}</Text>
-          </View>
-          <View style={styles.detailDot} />
-          <View style={styles.detailItem}>
-            <Ionicons name="checkmark-circle-outline" size={14} color={theme.textMuted} />
-            <Text style={styles.detailText}>{currentWatch.condition}</Text>
-          </View>
-          <View style={styles.detailDot} />
-          <View style={styles.detailItem}>
-            <Ionicons name="pricetag-outline" size={14} color={theme.textMuted} />
-            <Text style={styles.detailText} numberOfLines={1} ellipsizeMode="tail">
-              {currentWatch.reference}
-            </Text>
+    <SafeAreaView style={[styles.container, { paddingTop: insets.top }]}>
+      {/* Header */}
+      <View style={styles.header}>
+        <View style={styles.headerRow}>
+          <TouchableOpacity onPress={() => router.back()} style={styles.headerAction}>
+            <Ionicons name="arrow-back" size={22} color={theme.textPrimary} />
+          </TouchableOpacity>
+          <Text style={styles.headerTitle}>Swipe Discovery</Text>
+          <View style={styles.headerRight}>
+            <Text style={styles.headerCount}>{watches.filter(w => !swipedItems.current.has(w.id)).length} left</Text>
+            <TouchableOpacity onPress={() => setShowFilters(true)} style={styles.headerAction}>
+              <Ionicons name="options-outline" size={22} color={theme.textPrimary} />
+            </TouchableOpacity>
           </View>
         </View>
+      </View>
 
-        {/* Thumbnails - Fixed 5 items with active centered */}
-        <View style={styles.thumbRow}>
-          {visibleIndices.map((idx, position) => {
-            const isActive = position === 2; // Always center position
-            const item = WATCHES[idx];
-            if (!item) return null;
-            const isSwiped = swipedItems.has(item.id);
-            
-            return (
-              <TouchableOpacity
-                key={item.id}
-                style={[
-                  styles.thumbWrapper,
-                  isActive && styles.thumbWrapperActive,
-                  isSwiped && { opacity: 0.3 },
-                ]}
-                onPress={() => {
-                  if (!isSwiped && idx !== index) {
-                    goTo(idx);
-                  }
-                }}
-                activeOpacity={0.8}
-                disabled={isSwiped || isAnimating}
-              >
-                <Image
-                  source={{ uri: item.image }}
-                  style={[
-                    styles.thumbImage,
-                    isActive && styles.thumbImageActive,
-                  ]}
-                  resizeMode="cover"
-                />
-                {!isActive && !isSwiped && (
-                  <View style={styles.thumbOverlay} />
-                )}
-                {isSwiped && (
-                  <View style={[styles.thumbOverlay, { backgroundColor: 'rgba(0,0,0,0.6)' }]} />
-                )}
+      {/* Swipe Card */}
+      <View style={styles.cardContainer}>
+        {watches.length > 0 && currentWatch && (
+          <Animated.View
+            style={[
+              styles.cardWrapper,
+              {
+                transform: [{ translateX }, { rotate: rotateInterpolate }],
+                opacity,
+              }
+            ]}
+          >
+            <TouchableOpacity
+              activeOpacity={0.95}
+              onPress={() => router.push(`/product/${currentWatch.id}` as any)}
+              style={styles.card}
+            >
+              <Image source={{ uri: currentWatch.image }} style={styles.cardImage} resizeMode="cover" />
+              <LinearGradient colors={["transparent", "rgba(0,0,0,0.85)"]} style={styles.cardOverlay} />
+
+              <View style={styles.cardContent}>
+                <Text style={styles.cardBrand}>{currentWatch.brand}</Text>
+                <Text style={styles.cardName}>{currentWatch.name}</Text>
+                <View style={styles.cardMeta}>
+                  <Ionicons name="location-outline" size={12} color="rgba(255,255,255,0.7)" />
+                  <Text style={styles.cardMetaText}>{currentWatch.location}</Text>
+                  <View style={styles.metaDot} />
+                  <Text style={styles.cardMetaText}>{currentWatch.year}</Text>
+                  <View style={styles.metaDot} />
+                  <Text style={styles.cardMetaText}>{currentWatch.condition}</Text>
+                  <View style={styles.metaDot} />
+                  <Text style={styles.cardMetaText}>{currentWatch.reference}</Text>
+                </View>
+                <Text style={styles.cardPrice}>{currentWatch.price} AED</Text>
+              </View>
+            </TouchableOpacity>
+
+            {/* Action Buttons */}
+            <View style={styles.actionRow}>
+              <TouchableOpacity style={[styles.actionBtn, styles.passBtn]} onPress={handlePass} disabled={isAnimating}>
+                <Ionicons name="close" size={24} color="#FF6B6B" />
+                <Text style={styles.passText}>Pass</Text>
               </TouchableOpacity>
-            );
-          })}
-        </View>
+              <TouchableOpacity style={[styles.actionBtn, styles.interestBtn]} onPress={handleInterest} disabled={isAnimating}>
+                <Ionicons name="heart" size={24} color="#4F9FFF" />
+                <Text style={styles.interestText}>Interest</Text>
+              </TouchableOpacity>
+            </View>
+          </Animated.View>
+        )}
+      </View>
 
-        {/* Action Buttons */}
-        <View style={styles.actionRow}>
-          <TouchableOpacity 
-            style={styles.passButtonWrapper}
-            activeOpacity={0.8}
-            onPress={handlePass}
-            disabled={isAnimating}
-          >
-            <LinearGradient
-              colors={['rgba(255,107,107,0.15)', 'rgba(255,107,107,0.05)']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={styles.passButtonGradient}
-            >
-              <View style={styles.passIconCircle}>
-                <Ionicons name="close" size={22} color="#FF6B6B" />
-              </View>
-              <Text style={styles.passText}>Pass</Text>
-            </LinearGradient>
-          </TouchableOpacity>
+      {/* Filters Modal */}
+      <Modal visible={showFilters} animationType="slide" transparent onRequestClose={() => setShowFilters(false)}>
+        <View style={styles.modalOverlay}>
+          <View style={[styles.modalContent, { paddingBottom: insets.bottom + 20 }]}>
+            <View style={styles.modalHeader}>
+              <Text style={styles.modalTitle}>Filters</Text>
+              <TouchableOpacity onPress={() => setShowFilters(false)}>
+                <Ionicons name="close" size={24} color={theme.textPrimary} />
+              </TouchableOpacity>
+            </View>
 
-          <TouchableOpacity 
-            style={styles.interestButtonWrapper}
-            activeOpacity={0.8}
-            onPress={handleInterest}
-            disabled={isAnimating}
-          >
-            <LinearGradient
-              colors={['rgba(79,159,255,0.15)', 'rgba(79,159,255,0.05)']}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={styles.interestButtonGradient}
-            >
-              <View style={styles.interestIconCircle}>
-                <Ionicons name="heart" size={22} color="#4F9FFF" />
+            <ScrollView showsVerticalScrollIndicator={false}>
+              {/* Model */}
+              <View style={styles.filterSection}>
+                <Text style={styles.filterLabel}>Model</Text>
+                <View style={styles.searchInput}>
+                  <Ionicons name="search-outline" size={18} color={theme.textMuted} />
+                  <TextInput
+                    placeholder="Search model"
+                    placeholderTextColor={theme.textMuted}
+                    style={styles.searchInputText}
+                    value={filters.model}
+                    onChangeText={(text) => setFilters({ ...filters, model: text })}
+                  />
+                </View>
               </View>
-              <Text style={styles.interestText}>Interest</Text>
-            </LinearGradient>
-          </TouchableOpacity>
+
+              {/* Brand */}
+              <View style={styles.filterSection}>
+                <Text style={styles.filterLabel}>Brand</Text>
+                {BRANDS.map((brand) => (
+                  <TouchableOpacity
+                    key={brand.id}
+                    style={styles.brandItem}
+                    onPress={() => {
+                      const updated = filters.brands.includes(brand.name)
+                        ? filters.brands.filter(b => b !== brand.name)
+                        : [...filters.brands, brand.name];
+                      setFilters({ ...filters, brands: updated });
+                    }}
+                  >
+                    <Text style={[styles.brandText, filters.brands.includes(brand.name) && { color: theme.accentPrimary, fontWeight: '600' }]}>
+                      {brand.name}
+                    </Text>
+                  </TouchableOpacity>
+                ))}
+              </View>
+
+              {/* Emirate */}
+              <View style={styles.filterSection}>
+                <Text style={styles.filterLabel}>Emirate</Text>
+                <View style={styles.chipsRow}>
+                  {EMIRATES.map((emirate) => (
+                    <TouchableOpacity
+                      key={emirate}
+                      style={[styles.chip, filters.emirates.includes(emirate) && styles.chipActive]}
+                      onPress={() => {
+                        const updated = filters.emirates.includes(emirate)
+                          ? filters.emirates.filter(e => e !== emirate)
+                          : [...filters.emirates, emirate];
+                        setFilters({ ...filters, emirates: updated });
+                      }}
+                    >
+                      <Text style={[styles.chipText, filters.emirates.includes(emirate) && styles.chipTextActive]}>
+                        {emirate}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              </View>
+
+              {/* Condition */}
+              <View style={styles.filterSection}>
+                <Text style={styles.filterLabel}>Condition</Text>
+                <View style={styles.chipsRow}>
+                  {CONDITIONS.map((condition) => (
+                    <TouchableOpacity
+                      key={condition}
+                      style={[styles.chip, filters.conditions.includes(condition) && styles.chipActive]}
+                      onPress={() => {
+                        const updated = filters.conditions.includes(condition)
+                          ? filters.conditions.filter(c => c !== condition)
+                          : [...filters.conditions, condition];
+                        setFilters({ ...filters, conditions: updated });
+                      }}
+                    >
+                      <Text style={[styles.chipText, filters.conditions.includes(condition) && styles.chipTextActive]}>
+                        {condition}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              </View>
+
+              {/* Price */}
+              <View style={styles.filterSection}>
+                <Text style={styles.filterLabel}>Price (AED)</Text>
+                <View style={styles.priceRow}>
+                  <View style={styles.priceInput}>
+                    <TextInput
+                      placeholder="Min"
+                      placeholderTextColor={theme.textMuted}
+                      keyboardType="numeric"
+                      style={styles.priceInputText}
+                      value={filters.priceMin}
+                      onChangeText={(text) => setFilters({ ...filters, priceMin: text })}
+                    />
+                  </View>
+                  <Text style={styles.priceSeparator}>—</Text>
+                  <View style={styles.priceInput}>
+                    <TextInput
+                      placeholder="Max"
+                      placeholderTextColor={theme.textMuted}
+                      keyboardType="numeric"
+                      style={styles.priceInputText}
+                      value={filters.priceMax}
+                      onChangeText={(text) => setFilters({ ...filters, priceMax: text })}
+                    />
+                  </View>
+                </View>
+              </View>
+
+              {/* Year */}
+              <View style={styles.filterSection}>
+                <Text style={styles.filterLabel}>Year</Text>
+                <View style={styles.yearRow}>
+                  <View style={styles.yearInput}>
+                    <TextInput
+                      placeholder="From"
+                      placeholderTextColor={theme.textMuted}
+                      keyboardType="numeric"
+                      style={styles.yearInputText}
+                      value={filters.yearFrom}
+                      onChangeText={(text) => setFilters({ ...filters, yearFrom: text })}
+                    />
+                  </View>
+                  <Text style={styles.yearSeparator}>—</Text>
+                  <View style={styles.yearInput}>
+                    <TextInput
+                      placeholder="To"
+                      placeholderTextColor={theme.textMuted}
+                      keyboardType="numeric"
+                      style={styles.yearInputText}
+                      value={filters.yearTo}
+                      onChangeText={(text) => setFilters({ ...filters, yearTo: text })}
+                    />
+                  </View>
+                </View>
+              </View>
+
+              {/* Authentication Status */}
+              <View style={styles.filterSection}>
+                <Text style={styles.filterLabel}>Authentication Status</Text>
+                <View style={styles.chipsRow}>
+                  {AUTHENTICATION_STATUS.map((status) => (
+                    <TouchableOpacity
+                      key={status}
+                      style={[styles.chip, filters.authenticationStatus === status.toLowerCase() && styles.chipActive]}
+                      onPress={() => setFilters({ ...filters, authenticationStatus: status.toLowerCase() as 'any' | 'verified' | 'unverified' })}
+                    >
+                      <Text style={[styles.chipText, filters.authenticationStatus === status.toLowerCase() && styles.chipTextActive]}>
+                        {status}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+              </View>
+
+              {/* Box & Papers only */}
+              <View style={styles.filterSection}>
+                <TouchableOpacity style={styles.toggleRow} onPress={() => setFilters({ ...filters, boxPapersOnly: !filters.boxPapersOnly })}>
+                  <View style={[styles.toggleBox, filters.boxPapersOnly && styles.toggleBoxActive]}>
+                    {filters.boxPapersOnly && <Ionicons name="checkmark" size={12} color="#FFFFFF" />}
+                  </View>
+                  <Text style={styles.toggleText}>Box & Papers only</Text>
+                </TouchableOpacity>
+              </View>
+
+              {/* Trade Accepted only */}
+              <View style={styles.filterSection}>
+                <TouchableOpacity style={styles.toggleRow} onPress={() => setFilters({ ...filters, tradeAcceptedOnly: !filters.tradeAcceptedOnly })}>
+                  <View style={[styles.toggleBox, filters.tradeAcceptedOnly && styles.toggleBoxActive]}>
+                    {filters.tradeAcceptedOnly && <Ionicons name="checkmark" size={12} color="#FFFFFF" />}
+                  </View>
+                  <Text style={styles.toggleText}>Trade Accepted only</Text>
+                </TouchableOpacity>
+              </View>
+
+              {/* Filter Actions */}
+              <View style={styles.filterActions}>
+                <TouchableOpacity style={styles.resetBtn} onPress={resetFilters}>
+                  <Text style={styles.resetText}>Reset</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.showBtn} onPress={applyFilters}>
+                  <LinearGradient colors={["#D4AF37", "#F7E7B4", "#D4AF37"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 1 }} style={styles.showGradient}>
+                    <Text style={styles.showText}>Show {resultsCount} results</Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+              </View>
+            </ScrollView>
+          </View>
         </View>
-      </ScrollView>
-    </View>
+      </Modal>
+    </SafeAreaView>
   );
 };
 
 export default SwipePage;
-
-

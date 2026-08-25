@@ -1,264 +1,428 @@
-// screens/Swipe/Swipe.styles.ts (updated styles for buttons)
+// screens/Swipe/Swipe.styles.ts
 import { Dimensions, StyleSheet } from "react-native";
 import { Theme } from "../../constants/theme";
 
 const { width, height } = Dimensions.get("window");
-const IMAGE_HEIGHT = height * 0.45;
+const CARD_HEIGHT = height * 0.5;
 
-export const getStyles = (theme: Theme) =>
+export const getStyles = (theme: Theme, insets: any) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: "transparent",
-      paddingTop: 80,
+      marginTop: 80,
     },
 
-    imageWrapper: {
-      width: "100%",
-      height: IMAGE_HEIGHT,
+    // ===== HEADER =====
+    header: {
+      paddingHorizontal: 16,
+      paddingVertical: 12,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.borderLight,
+    },
+
+    headerRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+    },
+
+    headerTitle: {
+      fontSize: 18,
+      fontWeight: "700",
+      color: theme.textPrimary,
+      fontFamily: "Georgia",
+      flex: 1,
+      textAlign: "center",
+    },
+
+    headerRight: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 10,
+    },
+
+    headerCount: {
+      fontSize: 12,
+      fontWeight: "500",
+      color: theme.textMuted,
+    },
+
+    headerAction: {
+      width: 34,
+      height: 34,
+      borderRadius: theme.radiusFull,
       backgroundColor: theme.bgCard,
+      alignItems: "center",
+      justifyContent: "center",
+      borderWidth: 1,
+      borderColor: theme.borderColor,
     },
 
-    image: {
+    // ===== CARD =====
+    cardContainer: {
+      flex: 1,
+      paddingHorizontal: 16,
+      paddingTop: 12,
+      paddingBottom: 8,
+    },
+
+    cardWrapper: {
+      flex: 1,
+    },
+
+    card: {
+      height: CARD_HEIGHT,
+      borderRadius: theme.radiusXl,
+      overflow: "hidden",
+      backgroundColor: "#000",
+    },
+
+    cardImage: {
       width: "100%",
       height: "100%",
     },
 
-    tapZone: {
+    cardOverlay: {
       position: "absolute",
-      top: 0,
       bottom: 0,
-      width: "50%",
-    },
-
-    tapZoneLeft: {
       left: 0,
-    },
-
-    tapZoneRight: {
       right: 0,
+      height: "55%",
     },
 
-    dotsRow: {
+    cardContent: {
       position: "absolute",
-      bottom: 12,
-      left: 0,
-      right: 0,
-      flexDirection: "row",
-      justifyContent: "center",
-      gap: 5,
+      bottom: 20,
+      left: 20,
+      right: 20,
     },
 
-    dot: {
-      width: 5,
-      height: 5,
-      borderRadius: theme.radiusFull,
-      backgroundColor: "rgba(255,255,255,0.4)",
-    },
-
-    dotActive: {
-      width: 16,
-      backgroundColor: "#FFFFFF",
-    },
-
-    sheet: {
-      flex: 1,
-      backgroundColor: theme.bgPrimary,
-      borderTopLeftRadius: 28,
-      borderTopRightRadius: 28,
-      marginTop: -24,
-      paddingHorizontal: 20,
-      paddingTop: 20,
-    },
-
-    brandName: {
-      fontSize: 12,
+    cardBrand: {
+      fontSize: 11,
       fontWeight: "600",
-      color: theme.accentPrimary,
-      letterSpacing: 1.5,
-      marginBottom: 2,
+      color: "#D4AF37",
+      letterSpacing: 1.8,
+      textTransform: "uppercase",
     },
 
-    titleRow: {
-      flexDirection: "row",
-      justifyContent: "space-between",
-      alignItems: "center",
-      marginBottom: 8,
-      minHeight: 28,
-    },
-
-    name: {
-      fontSize: 20,
-      fontWeight: "700",
-      color: theme.textPrimary,
-      fontFamily: theme.fontFamily,
-      flex: 1,
-      marginRight: 10,
-      maxWidth: "70%",
-    },
-
-    price: {
+    cardName: {
       fontSize: 20,
       fontWeight: "700",
       color: "#FFFFFF",
-      flexShrink: 0,
+      fontFamily: "Georgia",
+      marginTop: 2,
     },
 
-    detailsRow: {
+    cardMeta: {
       flexDirection: "row",
       alignItems: "center",
       flexWrap: "wrap",
-      marginBottom: 16,
       gap: 4,
-      minHeight: 20,
+      marginTop: 4,
     },
 
-    detailItem: {
-      flexDirection: "row",
-      alignItems: "center",
-      gap: 4,
-      maxWidth: "30%",
+    cardMetaText: {
+      fontSize: 10,
+      color: "rgba(255,255,255,0.7)",
     },
 
-    detailText: {
-      fontSize: 12,
-      color: theme.textMuted,
-      fontWeight: "500",
+    metaDot: {
+      width: 2,
+      height: 2,
+      borderRadius: 1,
+      backgroundColor: "rgba(255,255,255,0.4)",
     },
 
-    detailDot: {
-      width: 3,
-      height: 3,
-      borderRadius: theme.radiusFull,
-      backgroundColor: theme.textMuted,
-      marginHorizontal: 4,
-      opacity: 0.5,
+    cardPrice: {
+      fontSize: 18,
+      fontWeight: "700",
+      color: "#FFFFFF",
+      marginTop: 6,
     },
 
-    thumbRow: {
-      flexDirection: "row",
-      justifyContent: "center",
-      alignItems: "center",
-      gap: 8,
-      marginBottom: 20,
-      paddingHorizontal: 4,
-    },
-
-    thumbWrapper: {
-      borderRadius: theme.radiusFull,
-      overflow: "hidden",
-      borderWidth: 2,
-      borderColor: "transparent",
-      elevation: 2,
-      shadowColor: "#000",
-      shadowOffset: { width: 0, height: 2 },
-      shadowOpacity: 0.1,
-      shadowRadius: 4,
-    },
-
-    thumbWrapperActive: {
-      borderColor: theme.accentPrimary,
-      elevation: 8,
-      shadowColor: theme.accentPrimary,
-      shadowOffset: { width: 0, height: 4 },
-      shadowOpacity: 0.3,
-      shadowRadius: 8,
-    },
-
-    thumbImage: {
-      width: 44,
-      height: 44,
-      borderRadius: theme.radiusFull,
-    },
-
-    thumbImageActive: {
-      width: 64,
-      height: 64,
-      borderRadius: theme.radiusFull,
-    },
-
-    thumbOverlay: {
-      position: "absolute",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      backgroundColor: "rgba(0,0,0,0.3)",
-      borderRadius: theme.radiusFull,
-    },
-
-    // ===== ATTRACTIVE BUTTONS =====
+    // ===== ACTION BUTTONS =====
     actionRow: {
       flexDirection: "row",
-      justifyContent: "space-between",
-      gap: 16,
-      marginBottom: 10,
+      gap: 12,
+      paddingTop: 16,
     },
 
-    // Pass Button
-    passButtonWrapper: {
+    actionBtn: {
       flex: 1,
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "center",
+      gap: 8,
+      height: 44,
       borderRadius: theme.radiusLg,
-      overflow: "hidden",
       borderWidth: 1,
+    },
+
+    passBtn: {
+      backgroundColor: "rgba(255,107,107,0.08)",
       borderColor: "rgba(255,107,107,0.2)",
     },
 
-    passButtonGradient: {
-      flexDirection: "row",
-      alignItems: "center",
-      justifyContent: "center",
-      paddingVertical: 14,
-      gap: 10,
-    },
-
-    passIconCircle: {
-      width: 32,
-      height: 32,
-      borderRadius: theme.radiusFull,
-      backgroundColor: "rgba(255,107,107,0.15)",
-      alignItems: "center",
-      justifyContent: "center",
-    },
-
     passText: {
-      fontSize: 15,
+      fontSize: 13,
       fontWeight: "600",
       color: "#FF6B6B",
-      letterSpacing: 0.5,
     },
 
-    // Interest Button
-    interestButtonWrapper: {
-      flex: 1,
-      borderRadius: theme.radiusLg,
-      overflow: "hidden",
-      borderWidth: 1,
+    interestBtn: {
+      backgroundColor: "rgba(79,159,255,0.08)",
       borderColor: "rgba(79,159,255,0.2)",
     },
 
-    interestButtonGradient: {
-      flexDirection: "row",
+    interestText: {
+      fontSize: 13,
+      fontWeight: "600",
+      color: "#4F9FFF",
+    },
+
+    // ===== LOCK OVERLAY =====
+    lockOverlay: {
+      flex: 1,
       alignItems: "center",
       justifyContent: "center",
-      paddingVertical: 14,
+      paddingHorizontal: 40,
+    },
+
+    lockTitle: {
+      fontSize: 20,
+      fontWeight: "700",
+      color: theme.textPrimary,
+      marginTop: 16,
+      fontFamily: "Georgia",
+    },
+
+    lockText: {
+      fontSize: 14,
+      color: theme.textMuted,
+      textAlign: "center",
+      marginTop: 8,
+      marginBottom: 24,
+    },
+
+    // ===== FILTER MODAL =====
+    modalOverlay: {
+      flex: 1,
+      backgroundColor: "rgba(0,0,0,0.5)",
+      justifyContent: "flex-end",
+    },
+
+    modalContent: {
+      backgroundColor: theme.bgPrimary,
+      borderTopLeftRadius: 28,
+      borderTopRightRadius: 28,
+      paddingHorizontal: 20,
+      paddingTop: 20,
+      maxHeight: height * 0.9,
+    },
+
+    modalHeader: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 16,
+    },
+
+    modalTitle: {
+      fontSize: 20,
+      fontWeight: "700",
+      color: theme.textPrimary,
+      fontFamily: "Georgia",
+    },
+
+    filterSection: {
+      marginBottom: 18,
+    },
+
+    filterLabel: {
+      fontSize: 13,
+      fontWeight: "600",
+      color: theme.textPrimary,
+      marginBottom: 6,
+    },
+
+    searchInput: {
+      flexDirection: "row",
+      alignItems: "center",
+      backgroundColor: theme.bgCard,
+      borderWidth: 1,
+      borderColor: theme.borderColor,
+      borderRadius: theme.radiusMd,
+      paddingHorizontal: 12,
+      paddingVertical: 8,
+      gap: 8,
+    },
+
+    searchInputText: {
+      flex: 1,
+      fontSize: 13,
+      color: theme.textPrimary,
+    },
+
+    brandItem: {
+      paddingVertical: 5,
+    },
+
+    brandText: {
+      fontSize: 13,
+      color: theme.textSecondary,
+    },
+
+    // ===== CHIPS =====
+    chipsRow: {
+      flexDirection: "row",
+      flexWrap: "wrap",
+      gap: 8,
+    },
+
+    chip: {
+      paddingHorizontal: 14,
+      paddingVertical: 6,
+      borderRadius: theme.radiusFull,
+      backgroundColor: theme.bgCard,
+      borderWidth: 1,
+      borderColor: theme.borderColor,
+    },
+
+    chipText: {
+      fontSize: 12,
+      color: theme.textSecondary,
+    },
+
+    chipActive: {
+      backgroundColor: theme.accentPrimary,
+      borderColor: theme.accentPrimary,
+    },
+
+    chipTextActive: {
+      color: "#FFFFFF",
+    },
+
+    // ===== PRICE RANGE =====
+    priceRow: {
+      flexDirection: "row",
+      alignItems: "center",
       gap: 10,
     },
 
-    interestIconCircle: {
-      width: 32,
-      height: 32,
-      borderRadius: theme.radiusFull,
-      backgroundColor: "rgba(79,159,255,0.15)",
+    priceInput: {
+      flex: 1,
+      backgroundColor: theme.bgCard,
+      borderWidth: 1,
+      borderColor: theme.borderColor,
+      borderRadius: theme.radiusMd,
+      paddingHorizontal: 12,
+      paddingVertical: 8,
+    },
+
+    priceInputText: {
+      fontSize: 13,
+      color: theme.textPrimary,
+    },
+
+    priceSeparator: {
+      fontSize: 14,
+      color: theme.textMuted,
+    },
+
+    // ===== YEAR RANGE =====
+    yearRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 10,
+    },
+
+    yearInput: {
+      flex: 1,
+      backgroundColor: theme.bgCard,
+      borderWidth: 1,
+      borderColor: theme.borderColor,
+      borderRadius: theme.radiusMd,
+      paddingHorizontal: 12,
+      paddingVertical: 8,
+    },
+
+    yearInputText: {
+      fontSize: 13,
+      color: theme.textPrimary,
+    },
+
+    yearSeparator: {
+      fontSize: 14,
+      color: theme.textMuted,
+    },
+
+    // ===== TOGGLES =====
+    toggleRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 10,
+      paddingVertical: 4,
+    },
+
+    toggleBox: {
+      width: 18,
+      height: 18,
+      borderRadius: 4,
+      borderWidth: 2,
+      borderColor: theme.borderColor,
       alignItems: "center",
       justifyContent: "center",
     },
 
-    interestText: {
-      fontSize: 15,
+    toggleBoxActive: {
+      backgroundColor: theme.accentPrimary,
+      borderColor: theme.accentPrimary,
+    },
+
+    toggleText: {
+      fontSize: 13,
+      color: theme.textPrimary,
+    },
+
+    // ===== FILTER ACTIONS =====
+    filterActions: {
+      flexDirection: "row",
+      gap: 12,
+      marginTop: 8,
+      marginBottom: 20,
+    },
+
+    resetBtn: {
+      flex: 0.4,
+      paddingVertical: 12,
+      borderRadius: theme.radiusLg,
+      backgroundColor: theme.bgCard,
+      borderWidth: 1,
+      borderColor: theme.borderColor,
+      alignItems: "center",
+    },
+
+    resetText: {
+      fontSize: 13,
       fontWeight: "600",
-      color: "#4F9FFF",
-      letterSpacing: 0.5,
+      color: theme.textSecondary,
+    },
+
+    showBtn: {
+      flex: 0.6,
+      borderRadius: theme.radiusLg,
+      overflow: "hidden",
+    },
+
+    showGradient: {
+      paddingVertical: 12,
+      alignItems: "center",
+    },
+
+    showText: {
+      fontSize: 13,
+      fontWeight: "700",
+      color: "#0B0E14",
     },
   });
 
