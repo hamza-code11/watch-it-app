@@ -98,31 +98,33 @@ const Profile = () => {
               <TouchableOpacity 
                 style={styles.menuItem} 
                 activeOpacity={0.7}
-                // onPress={() => {
-                //   if (item.label === "Create Listings") {
-                //     router.push("/create-listing");
-                //   } else if (item.label === "My Listings") {
-                //     router.push("/my-listings");
-                //   } else if (item.label === "Become a Dealer") {
-                //     router.push("/become-dealer");
-                //   } else if (item.label === "Auctions") {
-                //     router.push("/auctions");
-                //   } else if (item.label === "Community") {
-                //     router.push("/community");
-                //   } else if (item.label === "Watch Care") {
-                //     router.push("/watch-care");
-                //   } else if (item.label === "Earn AED 100") {
-                //     router.push("/earn");
-                //   } else if (item.label === "Watch It Gold") {
-                //     router.push("/gold");
-                //   } else if (item.label === "FAQ") {
-                //     router.push("/faq");
-                //   } else if (item.label === "Terms of service") {
-                //     router.push("/terms");
-                //   } else if (item.label === "User policy") {
-                //     router.push("/privacy");
-                //   }
-                // }}
+                onPress={() => {
+                  if (item.label === "Create Listings") {
+                    router.push("/pages/createListing");
+                  } 
+                  else if (item.label === "My Listings") {
+                    router.push("/pages/myListings");
+                  } 
+                  // else if (item.label === "Become a Dealer") {
+                  //   router.push("/become-dealer");
+                  // } else if (item.label === "Auctions") {
+                  //   router.push("/auctions");
+                  // } else if (item.label === "Community") {
+                  //   router.push("/community");
+                  // } else if (item.label === "Watch Care") {
+                  //   router.push("/watch-care");
+                  // } else if (item.label === "Earn AED 100") {
+                  //   router.push("/earn");
+                  // } else if (item.label === "Watch It Gold") {
+                  //   router.push("/gold");
+                  // } else if (item.label === "FAQ") {
+                  //   router.push("/faq");
+                  // } else if (item.label === "Terms of service") {
+                  //   router.push("/terms");
+                  // } else if (item.label === "User policy") {
+                  //   router.push("/privacy");
+                  // }
+                }}
               >
                 <View style={styles.menuItemLeft}>
                   <Ionicons name={item.icon as any} size={20} color={theme.textSecondary} style={styles.menuIcon} />

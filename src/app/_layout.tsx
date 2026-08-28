@@ -14,6 +14,9 @@ import Sidebar from "../components/sidebar/Sidebar";
 import SplashScreenView from "../components/SplashScreenView/SplashScreenView";
 import { ThemeProvider, useTheme } from "../context/ThemeContext";
 
+
+
+
 SplashScreen.preventAutoHideAsync();
 
 const AppStack = () => {
@@ -37,14 +40,15 @@ const AppStack = () => {
         }}
       >
         <Stack.Screen name="index" />
-        <Stack.Screen
-          name="profile"
-          options={{
-            headerShown: false
-          }}
-        />
         <Stack.Screen name="about" />
+        <Stack.Screen name="profile" options={{ headerShown: false }} />
         <Stack.Screen name="swipe" options={{ headerShown: false }} />
+        <Stack.Screen name="auction" options={{ headerShown: false }} />
+        <Stack.Screen name="auctionDetail" options={{ headerShown: false }} />
+        <Stack.Screen name="flashSaleDetail" options={{ headerShown: false }} />
+        <Stack.Screen name="createListing" options={{ headerShown: false }} />
+        <Stack.Screen name="myListings" options={{ headerShown: false }} />
+        <Stack.Screen name="pages/listingDetails/[id]" options={{ headerShown: false }} />  
         <Stack.Screen
           name="settings"
           options={{
