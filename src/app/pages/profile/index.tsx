@@ -26,6 +26,7 @@ const Profile = () => {
         { icon: "hammer-outline", label: "Auctions" },
         { icon: "people-outline", label: "Community" },
         { icon: "time-outline", label: "Watch Care" },
+        { icon: "time-outline", label: "Watch Authnticate" },
         { icon: "cash-outline", label: "Earn AED 100" },
         { icon: "diamond-outline", label: "Watch It Gold" },
       ]
@@ -107,23 +108,33 @@ const Profile = () => {
                   } 
                   // else if (item.label === "Become a Dealer") {
                   //   router.push("/become-dealer");
-                  // } else if (item.label === "Auctions") {
-                  //   router.push("/auctions");
-                  // } else if (item.label === "Community") {
+                  // } 
+                  else if (item.label === "Auctions") {
+                    router.push("/pages/auction");
+                  } 
+                  // else if (item.label === "Community") {
                   //   router.push("/community");
-                  // } else if (item.label === "Watch Care") {
-                  //   router.push("/watch-care");
-                  // } else if (item.label === "Earn AED 100") {
-                  //   router.push("/earn");
-                  // } else if (item.label === "Watch It Gold") {
-                  //   router.push("/gold");
-                  // } else if (item.label === "FAQ") {
+                  // } 
+                  else if (item.label === "Watch Care") {
+                    router.push("/pages/watchCare");
+                  } 
+                  else if (item.label === "Watch Authnticate") {
+                      router.push("/pages/watchAuthentication");
+                  } 
+                  else if (item.label === "Earn AED 100") {
+                    router.push("/pages/referral");
+                  } 
+                  else if (item.label === "Watch It Gold") {
+                    router.push("/pages/subscription");
+                  } 
+                  // else if (item.label === "FAQ") {
                   //   router.push("/faq");
                   // } else if (item.label === "Terms of service") {
                   //   router.push("/terms");
-                  // } else if (item.label === "User policy") {
-                  //   router.push("/privacy");
-                  // }
+                  // } 
+                  else if (item.label === "User policy") {
+                    router.push("/pages/privacyPolicy");
+                  }
                 }}
               >
                 <View style={styles.menuItemLeft}>

@@ -6,7 +6,8 @@ export const getStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#090A0F',
+      marginTop: 60,
+      marginBottom: 60,
     },
 
     // Header

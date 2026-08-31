@@ -49,6 +49,7 @@ const AppStack = () => {
         <Stack.Screen name="createListing" options={{ headerShown: false }} />
         <Stack.Screen name="myListings" options={{ headerShown: false }} />
         <Stack.Screen name="pages/listingDetails/[id]" options={{ headerShown: false }} />  
+        <Stack.Screen name="watchAuthentication" options={{ headerShown: false }} />  
         <Stack.Screen
           name="settings"
           options={{

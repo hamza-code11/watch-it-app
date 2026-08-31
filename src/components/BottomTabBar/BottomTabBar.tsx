@@ -18,7 +18,7 @@ type TabItem = {
 const TABS: TabItem[] = [
   { key: "home", route: "/pages/home", icon: "home-outline", activeIcon: "home", label: "Home" },
   { key: "explore", route: "/pages/swipe", icon: "compass-outline", activeIcon: "compass", label: "Explore" },
-  { key: "sell", route: "/pages/auction", icon: "add-circle-outline", activeIcon: "add-circle", label: "Sell" },
+  { key: "sell", route: "/pages/createListing", icon: "add-circle-outline", activeIcon: "add-circle", label: "Sell" },
   { key: "chat", route: "/pages/chat", icon: "chatbubble-ellipses-outline", activeIcon: "chatbubble-ellipses", label: "Chat" },
   { key: "profile", route: "/pages/profile", icon: "person-outline", activeIcon: "person", label: "Profile" },
 ];
