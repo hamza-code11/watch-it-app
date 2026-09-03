@@ -6,6 +6,7 @@ import {
   Animated,
   Dimensions,
   Pressable,
+  ScrollView,
   Text,
   TouchableOpacity,
   View,
@@ -128,67 +129,72 @@ const SidebarHeader = ({ onClose, theme, styles }: any) => (
 );
 
 // ========== MENU ==========
-const SidebarMenu = ({ 
-  theme, 
-  styles, 
-  onItemPress, 
-  expandedSections, 
-  onToggleSection, 
-  router 
+const SidebarMenu = ({
+  theme,
+  styles,
+  onItemPress,
+  expandedSections,
+  onToggleSection,
+  router,
 }: any) => {
   const sections: Section[] = [
     {
       title: "Main",
       isMain: true,
       items: [
-        { icon: "home-outline", title: "Home" },
-        { icon: "information-circle-outline", title: "About" },
-        { icon: "construct-outline", title: "Services" },
-        { icon: "hammer-outline", title: "Auctions" },
-        { icon: "people-outline", title: "Community" },
+        { icon: "home-outline", title: "Home", onPress: () => router.push("/") },
+        { icon: "information-circle-outline", title: "About", onPress: () => router.push("/about") },
+        { icon: "construct-outline", title: "Services", onPress: () => router.push("/services") },
+        { icon: "hammer-outline", title: "Auctions", onPress: () => router.push("/pages/auction") },
+        { icon: "people-outline", title: "Community", onPress: () => router.push("/pages/community") },
       ],
     },
     {
       title: "Explore",
       items: [
-        { icon: "grid-outline", title: "All Brands" },
-        { icon: "storefront-outline", title: "All Vendors" },
+        { icon: "grid-outline", title: "All Brands", onPress: () => router.push("/pages/brands") },
+        { icon: "storefront-outline", title: "All Vendors", onPress: () => router.push("/pages/vendors") },
       ],
     },
     {
       title: "Account",
       items: [
-        { icon: "heart-outline", title: "Wishlist" },
-        { icon: "person-outline", title: "My Profile" },
+        { icon: "heart-outline", title: "Wishlist", onPress: () => router.push("/pages/wishlist") },
+        { icon: "person-outline", title: "My Profile", onPress: () => router.push("/pages/profile") },
       ],
     },
     {
       title: "Actions",
       items: [
-        { 
-          icon: "settings-outline", 
-          title: "Settings", 
-          onPress: () => { 
-            router.push("/settings"); 
-            onItemPress(); 
-          } 
+        {
+          icon: "settings-outline",
+          title: "Settings",
+          onPress: () => {
+            router.push("/settings");
+            onItemPress();
+          },
         },
         { icon: "log-out-outline", title: "Logout", isLast: true },
       ],
     },
   ];
 
-  const handlePress = (title: string) => {
-    console.log(`📱 Navigating to: ${title}`);
-    onItemPress();
+  const handlePress = (item: SidebarItemProps) => {
+    if (item.onPress) {
+      item.onPress();
+      onItemPress();
+    }
   };
 
   return (
-    <View style={styles.menuContainer}>
+    <ScrollView 
+      style={styles.menuContainer}
+      showsVerticalScrollIndicator={false}
+      contentContainerStyle={{ paddingBottom: 40 }}
+    >
       {sections.map((section) => (
         <View key={section.title} style={styles.section}>
           {section.isMain ? (
-            // Main section - always visible
             <>
               <Text style={styles.sectionTitle}>{section.title}</Text>
               {section.items.map((item, index) => (
@@ -199,12 +205,11 @@ const SidebarMenu = ({
                   isLast={index === section.items.length - 1}
                   theme={theme}
                   styles={styles}
-                  onPress={() => handlePress(item.title)}
+                  onPress={() => handlePress(item)}
                 />
               ))}
             </>
           ) : (
-            // Collapsible sections
             <>
               <TouchableOpacity
                 style={styles.sectionHeader}
@@ -230,7 +235,7 @@ const SidebarMenu = ({
                         isLast={isLast}
                         theme={theme}
                         styles={styles}
-                        onPress={item.onPress || (() => handlePress(item.title))}
+                        onPress={() => handlePress(item)}
                       />
                     );
                   })}
@@ -240,28 +245,27 @@ const SidebarMenu = ({
           )}
         </View>
       ))}
-    </View>
+    </ScrollView>
   );
 };
 
 // ========== ITEM ==========
-const SidebarItem = ({ 
-  icon, 
-  title, 
-  isLast = false, 
-  theme, 
-  styles, 
-  onPress 
+const SidebarItem = ({
+  icon,
+  title,
+  isLast = false,
+  theme,
+  styles,
+  onPress,
 }: SidebarItemProps & { theme: any; styles: any }) => (
   <TouchableOpacity
     style={[styles.menuItem, isLast && styles.menuItemLast]}
     activeOpacity={0.7}
     onPress={onPress}
   >
-    <Ionicons name={icon} size={20} color={theme.textMuted} /> 
+    <Ionicons name={icon} size={20} color={theme.textMuted} />
     <Text style={styles.menuText}>{title}</Text>
   </TouchableOpacity>
 );
 
 export default Sidebar;
-

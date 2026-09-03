@@ -1,0 +1,67 @@
+import { BrandDetailData } from '../types/brandDetail.types';
+
+export const brandDetailsData: BrandDetailData[] = [
+  {
+    id: 'rolex',
+    name: 'Rolex',
+    logo: 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/94/Rolex_logo.svg/2560px-Rolex_logo.svg.png',
+    country: 'Switzerland',
+    description: 'Rolex is a symbol of prestige, precision, and perfection. Since 1905, Rolex has been crafting timepieces that are synonymous with success and achievement.',
+    stats: {
+      watches: 12,
+      vendors: 4,
+      founded: 1905,
+    },
+    products: [
+      {
+        id: 'prod-1',
+        brandId: 'rolex',
+        brandName: 'Rolex',
+        title: 'Submariner Date',
+        sellerName: 'Time Vault Karachi',
+        price: '7,103 AED',
+        image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
+        rating: 335,
+        condition: 'New',
+        year: 2024,
+      },
+      {
+        id: 'prod-2',
+        brandId: 'rolex',
+        brandName: 'Rolex',
+        title: 'Nautilus',
+        sellerName: 'Heritage Timepieces',
+        price: '24,795 AED',
+        image: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=800&auto=format&fit=crop',
+        rating: 252,
+        condition: 'Pre-Owned',
+        year: 2021,
+      },
+      {
+        id: 'prod-3',
+        brandId: 'rolex',
+        brandName: 'Rolex',
+        title: 'Carrera Chronograph 6',
+        sellerName: 'Heritage Timepieces',
+        price: '9,500 AED',
+        image: 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=800&auto=format&fit=crop',
+        rating: 210,
+        condition: 'New',
+        year: 2023,
+      },
+      {
+        id: 'prod-4',
+        brandId: 'rolex',
+        brandName: 'Rolex',
+        title: 'Speedmaster Professional',
+        sellerName: 'Chrono House',
+        price: '12,400 AED',
+        image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
+        rating: 180,
+        condition: 'Pre-Owned',
+        year: 2020,
+      },
+    ],
+  },
+];
+

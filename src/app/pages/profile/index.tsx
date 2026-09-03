@@ -106,15 +106,15 @@ const Profile = () => {
                   else if (item.label === "My Listings") {
                     router.push("/pages/myListings");
                   } 
-                  // else if (item.label === "Become a Dealer") {
-                  //   router.push("/become-dealer");
-                  // } 
+                  else if (item.label === "Become a Dealer") {
+                    router.push("/pages/dealer");
+                  } 
                   else if (item.label === "Auctions") {
                     router.push("/pages/auction");
                   } 
-                  // else if (item.label === "Community") {
-                  //   router.push("/community");
-                  // } 
+                  else if (item.label === "Community") {
+                    router.push("/pages/community");
+                  } 
                   else if (item.label === "Watch Care") {
                     router.push("/pages/watchCare");
                   } 
@@ -127,11 +127,12 @@ const Profile = () => {
                   else if (item.label === "Watch It Gold") {
                     router.push("/pages/subscription");
                   } 
-                  // else if (item.label === "FAQ") {
-                  //   router.push("/faq");
-                  // } else if (item.label === "Terms of service") {
-                  //   router.push("/terms");
-                  // } 
+                  else if (item.label === "FAQ") {
+                    router.push("/pages/faq");
+                  } 
+                  else if (item.label === "Terms of service") {
+                    router.push("/pages/termsAndConditions");
+                  } 
                   else if (item.label === "User policy") {
                     router.push("/pages/privacyPolicy");
                   }
