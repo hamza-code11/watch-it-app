@@ -24,10 +24,9 @@ export const getStyles = (theme: Theme) =>
 
     brandTitle: {
       fontSize: 24,
-      fontWeight: "700",
       color: theme.textPrimary,
       letterSpacing: 1,
-      fontFamily: "Montserrat",
+      fontFamily: theme.bold,
     },
 
     brandSubContainer: {
@@ -38,7 +37,7 @@ export const getStyles = (theme: Theme) =>
 
     brandSubUae: {
       fontSize: 10,
-      fontWeight: "500",
+      fontFamily: theme.regular,
       color: theme.textSecondary,
       letterSpacing: 0.5,
     },
@@ -51,7 +50,7 @@ export const getStyles = (theme: Theme) =>
 
     brandSubLuxury: {
       fontSize: 10,
-      fontWeight: "400",
+      fontFamily: theme.regular,
       color: theme.textSecondary,
       letterSpacing: 0.3,
     },
@@ -100,7 +99,7 @@ export const getStyles = (theme: Theme) =>
 
     avatarText: {
       fontSize: 13,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: "#0B0E14",
     },
   });

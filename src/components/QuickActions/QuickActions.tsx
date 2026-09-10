@@ -1,7 +1,7 @@
 // components/QuickActions/QuickActions.tsx
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
-import { Text, TouchableOpacity, View } from "react-native";
+import { ImageBackground, Text, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../../context/ThemeContext";
 import { getStyles } from "./QuickActions.styles";
 
@@ -9,8 +9,7 @@ type ActionItem = {
   title: string;
   subtitle: string;
   icon: React.ComponentProps<typeof Ionicons>["name"];
-  gradient: [string, string];
-  iconColor: string;
+  image: { uri: string };
 };
 
 const actions: ActionItem[] = [
@@ -18,29 +17,33 @@ const actions: ActionItem[] = [
     title: "Swipe to Discover",
     subtitle: "Browse like Tinder — for luxury watches",
     icon: "swap-horizontal-outline",
-    gradient: ["#4F9FFF", "#22D3EE"],
-    iconColor: "#FFFFFF",
+    image: {
+      uri: "https://images.unsplash.com/photo-1595923533867-ff8a01335ff9?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
   },
   {
     title: "Live Auctions",
-    subtitle: "Bid in real-time on rare timepieces",
+    subtitle: "Bid on rare finds",
     icon: "hammer-outline",
-    gradient: ["#8B5CF6", "#4F9FFF"],
-    iconColor: "#FFFFFF",
+    image: {
+      uri: "https://plus.unsplash.com/premium_photo-1658506826316-f21670ec809e?q=80&w=1143&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
   },
   {
     title: "Direct Negotiate",
     subtitle: "Chat & close deals without middlemen",
     icon: "chatbubble-outline",
-    gradient: ["#34D399", "#10B981"],
-    iconColor: "#FFFFFF",
+    image: {
+      uri: "https://plus.unsplash.com/premium_photo-1720551260146-df564ac2eed4?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
   },
   {
     title: "Authentication",
-    subtitle: "Expert-certified with digital certificate",
+    subtitle: "100% Genuine",
     icon: "shield-checkmark-outline",
-    gradient: ["#F472B6", "#EC4899"],
-    iconColor: "#FFFFFF",
+    image: {
+      uri: "https://images.unsplash.com/photo-1604242692760-2f7b0c26856d?q=80&w=1169&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+    },
   },
 ];
 
@@ -57,20 +60,48 @@ const QuickActions = () => {
             style={styles.card}
             activeOpacity={0.85}
           >
-            <LinearGradient
-              colors={action.gradient}
-              start={{ x: 0, y: 0 }}
-              end={{ x: 1, y: 1 }}
-              style={styles.cardGradient}
+            <ImageBackground
+              source={action.image}
+              style={styles.cardBg}
+              imageStyle={styles.cardImage}
             >
-              <View style={styles.iconContainer}>
-                <Ionicons name={action.icon} size={28} color={action.iconColor} />
-              </View>
-              <View style={styles.contentContainer}>
-                <Text style={styles.cardTitle}>{action.title}</Text>
-                <Text style={styles.cardSubtitle}>{action.subtitle}</Text>
-              </View>
-            </LinearGradient>
+              <LinearGradient
+                colors={[
+                  "rgba(0,0,0,0.15)",
+                  "rgba(0,0,0,0.75)",
+                  "rgba(0,0,0,0.99)",
+                ]}
+                locations={[0, 0.5, 1]}
+                style={styles.overlay}
+              >
+                {/* Top row: icon badge */}
+                <View style={styles.topRow}>
+                  <View style={styles.iconBadge}>
+                    <Ionicons name={action.icon} size={18} color="#FFFFFF" />
+                  </View>
+                </View>
+
+                {/* Bottom row: text + chevron */}
+                <View style={styles.bottomRow}>
+                  <View style={styles.textContainer}>
+                    <Text style={styles.cardTitle} numberOfLines={1}>
+                      {action.title}
+                    </Text>
+                    <Text style={styles.cardSubtitle} numberOfLines={1}>
+                      {action.subtitle}
+                    </Text>
+                  </View>
+
+                  <View style={styles.chevronBadge}>
+                    <Ionicons
+                      name="chevron-forward"
+                      size={14}
+                      color="#FFFFFF"
+                    />
+                  </View>
+                </View>
+              </LinearGradient>
+            </ImageBackground>
           </TouchableOpacity>
         ))}
       </View>
@@ -79,4 +110,3 @@ const QuickActions = () => {
 };
 
 export default QuickActions;
-

@@ -56,7 +56,7 @@ export default function BrandDetail() {
         {/* Product Grid */}
         <ProductGrid
           products={brand.products}
-        //   onProductPress={(productId) => router.push(`/pages/productDetail/${productId}`)}
+          onProductPress={(productId) => router.push(`/pages/productDetail/${productId}`)}
         />
       </ScrollView>
     </SafeAreaView>

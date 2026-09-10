@@ -3,8 +3,8 @@ import { Dimensions, StyleSheet } from "react-native";
 import { Theme } from "../../constants/theme";
 
 const { width } = Dimensions.get("window");
-const H_PADDING = 15;
-const GAP = 12;
+const H_PADDING = 5;
+const GAP = 6;
 const CARD_WIDTH = (width - H_PADDING * 2 - GAP) / 2;
 
 export const getStyles = (theme: Theme) =>
@@ -23,49 +23,80 @@ export const getStyles = (theme: Theme) =>
 
     card: {
       width: CARD_WIDTH,
+      height: 130,
       borderRadius: theme.radiusLg,
       overflow: "hidden",
       elevation: 4,
       shadowColor: "#000",
       shadowOffset: { width: 0, height: 4 },
-      shadowOpacity: 0.15,
+      shadowOpacity: 0.2,
       shadowRadius: 12,
     },
 
-    cardGradient: {
-      padding: 16,
-      minHeight: 120,
+    cardBg: {
+      flex: 1,
+      justifyContent: "flex-end",
+    },
+
+    cardImage: {
+      borderRadius: theme.radiusLg,
+    },
+
+    overlay: {
+      flex: 1,
+      padding: 12,
       justifyContent: "space-between",
     },
 
-    iconContainer: {
-      width: 44,
-      height: 44,
-      borderRadius: theme.radiusFull,
-      backgroundColor: "rgba(255,255,255,0.2)",
-      alignItems: "center",
-      justifyContent: "center",
-      marginBottom: 8,
+    topRow: {
+      flexDirection: "row",
+      justifyContent: "flex-start",
     },
 
-    contentContainer: {
+    iconBadge: {
+      width: 32,
+      height: 32,
+      borderRadius: theme.radiusFull,
+      backgroundColor: "rgba(255,255,255,0.12)",
+      borderWidth: 1,
+      borderColor: "rgba(255,255,255,0.35)",
+      alignItems: "center",
+      justifyContent: "center",
+    },
+
+    bottomRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      justifyContent: "space-between",
+    },
+
+    textContainer: {
       flex: 1,
+      marginRight: 6,
     },
 
     cardTitle: {
-      fontSize: 15,
-      fontWeight: "700",
+      fontSize: 13,
+      fontFamily: theme.bold,
       color: "#FFFFFF",
-      letterSpacing: 0.3,
-      marginBottom: 4,
+      letterSpacing: 0.2,
+      marginBottom: 2,
     },
 
     cardSubtitle: {
-      fontSize: 11,
-      fontWeight: "400",
-      color: "rgba(255,255,255,0.8)",
-      lineHeight: 15,
+      fontSize: 10,
+      fontFamily: theme.regular,
+      color: "rgba(255,255,255,0.75)",
+    },
+
+    chevronBadge: {
+      width: 24,
+      height: 24,
+      borderRadius: theme.radiusFull,
+      backgroundColor: "rgba(255,255,255,0.12)",
+      borderWidth: 1,
+      borderColor: "rgba(255,255,255,0.35)",
+      alignItems: "center",
+      justifyContent: "center",
     },
   });
-
-  

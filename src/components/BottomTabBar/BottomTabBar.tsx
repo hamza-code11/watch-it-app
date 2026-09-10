@@ -13,13 +13,14 @@ type TabItem = {
   icon: React.ComponentProps<typeof Ionicons>["name"];
   activeIcon: React.ComponentProps<typeof Ionicons>["name"];
   label: string;
+  isCenter?: boolean;
 };
 
 const TABS: TabItem[] = [
-  { key: "home", route: "/pages/home", icon: "home-outline", activeIcon: "home", label: "Home" },
-  { key: "explore", route: "/pages/swipe", icon: "compass-outline", activeIcon: "compass", label: "Explore" },
-  { key: "sell", route: "/pages/createListing", icon: "add-circle-outline", activeIcon: "add-circle", label: "Sell" },
-  { key: "chat", route: "/pages/messages", icon: "chatbubble-ellipses-outline", activeIcon: "chatbubble-ellipses", label: "Chat" },
+  { key: "discover", route: "/pages/home", icon: "home-outline", activeIcon: "home", label: "Discover" },
+  { key: "timepieces", route: "/pages/swipe", icon: "time-outline", activeIcon: "time", label: "Explore" },
+  { key: "list", route: "/pages/createListing", icon: "add", activeIcon: "add", label: "List", isCenter: true },
+  { key: "goldVip", route: "/pages/messages", icon: "chatbubble-ellipses-outline", activeIcon: "chatbubble-ellipses", label: "Gold VIP" },
   { key: "profile", route: "/pages/profile", icon: "person-outline", activeIcon: "person", label: "Profile" },
 ];
 
@@ -41,6 +42,21 @@ const BottomTabBar = () => {
           {TABS.map((tab) => {
             const active = isActive(tab.route);
 
+            if (tab.isCenter) {
+              return (
+                <View key={tab.key} style={styles.centerTabWrapper}>
+                  <TouchableOpacity
+                    style={styles.centerButton}
+                    activeOpacity={0.85}
+                    onPress={() => router.push(tab.route as any)}
+                  >
+                    <Ionicons name="add" size={26} color="#0B0E14" />
+                  </TouchableOpacity>
+                  <Text style={styles.centerLabel}>{tab.label}</Text>
+                </View>
+              );
+            }
+
             return (
               <TouchableOpacity
                 key={tab.key}
@@ -50,8 +66,8 @@ const BottomTabBar = () => {
               >
                 <Ionicons
                   name={active ? tab.activeIcon : tab.icon}
-                  size={25}
-                  color={active ? "#FFFFFF" : theme.textMuted}
+                  size={22}
+                  color={active ? "#F0B429" : theme.textMuted}
                 />
                 <Text style={[styles.label, active && styles.labelActive]}>
                   {tab.label}
@@ -66,5 +82,3 @@ const BottomTabBar = () => {
 };
 
 export default BottomTabBar;
-
-

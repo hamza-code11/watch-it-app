@@ -64,7 +64,7 @@ const Profile = () => {
             <Text style={styles.userName}>Your Name</Text>
             <Text style={styles.userHandle}>@yourname</Text>
           </View>
-          <TouchableOpacity style={styles.settingsIcon} onPress={() => router.push("/settings")}>
+          <TouchableOpacity style={styles.settingsIcon} onPress={() => router.push("/pages/profileEdit")}>
             <Ionicons name="settings-outline" size={24} color={theme.textSecondary} />
           </TouchableOpacity>
         </View>

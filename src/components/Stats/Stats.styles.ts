@@ -1,4 +1,3 @@
-// components/Stats/Stats.styles.ts
 import { Dimensions, StyleSheet } from "react-native";
 import { Theme } from "../../constants/theme";
 
@@ -9,10 +8,10 @@ export const getStyles = (theme: Theme) =>
     container: {
       flexDirection: "row",
       justifyContent: "space-between",
-      paddingHorizontal: 15,
+      paddingHorizontal: 5,
       marginTop: 10,
       marginBottom: 4,
-      gap: 8,
+      gap: 6,
     },
 
     statBox: {
@@ -23,27 +22,28 @@ export const getStyles = (theme: Theme) =>
       borderColor: theme.borderColor,
       alignItems: "center",
       justifyContent: "center",
-      paddingVertical: 10,
+      paddingVertical: 12,
       paddingHorizontal: 4,
       minHeight: 65,
     },
 
     statNumber: {
-      fontSize: 20,
-      fontWeight: "700",
+      fontSize: 12, 
       color: "#FFFFFF",
-      fontFamily: "Georgia",
-      letterSpacing: 0.3,
-      marginBottom: 1,
+      fontFamily: theme.bold,
+      letterSpacing: 0.2,
+      marginBottom: 2,
+      textAlign: "center",
     },
 
     statLabel: {
-      fontSize: 8,
-      fontWeight: "600",
+      fontSize: 7,
       color: theme.textMuted,
-      letterSpacing: 1.2,
-      textTransform: "uppercase",
+      letterSpacing: 0.8,
       textAlign: "center",
+      lineHeight: 11,
+      fontFamily: theme.regular,
     },
+
   });
-  
+

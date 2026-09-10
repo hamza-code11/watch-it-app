@@ -6,10 +6,7 @@ export const getStyles = (theme: Theme) =>
         container: {
             flex: 1,
             marginTop: 60,
-            marginBottom: 60,
-        },
-        contentContainer: {
-            paddingBottom: 80,
+            marginBottom: 40,
         },
 
         // Top Header Row (Back Button + Title)

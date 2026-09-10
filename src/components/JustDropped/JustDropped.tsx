@@ -1,7 +1,6 @@
-// components/JustDropped/JustDropped.tsx
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
-import { Image, Text, TouchableOpacity, View } from "react-native";
+import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 import { useTheme } from "../../context/ThemeContext";
 import { getStyles } from "./JustDropped.styles";
@@ -21,7 +20,7 @@ const listings: Listing[] = [
     brand: "Rolex",
     price: "AED 118,000",
     location: "Dubai Marina",
-    badge: 'B+P',
+    badge: "B+P",
     imageUrl: "https://images.unsplash.com/photo-1523170335258-f5ed11844a49?w=400",
   },
   {
@@ -29,7 +28,7 @@ const listings: Listing[] = [
     brand: "Marinus",
     price: "AED 14,500",
     location: "Abu Dhabi",
-    badge: 'B+P',
+    badge: "B+P",
     imageUrl: "https://images.unsplash.com/photo-1547996160-81dfa63595aa?w=400",
   },
   {
@@ -37,7 +36,7 @@ const listings: Listing[] = [
     brand: "IWC",
     price: "AED 32,900",
     location: "Sharjah",
-    badge: '',
+    badge: "",
     imageUrl: "https://images.unsplash.com/photo-1495856458515-0637185db551?w=400",
   },
   {
@@ -45,8 +44,24 @@ const listings: Listing[] = [
     brand: "Raymond Weil",
     price: "AED 9,200",
     location: "Ras Al Khaimah",
-    badge: 'B+P',
+    badge: "B+P",
     imageUrl: "https://images.unsplash.com/photo-1508057198894-247b23fe5ade?w=400",
+  },
+  {
+    id: "5",
+    brand: "Omega",
+    price: "AED 22,000",
+    location: "Dubai",
+    badge: "B+P",
+    imageUrl: "https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?w=400",
+  },
+  {
+    id: "6",
+    brand: "TAG Heuer",
+    price: "AED 12,500",
+    location: "Abu Dhabi",
+    badge: "",
+    imageUrl: "https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?w=400",
   },
 ];
 
@@ -56,23 +71,22 @@ const JustDropped = () => {
   const router = useRouter();
 
   const handleCardPress = () => {
-    router.push("/swip" as any);
+    router.push("/pages/swipe" as any);
   };
 
-  const handleSeeAllPress = () => {
-    router.push("/swip" as any);
-  };
 
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
         <Text style={styles.headerTitle}>Just Dropped</Text>
-        <TouchableOpacity activeOpacity={0.7} onPress={handleSeeAllPress}>
-          <Text style={styles.headerLink}>See all</Text>
-        </TouchableOpacity>
       </View>
 
-      <View style={styles.grid}>
+      {/* ✅ Horizontal ScrollView */}
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.scrollContent}
+      >
         {listings.map((item) => (
           <TouchableOpacity
             key={item.id}
@@ -103,10 +117,9 @@ const JustDropped = () => {
             </View>
           </TouchableOpacity>
         ))}
-      </View>
+      </ScrollView>
     </View>
   );
 };
 
 export default JustDropped;
-

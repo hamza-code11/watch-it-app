@@ -1,8 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
+import { useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
-import { getProductCardStyles } from './ProductCard.style';
 import { Product } from '../../types/product.types';
+import { getProductCardStyles } from './ProductCard.style';
 
 interface Props {
   product: Product;
@@ -12,6 +13,11 @@ interface Props {
 export default function ProductCard({ product, onPress }: Props) {
   const { theme } = useTheme();
   const styles = getProductCardStyles(theme);
+  const [isWishlisted, setIsWishlisted] = useState(false); // State for wishlist
+
+  const handleWishlist = () => {
+    setIsWishlisted(!isWishlisted); // Toggle state
+  };
 
   return (
     <TouchableOpacity
@@ -21,8 +27,12 @@ export default function ProductCard({ product, onPress }: Props) {
       {/* Image + Heart */}
       <View style={styles.imageContainer}>
         <Image source={{ uri: product.image }} style={styles.image} resizeMode="cover" />
-        <TouchableOpacity style={styles.heartBtn} onPress={() => console.log('Heart')}>
-          <Ionicons name="heart-outline" size={18} color="#FFFFFF" />
+        <TouchableOpacity style={styles.heartBtn} onPress={handleWishlist}>
+          <Ionicons 
+            name={isWishlisted ? "heart" : "heart-outline"} 
+            size={18} 
+            color={isWishlisted ? "#FF0000" : "#FFFFFF"} 
+          />
         </TouchableOpacity>
       </View>
 
@@ -44,3 +54,4 @@ export default function ProductCard({ product, onPress }: Props) {
     </TouchableOpacity>
   );
 }
+

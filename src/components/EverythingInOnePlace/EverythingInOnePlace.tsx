@@ -1,4 +1,3 @@
-// components/EverythingInOnePlace/EverythingInOnePlace.tsx
 import { Ionicons } from "@expo/vector-icons";
 import { useRouter } from "expo-router";
 import { Dimensions, ScrollView, Text, TouchableOpacity, View } from "react-native";
@@ -123,8 +122,9 @@ const EverythingInOnePlace = () => {
     }
   };
 
-  const CARD_WIDTH = width * 0.78;
-  const CARD_HEIGHT = 270;
+  // ✅ Card ka size chota kiya
+  const CARD_WIDTH = width * 0.68; // 0.78 → 0.68
+  const CARD_HEIGHT = 220; // 270 → 220
 
   return (
     <View style={styles.container}>
@@ -142,7 +142,7 @@ const EverythingInOnePlace = () => {
         showsHorizontalScrollIndicator={false}
         contentContainerStyle={styles.scrollContent}
         decelerationRate="fast"
-        snapToInterval={CARD_WIDTH + 12}
+        snapToInterval={CARD_WIDTH + 10} // ✅ Gap 10 ke hisaab se
         snapToAlignment="center"
       >
         {cards.map((card, index) => {
@@ -164,13 +164,13 @@ const EverythingInOnePlace = () => {
             >
               <View style={styles.cardTop}>
                 <View style={[styles.iconSquare, { backgroundColor: colors.accent }]}>
-                  <Ionicons name={card.icon as any} size={20} color="#FFFFFF" />
+                  <Ionicons name={card.icon as any} size={18} color="#FFFFFF" />
                 </View>
-                <Ionicons name="chevron-forward" size={18} color={theme.textMuted} />
+                <Ionicons name="chevron-forward" size={16} color={theme.textMuted} />
               </View>
 
               <Text style={styles.cardTitle}>{card.title}</Text>
-              <Text style={styles.cardDescription} numberOfLines={5}>
+              <Text style={styles.cardDescription} numberOfLines={4}> {/* ✅ 5 → 4 */}
                 {card.description}
               </Text>
 
@@ -199,4 +199,3 @@ const EverythingInOnePlace = () => {
 };
 
 export default EverythingInOnePlace;
-

@@ -29,15 +29,15 @@
 // app/index.tsx
 import { ScrollView } from "react-native";
 
-import ChronosGold from "../../../components/WatchItGold/WatchItGold";
 import CommunityReferral from "../../../components/CommunityReferral/CommunityReferral";
 import EverythingInOnePlace from "../../../components/EverythingInOnePlace/EverythingInOnePlace";
 import ForSellers from "../../../components/ForSellers/ForSellers";
 import Hero from "../../../components/Hero/Hero";
-import HowItWorks from "../../../components/HowItWorks/HowItWorks";
+// import HowItWorks from "../../../components/HowItWorks/HowItWorks";
 import JustDropped from "../../../components/JustDropped/JustDropped";
 import QuickActions from "../../../components/QuickActions/QuickActions";
 import Stats from "../../../components/Stats/Stats";
+import ChronosGold from "../../../components/WatchItGold/WatchItGold";
 
 import { useTheme } from "../../../context/ThemeContext";
 import { getStyles } from "../../../screens/Home/Home.styles";
@@ -53,13 +53,13 @@ const Index = () => {
       style={styles.container}
       contentContainerStyle={{
         paddingTop: 70,
-        paddingBottom: 100,
+        paddingBottom: 70,
       }}
       showsVerticalScrollIndicator={false}
     >
       <Hero />
       <Stats />
-      <HowItWorks />
+      {/* <HowItWorks /> */}
       <QuickActions />
       <JustDropped />
       <EverythingInOnePlace />

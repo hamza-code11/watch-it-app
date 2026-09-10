@@ -28,7 +28,6 @@ export default function Brands() {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainer}
       >
         {/* Top Header Row (Back Button + Title) */}
         <View style={styles.header}>

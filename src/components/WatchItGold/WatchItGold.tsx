@@ -15,74 +15,46 @@ const WatchItGold = ({ onDismiss }: WatchItGoldProps) => {
   const styles = getStyles(theme);
   const router = useRouter();
 
-  const features = [
-    { icon: "infinite-outline", label: "Unlimited swipes" },
-    { icon: "trending-up-outline", label: "Priority listings" },
-    { icon: "lock-closed-outline", label: "Escrow access" },
-    { icon: "hammer-outline", label: "Auction access" },
-    { icon: "ribbon-outline", label: "Gold badge" },
-    { icon: "star-outline", label: "VIP events" },
-  ];
 
   return (
     <View style={styles.container}>
-      <View style={styles.card}>
-        {/* Recommended Badge */}
-        <View style={styles.recommendedBadge}>
-          <Text style={styles.recommendedText}>Most popular</Text>
-        </View>
 
-        {onDismiss && (
-          <TouchableOpacity
-            style={styles.closeButton}
-            onPress={onDismiss}
-            hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
-          >
-            <Ionicons name="close" size={16} color={theme.textLight} />
-          </TouchableOpacity>
-        )}
-
-        {/* Header */}
-        <View style={styles.badgeRow}>
-          <Ionicons name="diamond" size={14} color={theme.warning} />
-          <Text style={styles.badgeText}>Watch it gold</Text>
-        </View>
-        <Text style={styles.title}>Unlock the full experience</Text>
-
-        {/* Features Grid - 3 columns */}
-        <View style={styles.featuresGrid}>
-          {features.map((feature, index) => (
-            <View key={index} style={styles.featureItem}>
-              <View style={styles.iconContainer}>
-                <Ionicons name={feature.icon as any} size={14} color={theme.warning} />
-              </View>
-              <Text style={styles.featureLabel}>{feature.label}</Text>
-            </View>
-          ))}
-        </View>
-
-        {/* CTA Button */}
         <TouchableOpacity
           activeOpacity={0.85}
-          onPress={() => router.push("/gold" as any)}
-          style={styles.ctaWrapper}
+          onPress={() => router.push("/pages/subscription" as any)}
         >
-          <LinearGradient
-            colors={["#D4AF37", "#F7E7B4", "#D4AF37"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.ctaButton}
-          >
-            <Text style={styles.ctaText}>Get Gold · AED 50/month</Text>
-            <Ionicons name="arrow-forward" size={16} color={theme.bgPrimary} />
-          </LinearGradient>
+          <View style={styles.card}>
+
+            <View style={styles.content}>
+              {/* Top row */}
+              <View style={styles.topRow}>
+                {/* Left: sparkle icon + stacked gold title */}
+                <View style={styles.leftSection}>
+                  <Ionicons name="sparkles" size={16} color="#F0B429" />
+                  <View style={styles.titleStack}>
+                    <Text style={styles.titleLine}>WATCH IT</Text>
+                    <Text style={styles.titleLine}>GOLD</Text>
+                  </View>
+                </View>
+
+                <View style={{ flex: 1 }} />
+
+                {/* Right: Upgrade pill button */}
+                <LinearGradient
+                  colors={["#F7C948", "#E8A424"]}
+                  start={{ x: 0, y: 0 }}
+                  end={{ x: 1, y: 0 }}
+                  style={styles.upgradeBtn}
+                >
+                  <Text style={styles.upgradeBtnText}>Upgrade · AED 50</Text>
+                </LinearGradient>
+              </View>
+            </View>
+          </View>
         </TouchableOpacity>
 
-        <Text style={styles.trustText}>Cancel anytime · No commitment</Text>
-      </View>
     </View>
   );
 };
 
 export default WatchItGold;
-

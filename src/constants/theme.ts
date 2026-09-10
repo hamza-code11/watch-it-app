@@ -43,7 +43,9 @@ export type Theme = {
   radiusXl: number;
   radiusFull: number;
 
-  fontFamily: string;
+  bold: string;
+  regular: string;
+  light: string;
 };
 
 export const lightTheme: Theme = {
@@ -91,41 +93,43 @@ export const lightTheme: Theme = {
   radiusXl: 16,
   radiusFull: 9999,
 
-  fontFamily: "Montserrat_700Bold",
+  bold: "Bold",
+  regular: "Regular",
+  light: "Light",
 };
 
 export const darkTheme: Theme = {
-  bgPrimary: "#05060D",
-  bgSecondary: "#0A0C18",
-  bgTertiary: "#12142A",
-  bgCard: "#12141F",
-  bgInput: "#0D0F1A",
+  bgPrimary: "#0a0908",
+  bgSecondary: "#0a0a0c",
+  bgTertiary: "#141417",
+  bgCard: "#101012",
+  bgInput: "#08080a",
   bgGradient: ["#151c29", "#000000", "#363a43"],
   bgGradientLocations: [0, 0.6, 5.5],
 
-  textPrimary: "#F5F5FA",
-  textSecondary: "#C7C9DE",
-  textMuted: "#8C8FAD",
-  textLight: "#5C5F7D",
+  textPrimary: "#ffffff",
+  textSecondary: "#d4d6db",
+  textMuted: "#8b8f99",
+  textLight: "#55585f",
 
-  borderColor: "#1E2038",
-  borderLight: "#181A2E",
-  borderFocus: "#4F9FFF",
+  borderColor: "#26272b",
+  borderLight: "#1a1b1e",
+  borderFocus: "#0091ff",
 
-  accentPrimary: "#4F9FFF",
-  accentPrimaryDark: "#3560D9",
-  accentPrimaryLight: "#7FC4FF",
-  accentSecondary: "#22D3EE",
-  accentTertiary: "#8B5CF6",
-  accentUltraLight: "#1A1E3A",
+  accentPrimary: "#00d4ff",
+  accentPrimaryDark: "#0066cc",
+  accentPrimaryLight: "#40b0ff",
+  accentSecondary: "#00d4ff",
+  accentTertiary: "#6ee6ff",
+  accentUltraLight: "#003c55",
   accentGradient: ["#22D3EE", "#4F7FFF"],
 
-  success: "#32D583",
-  successLight: "#0B3B2A",
-  warning: "#FDB022",
-  warningLight: "#4A2E06",
-  danger: "#F97066",
-  dangerLight: "#4A1512",
+  success: "#00e396",
+  successLight: "#0a3327",
+  warning: "#ffb800",
+  warningLight: "#3d2c05",
+  danger: "#ff3b5c",
+  dangerLight: "#3d0f18",
 
   spacingXs: 4,
   spacingSm: 8,
@@ -139,5 +143,7 @@ export const darkTheme: Theme = {
   radiusXl: 16,
   radiusFull: 9999,
 
-  fontFamily: "Montserrat_700Bold",
+  bold: "Bold",
+  regular: "Regular",
+  light: "Light",
 };

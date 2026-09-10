@@ -12,10 +12,10 @@ export const getStyles = (theme: Theme, bottomInset: number = 0) =>
     },
 
     barContainer: {
-      backgroundColor: theme.bgCard ?? "#121212",
+      backgroundColor: theme.bgCard ?? "#0B0B0B",
       borderTopLeftRadius: 20,
       borderTopRightRadius: 20,
-      paddingTop: 10,
+      paddingTop: 14,
       paddingBottom: bottomInset > 0 ? bottomInset + 4 : 10,
       paddingHorizontal: 4,
       shadowColor: "#000",
@@ -27,7 +27,7 @@ export const getStyles = (theme: Theme, bottomInset: number = 0) =>
 
     tabsRow: {
       flexDirection: "row",
-      alignItems: "center",
+      alignItems: "flex-start",
     },
 
     tabButton: {
@@ -46,8 +46,37 @@ export const getStyles = (theme: Theme, bottomInset: number = 0) =>
 
     labelActive: {
       fontWeight: "700",
-      color: "#FFFFFF",
+      color: "#F0B429",
+    },
+
+    // Center raised "List" button
+    centerTabWrapper: {
+      flex: 1,
+      alignItems: "center",
+      gap: 6,
+    },
+
+    centerButton: {
+      width: 52,
+      height: 52,
+      borderRadius: 26,
+      backgroundColor: "#F0B429",
+      alignItems: "center",
+      justifyContent: "center",
+      marginTop: -30,
+      shadowColor: "#F0B429",
+      shadowOffset: { width: 0, height: 4 },
+      shadowOpacity: 0.4,
+      shadowRadius: 8,
+      elevation: 8,
+      borderWidth: 3,
+      borderColor: theme.bgCard ?? "#0B0B0B",
+    },
+
+    centerLabel: {
+      fontSize: 10,
+      fontWeight: "700",
+      color: theme.textPrimary,
     },
   });
-
   

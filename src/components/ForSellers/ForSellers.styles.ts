@@ -6,7 +6,7 @@ export const getStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
       width: "100%",
-      paddingHorizontal: 15,
+      paddingHorizontal: 5,
       marginTop: 10,
     },
 
@@ -29,15 +29,15 @@ export const getStyles = (theme: Theme) =>
 
     title: {
       fontSize: 18,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: theme.textPrimary,
       marginBottom: 8,
       letterSpacing: 0.3,
     },
 
     description: {
-      fontSize: 12,
-      fontWeight: "400",
+      fontSize: 11,
+      fontFamily: theme.regular,
       color: theme.textSecondary,
       lineHeight: 18,
       marginBottom: 14,
@@ -56,9 +56,8 @@ export const getStyles = (theme: Theme) =>
 
     buttonText: {
       fontSize: 13,
-      fontWeight: "700",
+      fontFamily: theme.regular,
       color: "#0B0E14",
-      letterSpacing: 0.3,
     },
 
     imageContainer: {

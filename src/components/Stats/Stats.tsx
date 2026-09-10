@@ -1,7 +1,29 @@
-// components/Stats/Stats.tsx
-import { View, Text } from "react-native";
+import { Text, View } from "react-native";
 import { useTheme } from "../../context/ThemeContext";
 import { getStyles } from "./Stats.styles";
+
+const statsData = [
+  {
+    id: 1,
+    number: "AED 50+",
+    label: "WATCHES LISTED",
+  },
+  {
+    id: 2,
+    number: "100%",
+    label: "SELLER VERIFIED",
+  },
+  {
+    id: 3,
+    number: "7 Emirates",
+    label: "UAE COVERAGE",
+  },
+  {
+    id: 4,
+    number: "24/7",
+    label: "LIVE AUCTIONS",
+  },
+];
 
 const Stats = () => {
   const { theme } = useTheme();
@@ -9,20 +31,12 @@ const Stats = () => {
 
   return (
     <View style={styles.container}>
-      <View style={styles.statBox}>
-        <Text style={styles.statNumber}>35</Text>
-        <Text style={styles.statLabel}>LISTINGS</Text>
-      </View>
-
-      <View style={styles.statBox}>
-        <Text style={styles.statNumber}>5</Text>
-        <Text style={styles.statLabel}>SWIPES LEFT</Text>
-      </View>
-
-      <View style={styles.statBox}>
-        <Text style={styles.statNumber}>24/7</Text>
-        <Text style={styles.statLabel}>AUCTIONS</Text>
-      </View>
+      {statsData.map((stat) => (
+        <View key={stat.id} style={styles.statBox}>
+          <Text style={styles.statNumber}>{stat.number}</Text>
+          <Text style={styles.statLabel}>{stat.label}</Text>
+        </View>
+      ))}
     </View>
   );
 };

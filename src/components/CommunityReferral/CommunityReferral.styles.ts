@@ -5,150 +5,236 @@ import { Theme } from "../../constants/theme";
 export const getStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: 15,
-      gap: 12,
+      paddingHorizontal: 5,
+      gap: 6,
       marginBottom: theme.spacingSm,
+      marginTop: theme.spacingSm,
     },
 
-    // Community Card
-    communityCard: {
-      backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
-      padding: theme.spacingLg,
-      borderWidth: 1,
-      borderColor: theme.borderColor,
-    },
-
-    communityHeader: {
+    topRow: {
       flexDirection: "row",
       alignItems: "center",
-      gap: 10,
-      marginBottom: 8,
+      justifyContent: "space-between",
+      marginBottom: 14,
     },
 
     iconBadge: {
-      width: 38,
-      height: 38,
-      borderRadius: theme.radiusFull,
+      width: 40,
+      height: 40,
+      borderRadius: theme.radiusMd ?? 10,
+      backgroundColor: "rgba(91, 158, 255, 0.12)",
       alignItems: "center",
       justifyContent: "center",
     },
 
+    iconBadgeGold: {
+      backgroundColor: "rgba(240, 180, 41, 0.12)",
+    },
+
+    // ---- Community Card ----
+    communityCard: {
+      // backgroundColor: theme.bgSecondary,
+      borderRadius: theme.radiusLg,
+      padding: theme.spacingMd,
+      borderWidth: 1,
+      borderColor: "rgba(91, 158, 255, 0.15)",
+    },
+
+    pillBadgeBlue: {
+      backgroundColor: "rgba(91, 158, 255, 0.12)",
+      borderWidth: 1,
+      borderColor: "rgba(91, 158, 255, 0.3)",
+      borderRadius: theme.radiusFull,
+      paddingHorizontal: 10,
+      paddingVertical: 4,
+    },
+
+    pillBadgeBlueText: {
+      fontSize: 10,
+      fontFamily: theme.bold,
+      letterSpacing: 0.5,
+      color: "#5B9EFF",
+    },
+
     communityTitle: {
-      fontSize: 16,
-      fontWeight: "700",
+      fontSize: 19,
+      fontFamily: theme.bold,
       color: theme.textPrimary,
-      letterSpacing: 0.3,
+      letterSpacing: 0.2,
+      marginBottom: 8,
     },
 
     communityDescription: {
       fontSize: 13,
-      fontWeight: "400",
+      fontFamily: theme.regular,
       color: theme.textSecondary,
       lineHeight: 19,
-      marginBottom: 14,
+      marginBottom: 16,
     },
 
-    // White Button
-    buttonWrapper: {
-      width: "100%",
-      marginBottom: 14,
-    },
-
-    whiteButton: {
-      borderRadius: theme.radiusMd + 4,
-      paddingHorizontal: theme.spacingLg,
-      paddingVertical: theme.spacingSm + 4,
+    statsRow: {
+      flexDirection: "row",
       alignItems: "center",
-      justifyContent: "center",
-      flexDirection: "row",
-      gap: 8,
-      width: "100%",
-    },
-
-    whiteButtonText: {
-      fontSize: 13,
-      fontWeight: "700",
-      letterSpacing: 0.5,
-      color: "#0B0E14",
-    },
-
-    // Quick Links - Inside Community Card
-    quickLinks: {
-      flexDirection: "row",
       justifyContent: "space-between",
-      paddingTop: 14,
-      borderTopWidth: 1,
-      borderTopColor: theme.borderLight,
+      paddingBottom: 14,
+      marginBottom: 4,
+      borderBottomWidth: 1,
+      borderBottomColor: "rgba(255,255,255,0.06)",
     },
 
-    quickLink: {
+    avatarsRow: {
+      flexDirection: "row",
+      alignItems: "center",
+    },
+
+    avatarStack: {
+      flexDirection: "row",
+      marginRight: 8,
+    },
+
+    avatarCircle: {
+      width: 20,
+      height: 20,
+      borderRadius: theme.radiusFull,
+      borderWidth: 1.5,
+      borderColor: "#0B1220",
+    },
+
+    avatarOverlap: {
+      marginLeft: -8,
+    },
+
+    statsText: {
+      fontSize: 11,
+      fontWeight: "500",
+      color: theme.textSecondary,
+    },
+
+    onlineRow: {
+      flexDirection: "row",
+      alignItems: "center",
+      gap: 6,
+    },
+
+    onlineDot: {
+      width: 6,
+      height: 6,
+      borderRadius: theme.radiusFull,
+      backgroundColor: "#22c55e",
+    },
+
+    joinLinkRow: {
+      flexDirection: "row",
       alignItems: "center",
       gap: 4,
-      paddingVertical: 4,
-      flex: 1,
+      marginTop: 12,
     },
 
-    quickLinkText: {
-      fontSize: 10,
-      fontWeight: "600",
-      letterSpacing: 0.3,
+    joinLinkText: {
+      fontSize: 13,
+      fontFamily: theme.bold,
+      color: "#5B9EFF",
     },
 
-    // Referral Card
+    // ---- Referral Card ----
     referralCard: {
-      backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
-      padding: theme.spacingLg,
+      // backgroundColor: theme.bgSecondary,
+      borderRadius: theme.radiusLg,
+      padding: theme.spacingMd,
       borderWidth: 1,
-      borderColor: theme.borderColor,
+      borderColor: "rgba(240, 180, 41, 0.15)",
     },
 
-    referralHeader: {
-      flexDirection: "row",
-      alignItems: "center",
-      gap: 10,
-      marginBottom: 8,
+    pillBadgeGold: {
+      backgroundColor: "rgba(240, 180, 41, 0.12)",
+      borderWidth: 1,
+      borderColor: "rgba(240, 180, 41, 0.3)",
+      borderRadius: theme.radiusFull,
+      paddingHorizontal: 10,
+      paddingVertical: 4,
+    },
+
+    pillBadgeGoldText: {
+      fontSize: 10,
+      fontFamily: theme.bold,
+      letterSpacing: 0.5,
+      color: "#F0B429",
     },
 
     referralTitle: {
-      fontSize: 16,
-      fontWeight: "700",
+      fontSize: 19,
+      fontFamily: theme.bold,
       color: theme.textPrimary,
-      letterSpacing: 0.3,
+      letterSpacing: 0.2,
+      marginBottom: 8,
     },
 
     referralDescription: {
       fontSize: 13,
-      fontWeight: "400",
+      fontFamily: theme.regular,
       color: theme.textSecondary,
       lineHeight: 19,
-      marginBottom: 14,
+      marginBottom: 16,
     },
 
-    // Tier Badges
-    tierContainer: {
+    tierStatusRow: {
       flexDirection: "row",
-      justifyContent: "center",
-      gap: 8,
-      marginTop: 4,
+      justifyContent: "space-between",
+      alignItems: "center",
+      marginBottom: 8,
     },
 
-    tierBadge: {
+    tierStatusLabel: {
+      fontSize: 10,
+      fontFamily: theme.bold,
+      letterSpacing: 0.5,
+      color: theme.textSecondary,
+    },
+
+    tierStatusValue: {
+      fontSize: 10,
+      fontFamily: theme.bold,
+      letterSpacing: 0.5,
+      color: theme.textSecondary,
+    },
+
+    tierSegmentRow: {
+      flexDirection: "row",
+      backgroundColor: "rgba(255,255,255,0.04)",
+      borderRadius: theme.radiusMd ?? 10,
+      padding: 4,
+      marginBottom: 4,
+    },
+
+    tierSegment: {
+      flex: 1,
       flexDirection: "row",
       alignItems: "center",
-      gap: 4,
-      paddingHorizontal: 10,
-      paddingVertical: 4,
-      borderRadius: theme.radiusFull,
-      borderWidth: 1,
+      justifyContent: "center",
+      paddingVertical: 8,
+      borderRadius: (theme.radiusMd ?? 10) - 2,
     },
 
-    tierText: {
-      fontSize: 10,
-      fontWeight: "600",
-      letterSpacing: 0.3,
+    tierSegmentActive: {
+      backgroundColor: "#F0B429",
+    },
+
+    tierSegmentText: {
+      fontSize: 11,
+      fontFamily: theme.regular,
+      color: theme.textSecondary,
+    },
+
+    tierSegmentActiveText: {
+      fontSize: 11,
+      fontFamily: theme.bold,
+      color: "#0B0E14",
+    },
+
+    startEarningLinkText: {
+      fontSize: 13,
+      fontFamily: theme.bold,
+      color: "#F0B429",
     },
   });
 
-  

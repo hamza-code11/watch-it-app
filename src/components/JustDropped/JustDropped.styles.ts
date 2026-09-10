@@ -1,18 +1,16 @@
-// components/JustDropped/JustDropped.styles.ts
 import { Dimensions, StyleSheet } from "react-native";
 import { Theme } from "../../constants/theme";
 
 const { width } = Dimensions.get("window");
-const GRID_GAP = 12;
+const GRID_GAP = 8;
 const H_PADDING = 15;
-const COLUMNS = 2;
+const COLUMNS = 3; 
 const CARD_WIDTH =
   (width - H_PADDING * 2 - GRID_GAP * (COLUMNS - 1)) / COLUMNS;
 
 export const getStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: H_PADDING,
       paddingTop: 24,
       paddingBottom: 8,
     },
@@ -22,39 +20,35 @@ export const getStyles = (theme: Theme) =>
       alignItems: "center",
       justifyContent: "space-between",
       marginBottom: 14,
+      paddingHorizontal: H_PADDING,
     },
 
     headerTitle: {
       fontSize: 19,
-      fontWeight: "700",
       color: theme.textPrimary,
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
     },
 
-    headerLink: {
-      fontSize: 12,
-      fontWeight: "600",
-      color: theme.textMuted,
-    },
-
-    grid: {
-      flexDirection: "row",
-      flexWrap: "wrap",
+    // ✅ Horizontal ScrollView
+    scrollContent: {
+      paddingHorizontal: H_PADDING,
       gap: GRID_GAP,
     },
 
+    // ✅ Card (Height kam ki)
     card: {
       width: CARD_WIDTH,
       backgroundColor: theme.bgCard,
-      borderRadius: 18,
+      borderRadius: theme.radiusMd, // Radius kam kiya
       borderWidth: 1,
       borderColor: theme.borderLight,
       overflow: "hidden",
     },
 
+    // ✅ Image Height kam ki
     imageWrapper: {
       width: "100%",
-      height: CARD_WIDTH,
+      height: CARD_WIDTH * 0.9, // Height reduced (square se thora chota)
       position: "relative",
     },
 
@@ -65,47 +59,46 @@ export const getStyles = (theme: Theme) =>
 
     verifiedBadge: {
       position: "absolute",
-      top: 8,
-      left: 8,
+      top: 6,
+      left: 6,
       flexDirection: "row",
       alignItems: "center",
       backgroundColor: "rgba(0,0,0,0.55)",
-      paddingHorizontal: 8,
-      paddingVertical: 3,
+      paddingHorizontal: 6,
+      paddingVertical: 2,
       borderRadius: theme.radiusFull,
-      gap: 3,
+      gap: 2,
     },
 
     verifiedText: {
-      fontSize: 9,
-      fontWeight: "700",
+      fontSize: 8,
       color: theme.success,
-      letterSpacing: 0.3,
+      letterSpacing: 0.2,
+      fontFamily: theme.regular,
     },
 
+    // ✅ Info Padding kam ki
     info: {
-      padding: 10,
+      padding: 8,
     },
 
     brand: {
-      fontSize: 13,
-      fontWeight: "700",
+      fontSize: 11,
+      fontFamily: theme.bold,
       color: theme.textPrimary,
     },
 
     price: {
-      fontSize: 15,
-      fontWeight: "700",
+      fontSize: 13,
+      fontFamily: theme.bold,
       color: theme.textPrimary,
-      marginTop: 4,
+      marginTop: 3,
     },
 
     location: {
-      fontSize: 10,
-      fontWeight: "500",
+      fontSize: 9,
+      fontFamily: theme.regular,
       color: theme.textMuted,
       marginTop: 2,
     },
   });
-
-  

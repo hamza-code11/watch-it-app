@@ -1,5 +1,5 @@
 // app/_layout.tsx
-import { Montserrat_700Bold, useFonts } from "@expo-google-fonts/montserrat";
+import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
 import { Stack } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
@@ -48,8 +48,8 @@ const AppStack = () => {
         <Stack.Screen name="flashSaleDetail" options={{ headerShown: false }} />
         <Stack.Screen name="createListing" options={{ headerShown: false }} />
         <Stack.Screen name="myListings" options={{ headerShown: false }} />
-        <Stack.Screen name="pages/listingDetails/[id]" options={{ headerShown: false }} />  
-        <Stack.Screen name="watchAuthentication" options={{ headerShown: false }} />  
+        <Stack.Screen name="pages/listingDetails/[id]" options={{ headerShown: false }} />
+        <Stack.Screen name="watchAuthentication" options={{ headerShown: false }} />
         <Stack.Screen
           name="settings"
           options={{
@@ -70,7 +70,9 @@ const RootLayout = () => {
   const [sidebarVisible, setSidebarVisible] = useState(false);
 
   const [fontsLoaded] = useFonts({
-    Montserrat_700Bold,
+    Bold: require("../../assets/fonts/RobotoSlab-Bold.ttf"),
+    Regular: require("../../assets/fonts/RobotoSlab-Regular.ttf"),
+    Light: require("../../assets/fonts/RobotoSlab-Light.ttf"),
   });
 
   const onSplashLayout = useCallback(() => {

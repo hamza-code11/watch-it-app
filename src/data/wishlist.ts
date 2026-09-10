@@ -1,0 +1,48 @@
+import { Product } from '../types/product.types';
+
+export const wishlistData: Product[] = [
+  {
+    id: 'prod-1',
+    brandName: 'Rolex',
+    title: 'Submariner Date',
+    sellerName: 'Heritage Timepieces',
+    price: '7,103 AED',
+    image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
+    rating: 4.9,
+    condition: 'New',
+    year: 2024,
+  },
+  {
+    id: 'prod-2',
+    brandName: 'Rolex',
+    title: 'Nautilus',
+    sellerName: 'Heritage Timepieces',
+    price: '24,795 AED',
+    image: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=800&auto=format&fit=crop',
+    rating: 4.8,
+    condition: 'Pre-Owned',
+    year: 2021,
+  },
+  {
+    id: 'prod-3',
+    brandName: 'Rolex',
+    title: 'Carrera Chronograph 6',
+    sellerName: 'Heritage Timepieces',
+    price: '9,500 AED',
+    image: 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=800&auto=format&fit=crop',
+    rating: 4.7,
+    condition: 'New',
+    year: 2023,
+  },
+  {
+    id: 'prod-4',
+    brandName: 'Rolex',
+    title: 'Speedmaster Professional',
+    sellerName: 'Heritage Timepieces',
+    price: '12,400 AED',
+    image: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
+    rating: 4.6,
+    condition: 'Pre-Owned',
+    year: 2020,
+  },
+];
