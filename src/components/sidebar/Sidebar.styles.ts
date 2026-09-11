@@ -50,12 +50,13 @@ export const getStyles = (theme: Theme) =>
     welcomeText: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     subtitleText: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
     menuContainer: {
       flex: 1,
@@ -67,7 +68,7 @@ export const getStyles = (theme: Theme) =>
     sectionTitle: {
       color: theme.textMuted,
       fontSize: 13,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       letterSpacing: 0.5,
       marginBottom: 8,
@@ -93,7 +94,6 @@ export const getStyles = (theme: Theme) =>
     menuText: {
       color: theme.textSecondary,
       fontSize: 15,
-      fontWeight: '500',
+      fontFamily: theme.regular,
     },
   });
-  2

@@ -13,17 +13,16 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 40,
-    fontWeight: "700",
     color: "#ffffff",
     letterSpacing: 6,
-    fontFamily: "serif",
+    fontFamily: "Bold",
   },
   subtitle: {
     marginTop: 10,
     fontSize: 12,
     color: "#c9a45c",
     letterSpacing: 3,
-    fontWeight: "500",
+    fontFamily: "Bold",
   },
   divider: {
     width: 40,
@@ -33,8 +32,8 @@ export const styles = StyleSheet.create({
   },
   tagline: {
     fontSize: 16,
-    color: "#a9c2d9",
-    fontStyle: "italic",
+    color: "#a9c2d9", 
+    fontFamily: "Bold",
   },
   footer: {
     position: "absolute",
@@ -51,6 +50,7 @@ export const styles = StyleSheet.create({
   kycText: {
     fontSize: 11,
     color: "#8bbdd9",
+    fontFamily: "Bold",
   },
   progressTrack: {
     width: 120,

@@ -5,12 +5,12 @@ import { Theme } from '../../constants/theme';
 export const getMyReferralsListStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
       marginBottom: theme.spacingLg,
     },
     referralListSection: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       padding: theme.spacingMd,
       borderWidth: 1,
       borderColor: theme.borderColor,
@@ -24,11 +24,12 @@ export const getMyReferralsListStyles = (theme: Theme) =>
     referralTitle: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     referralCount: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
     },
     referralItem: {
       flexDirection: 'row',
@@ -53,7 +54,7 @@ export const getMyReferralsListStyles = (theme: Theme) =>
     referralAvatarText: {
       color: theme.accentPrimary,
       fontSize: 14,
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
     referralInfo: {
       flex: 1,
@@ -61,16 +62,18 @@ export const getMyReferralsListStyles = (theme: Theme) =>
     referralName: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     referralEmail: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
     referralDate: {
       color: theme.textMuted,
-      fontSize: 12,
+      fontSize: 11,
+      fontFamily: theme.regular,
     },
     showMoreBtn: {
       flexDirection: 'row',
@@ -84,8 +87,8 @@ export const getMyReferralsListStyles = (theme: Theme) =>
     },
     showMoreText: {
       color: theme.textPrimary,
-      fontSize: 13,
-      fontWeight: '600',
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
   });
   

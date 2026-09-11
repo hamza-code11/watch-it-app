@@ -6,7 +6,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../../../context/ThemeContext';
 import { vendorDetailsData } from '../../../data/vendorDetails';
 import { getStyles } from '../../../screens/vendorDetail/vendorDetail.style';
-
+ 
 import VendorBanner from '../../../components/vendorDetail/VendorBanner';
 import VendorProductGrid from '../../../components/vendorDetail/VendorProductGrid';
 

@@ -7,11 +7,12 @@ export const getBrandBannerStyles = (theme: Theme) =>
       paddingHorizontal: theme.spacingSm,
       paddingVertical: theme.spacingSm,
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       borderWidth: 1,
       borderColor: theme.borderColor,
-      flexDirection: 'column', // Column kiya taake sab vertically stack ho
-      gap: 20,
+      flexDirection: 'column',
+      gap: 10,
+      marginTop: theme.spacingSm,
     },
     
     // Top Row (Logo + Info)
@@ -42,13 +43,13 @@ export const getBrandBannerStyles = (theme: Theme) =>
     brandName: {
       color: theme.textPrimary,
       fontSize: 24,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
     },
     brandDescription: {
       color: theme.textSecondary,
       fontSize: 12,
       lineHeight: 18,
+      fontFamily: theme.regular,
     },
 
     // Stats Row (Neechy Full Width)
@@ -67,15 +68,16 @@ export const getBrandBannerStyles = (theme: Theme) =>
     },
     statNumber: {
       color: theme.accentPrimary,
-      fontSize: 22,
-      fontWeight: 'bold',
+      fontSize: 18,
+      fontFamily: theme.bold,
     },
     statLabel: {
       color: theme.textMuted,
-      fontSize: 11,
+      fontSize: 10,
       textTransform: 'uppercase',
       letterSpacing: 0.5,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
     statDivider: {
       width: 1,

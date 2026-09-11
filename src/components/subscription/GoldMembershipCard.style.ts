@@ -5,15 +5,15 @@ export const getGoldMembershipCardStyles = (theme: Theme) =>
   StyleSheet.create({
     // Container
     container: {
-      marginHorizontal: theme.spacingLg,
-      marginTop: theme.spacingLg,
-      marginBottom: theme.spacingLg,
+      marginHorizontal: theme.spacingSm,
+      marginTop: theme.spacingSm,
+      marginBottom: theme.spacingMd,
     },
 
     // Premium Card
     card: {
-      borderRadius: 20,
-      padding: 20,
+      borderRadius: theme.radiusLg,
+      padding: theme.spacingMd,
       borderWidth: 1,
       borderColor: 'rgba(253, 176, 34, 0.3)', // Subtle gold border
       backgroundColor: 'rgba(20, 22, 35, 0.8)',
@@ -52,13 +52,13 @@ export const getGoldMembershipCardStyles = (theme: Theme) =>
     cardTitle: {
       color: '#FDB022',
       fontSize: 20,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
     },
     cardSubtitle: {
       color: '#C7C9DE',
       fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
 
     // Price Section
@@ -74,16 +74,17 @@ export const getGoldMembershipCardStyles = (theme: Theme) =>
     currency: {
       color: '#FDB022',
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.regular,
     },
     price: {
       color: '#FDB022',
       fontSize: 32,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     priceUnit: {
       color: '#C7C9DE',
       fontSize: 14,
+      fontFamily: theme.regular,
     },
 
     // Features
@@ -100,6 +101,7 @@ export const getGoldMembershipCardStyles = (theme: Theme) =>
     featureText: {
       color: '#8C8FAD',
       fontSize: 12,
+      fontFamily: theme.regular,
     },
 
     // Button Section
@@ -118,7 +120,7 @@ export const getGoldMembershipCardStyles = (theme: Theme) =>
     buttonText: {
       color: '#000000',
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
   });
 

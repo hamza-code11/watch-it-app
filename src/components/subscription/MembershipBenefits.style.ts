@@ -4,14 +4,13 @@ import { Theme } from '../../constants/theme';
 export const getMembershipBenefitsStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
       marginBottom: theme.spacingLg,
     },
     sectionTitle: {
       color: theme.textPrimary,
       fontSize: 20,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
       textAlign: 'center',
       marginBottom: theme.spacingMd,
     },
@@ -40,12 +39,13 @@ export const getMembershipBenefitsStyles = (theme: Theme) =>
     benefitTitle: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     benefitDescription: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
     benefitArrow: {
       alignItems: 'flex-end',

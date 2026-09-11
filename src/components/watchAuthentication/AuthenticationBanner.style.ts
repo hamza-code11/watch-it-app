@@ -3,11 +3,10 @@ import { Theme } from '../../constants/theme';
 
 export const getBannerStyles = (theme: Theme) =>
   StyleSheet.create({
-    // Full Width, Dark Blue Gradient, Compact Height
     banner: {
       width: '100%',
-      paddingVertical: theme.spacingMd, // Height aur compact ki
-      paddingHorizontal: theme.spacingLg,
+      paddingVertical: theme.spacingLg, 
+      paddingHorizontal: theme.spacingMd,
     },
     badge: {
       flexDirection: 'row',
@@ -23,18 +22,18 @@ export const getBannerStyles = (theme: Theme) =>
     badgeText: {
       color: '#FFFFFF',
       fontSize: 12,
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
     bannerTitle: {
       color: '#FFFFFF',
       fontSize: 28,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
       marginBottom: theme.spacingXs,
     },
     bannerSubtitle: {
       color: 'rgba(255,255,255,0.9)',
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 20,
+      fontFamily: theme.regular,
     },
   });

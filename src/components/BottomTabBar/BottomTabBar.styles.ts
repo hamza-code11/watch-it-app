@@ -40,12 +40,12 @@ export const getStyles = (theme: Theme, bottomInset: number = 0) =>
 
     label: {
       fontSize: 10,
-      fontWeight: "500",
+      fontFamily: theme.regular,
       color: theme.textMuted,
     },
 
     labelActive: {
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: "#F0B429",
     },
 
@@ -75,7 +75,7 @@ export const getStyles = (theme: Theme, bottomInset: number = 0) =>
 
     centerLabel: {
       fontSize: 10,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: theme.textPrimary,
     },
   });

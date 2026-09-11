@@ -8,7 +8,7 @@ import { getStyles } from '../../../screens/productDetail/productDetail.style';
 import ProductImageGallery from '../../../components/productDetail/ProductImageGallery';
 import ProductInfo from '../../../components/productDetail/ProductInfo';
 import ProductVendorReviews from '../../../components/productDetail/ProductVendorReviews';
-
+ 
 export default function ProductDetail() {
   const router = useRouter();
   const { theme } = useTheme();

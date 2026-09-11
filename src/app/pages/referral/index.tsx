@@ -10,7 +10,7 @@ import ReferralBanner from '../../../components/referral/ReferralBanner';
 import ReferralCodeSection from '../../../components/referral/ReferralCodeSection';
 import ReferralStats from '../../../components/referral/ReferralStats';
 import ReferralTiers from '../../../components/referral/ReferralTiers';
-
+ 
 export default function ReferralProgram() {
   const router = useRouter();
   const { theme } = useTheme();
@@ -22,7 +22,6 @@ export default function ReferralProgram() {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainer}
       >
         {/* Header */}
         <View style={styles.header}>

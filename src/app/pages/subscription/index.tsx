@@ -7,7 +7,7 @@ import { getStyles } from '../../../screens/subscription/subscription.style';
 
 import GoldMembershipCard from '../../../components/subscription/GoldMembershipCard';
 import MembershipBenefits from '../../../components/subscription/MembershipBenefits';
-
+ 
 export default function Subscription() {
   const router = useRouter();
   const { theme } = useTheme();

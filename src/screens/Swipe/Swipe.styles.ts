@@ -28,9 +28,8 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     headerTitle: {
       fontSize: 18,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: theme.textPrimary,
-      fontFamily: "Georgia",
       flex: 1,
       textAlign: "center",
     },
@@ -43,7 +42,7 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     headerCount: {
       fontSize: 12,
-      fontWeight: "500",
+      fontFamily: theme.regular,
       color: theme.textMuted,
     },
 
@@ -99,7 +98,7 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     cardBrand: {
       fontSize: 11,
-      fontWeight: "600",
+      fontFamily: theme.bold,
       color: "#D4AF37",
       letterSpacing: 1.8,
       textTransform: "uppercase",
@@ -107,9 +106,8 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     cardName: {
       fontSize: 20,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: "#FFFFFF",
-      fontFamily: "Georgia",
       marginTop: 2,
     },
 
@@ -124,6 +122,7 @@ export const getStyles = (theme: Theme, insets: any) =>
     cardMetaText: {
       fontSize: 10,
       color: "rgba(255,255,255,0.7)",
+      fontFamily: theme.regular,
     },
 
     metaDot: {
@@ -135,7 +134,7 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     cardPrice: {
       fontSize: 18,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: "#FFFFFF",
       marginTop: 6,
     },
@@ -165,7 +164,7 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     passText: {
       fontSize: 13,
-      fontWeight: "600",
+      fontFamily: theme.bold,
       color: "#FF6B6B",
     },
 
@@ -176,7 +175,7 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     interestText: {
       fontSize: 13,
-      fontWeight: "600",
+      fontFamily: theme.bold,
       color: "#4F9FFF",
     },
 
@@ -190,10 +189,9 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     lockTitle: {
       fontSize: 20,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: theme.textPrimary,
       marginTop: 16,
-      fontFamily: "Georgia",
     },
 
     lockText: {
@@ -202,6 +200,7 @@ export const getStyles = (theme: Theme, insets: any) =>
       textAlign: "center",
       marginTop: 8,
       marginBottom: 24,
+      fontFamily: theme.bold,
     },
 
     // ===== FILTER MODAL =====
@@ -229,9 +228,8 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     modalTitle: {
       fontSize: 20,
-      fontWeight: "700",
       color: theme.textPrimary,
-      fontFamily: "Georgia",
+      fontFamily: theme.bold,
     },
 
     filterSection: {
@@ -240,7 +238,7 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     filterLabel: {
       fontSize: 13,
-      fontWeight: "600",
+      fontFamily: theme.bold,
       color: theme.textPrimary,
       marginBottom: 6,
     },
@@ -261,6 +259,7 @@ export const getStyles = (theme: Theme, insets: any) =>
       flex: 1,
       fontSize: 13,
       color: theme.textPrimary,
+      fontFamily: theme.regular,
     },
 
     brandItem: {
@@ -270,6 +269,7 @@ export const getStyles = (theme: Theme, insets: any) =>
     brandText: {
       fontSize: 13,
       color: theme.textSecondary,
+      fontFamily: theme.regular,
     },
 
     // ===== CHIPS =====
@@ -291,6 +291,7 @@ export const getStyles = (theme: Theme, insets: any) =>
     chipText: {
       fontSize: 12,
       color: theme.textSecondary,
+      fontFamily: theme.regular,
     },
 
     chipActive: {
@@ -322,6 +323,7 @@ export const getStyles = (theme: Theme, insets: any) =>
     priceInputText: {
       fontSize: 13,
       color: theme.textPrimary,
+      fontFamily: theme.regular,
     },
 
     priceSeparator: {
@@ -349,6 +351,7 @@ export const getStyles = (theme: Theme, insets: any) =>
     yearInputText: {
       fontSize: 13,
       color: theme.textPrimary,
+      fontFamily: theme.regular,
     },
 
     yearSeparator: {
@@ -382,6 +385,7 @@ export const getStyles = (theme: Theme, insets: any) =>
     toggleText: {
       fontSize: 13,
       color: theme.textPrimary,
+      fontFamily: theme.regular,
     },
 
     // ===== FILTER ACTIONS =====
@@ -404,8 +408,8 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     resetText: {
       fontSize: 13,
-      fontWeight: "600",
       color: theme.textSecondary,
+      fontFamily: theme.bold,
     },
 
     showBtn: {
@@ -421,7 +425,7 @@ export const getStyles = (theme: Theme, insets: any) =>
 
     showText: {
       fontSize: 13,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: "#0B0E14",
     },
   });

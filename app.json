@@ -12,6 +12,7 @@
     },
     "android": {
       "predictiveBackGestureEnabled": false,
+      "softwareKeyboardLayoutMode": "pan",
       "package": "com.anonymous.app",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",

@@ -1,7 +1,8 @@
 // app/_layout.tsx
+
 import { useFonts } from "expo-font";
 import { LinearGradient } from "expo-linear-gradient";
-import { Stack } from "expo-router";
+import { Stack, usePathname } from "expo-router";
 import * as SplashScreen from "expo-splash-screen";
 import { StatusBar } from "expo-status-bar";
 import { useCallback, useState } from "react";
@@ -13,9 +14,6 @@ import Header from "../components/header/Header";
 import Sidebar from "../components/sidebar/Sidebar";
 import SplashScreenView from "../components/SplashScreenView/SplashScreenView";
 import { ThemeProvider, useTheme } from "../context/ThemeContext";
-
-
-
 
 SplashScreen.preventAutoHideAsync();
 
@@ -41,23 +39,54 @@ const AppStack = () => {
       >
         <Stack.Screen name="index" />
         <Stack.Screen name="about" />
-        <Stack.Screen name="profile" options={{ headerShown: false }} />
-        <Stack.Screen name="swipe" options={{ headerShown: false }} />
-        <Stack.Screen name="auction" options={{ headerShown: false }} />
-        <Stack.Screen name="auctionDetail" options={{ headerShown: false }} />
-        <Stack.Screen name="flashSaleDetail" options={{ headerShown: false }} />
-        <Stack.Screen name="createListing" options={{ headerShown: false }} />
-        <Stack.Screen name="myListings" options={{ headerShown: false }} />
-        <Stack.Screen name="pages/listingDetails/[id]" options={{ headerShown: false }} />
-        <Stack.Screen name="watchAuthentication" options={{ headerShown: false }} />
+        <Stack.Screen
+          name="profile"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="swipe"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="auction"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="auctionDetail"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="flashSaleDetail"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="createListing"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="myListings"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="pages/listingDetails/[id]"
+          options={{ headerShown: false }}
+        />
+        <Stack.Screen
+          name="watchAuthentication"
+          options={{ headerShown: false }}
+        />
         <Stack.Screen
           name="settings"
           options={{
             title: "Settings",
-            headerStyle: { backgroundColor: "transparent" },
+            headerStyle: {
+              backgroundColor: "transparent",
+            },
             headerTransparent: true,
             headerTintColor: theme.textPrimary,
-            headerTitleStyle: { color: theme.textPrimary },
+            headerTitleStyle: {
+              color: theme.textPrimary,
+            },
           }}
         />
       </Stack>
@@ -66,8 +95,13 @@ const AppStack = () => {
 };
 
 const RootLayout = () => {
-  const [showCustomSplash, setShowCustomSplash] = useState(true);
-  const [sidebarVisible, setSidebarVisible] = useState(false);
+  const pathname = usePathname();
+
+  const [showCustomSplash, setShowCustomSplash] =
+    useState(true);
+
+  const [sidebarVisible, setSidebarVisible] =
+    useState(false);
 
   const [fontsLoaded] = useFonts({
     Bold: require("../../assets/fonts/RobotoSlab-Bold.ttf"),
@@ -81,6 +115,16 @@ const RootLayout = () => {
     }
   }, [fontsLoaded]);
 
+  /*
+   * Personal Chat screen par Bottom Bar hide hoga.
+   *
+   * /pages/messages       -> Bottom Bar SHOW
+   * /pages/chat/123        -> Bottom Bar HIDE
+   * /pages/chat/456        -> Bottom Bar HIDE
+   */
+  const isPersonalChat =
+    pathname.startsWith("/pages/chat/");
+
   if (!fontsLoaded) {
     return null;
   }
@@ -91,36 +135,45 @@ const RootLayout = () => {
         <View style={styles.root}>
           <StatusBar style="light" />
 
-          {/* App Screens - Full screen with gradient */}
           <View style={styles.content}>
             <AppStack />
           </View>
 
-          {/* Fixed Header */}
           {!showCustomSplash && (
             <View style={styles.header}>
               <Header
-                onProfilePress={() => setSidebarVisible(true)}
-                onNotificationPress={() => console.log("Notification")}
+                onProfilePress={() =>
+                  setSidebarVisible(true)
+                }
+                onNotificationPress={() =>
+                  console.log("Notification")
+                }
               />
             </View>
           )}
 
-          {/* Fixed Bottom Tab */}
-          {!showCustomSplash && <BottomTabBar />}
+          {/* Bottom Bar:
+              Chat List par SHOW
+              Personal Chat par HIDE
+          */}
+          {!showCustomSplash && !isPersonalChat && (
+            <BottomTabBar />
+          )}
 
-          {/* Sidebar - Global */}
           <Sidebar
             visible={sidebarVisible}
-            onClose={() => setSidebarVisible(false)}
+            onClose={() =>
+              setSidebarVisible(false)
+            }
           />
 
-          {/* Custom Splash */}
           {showCustomSplash && (
             <SplashScreenView
               style={StyleSheet.absoluteFill}
               onLayout={onSplashLayout}
-              onFinish={() => setShowCustomSplash(false)}
+              onFinish={() =>
+                setShowCustomSplash(false)
+              }
             />
           )}
         </View>
@@ -132,16 +185,19 @@ const RootLayout = () => {
 const styles = StyleSheet.create({
   root: {
     flex: 1,
-    backgroundColor: '#000', // Fallback color
+    backgroundColor: "#000",
   },
+
   content: {
     flex: 1,
   },
+
   gradient: {
     flex: 1,
-    width: '100%',
-    height: '100%',
+    width: "100%",
+    height: "100%",
   },
+
   header: {
     position: "absolute",
     top: 0,
@@ -152,3 +208,14 @@ const styles = StyleSheet.create({
 });
 
 export default RootLayout;
+
+
+
+
+
+
+
+
+
+
+

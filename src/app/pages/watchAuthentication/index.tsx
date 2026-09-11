@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../../../context/ThemeContext';
 import { plansData } from '../../../data/watchAuthentication';
 import { getStyles } from '../../../screens/watchAuthentication/watchAuthentication.style';
-
+ 
 // Components import karein (CSS file nahi)
 import AuthenticationBanner from '../../../components/watchAuthentication/AuthenticationBanner';
 import AuthenticationForm from '../../../components/watchAuthentication/AuthenticationForm';
@@ -33,7 +33,6 @@ export default function WatchAuthentication() {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainer}
       >
         {/* Component 1: Banner */}
         <AuthenticationBanner />

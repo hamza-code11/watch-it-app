@@ -4,12 +4,11 @@ import { Theme } from '../../constants/theme';
 export const getStartApplicationStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
-      marginTop: theme.spacingSm,
-      marginBottom: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
+      marginBottom: theme.spacingMd,
     },
     buttonWrapper: {
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       overflow: 'hidden',
     },
     button: {
@@ -20,9 +19,9 @@ export const getStartApplicationStyles = (theme: Theme) =>
       paddingVertical: 16,
     },
     buttonText: {
-      color: '#000000', // Text ka color black kiya
+      color: '#000000',
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
   });
   

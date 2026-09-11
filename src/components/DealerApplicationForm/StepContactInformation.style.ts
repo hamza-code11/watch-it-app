@@ -4,11 +4,11 @@ import { Theme } from '../../constants/theme';
 export const getStepContactStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
     },
     card: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       padding: theme.spacingMd,
       borderWidth: 1,
       borderColor: theme.borderColor,
@@ -16,13 +16,14 @@ export const getStepContactStyles = (theme: Theme) =>
     title: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 4,
     },
     subtitle: {
       color: theme.textMuted,
       fontSize: 13,
       marginBottom: 16,
+      fontFamily: theme.regular,
     },
     // Sab inputs ek nayi row mein
     inputContainer: {
@@ -31,7 +32,7 @@ export const getStepContactStyles = (theme: Theme) =>
     label: {
       color: theme.textSecondary,
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.bold,
       marginBottom: 4,
     },
     input: {
@@ -43,6 +44,7 @@ export const getStepContactStyles = (theme: Theme) =>
       fontSize: 14,
       borderWidth: 1,
       borderColor: theme.borderLight,
+      fontFamily: theme.regular,
     },
   });
   

@@ -127,23 +127,23 @@ export default function ListingDetails() {
           <View style={styles.featuresRow}>
             {/* Trade-Ins */}
             <View style={[styles.featureChip, { backgroundColor: '#0B3B2A', borderColor: '#10B981' }]}>
-              <Ionicons name="checkmark" size={14} color="#10B981" />
-              <Text style={[styles.featureChipText, { color: '#10B981' }]}>Trade-Ins: Enabled</Text>
+              <Ionicons name="checkmark" size={12} color="#10B981" />
+              <Text style={[styles.featureChipText, { color: '#10B981' }]}>Trade-in Accepted</Text>
             </View>
             
             {/* WatchIt Auth */}
             {listing.authenticateWithWatchIt && (
               <View style={[styles.featureChip, { backgroundColor: '#1E3A8A', borderColor: '#60A5FA' }]}>
-                <Ionicons name="shield-checkmark-outline" size={14} color="#60A5FA" />
-                <Text style={[styles.featureChipText, { color: '#60A5FA' }]}>WatchIt Auth: Enabled</Text>
+                <Ionicons name="shield-checkmark-outline" size={12} color="#60A5FA" />
+                <Text style={[styles.featureChipText, { color: '#60A5FA' }]}>WatchIt Authenticated</Text>
               </View>
             )}
             
             {/* Box & Papers */}
             {listing.includesBoxAndPapers && (
               <View style={[styles.featureChip, { backgroundColor: '#4A2E06', borderColor: '#FDB022' }]}>
-                <Ionicons name="archive-outline" size={14} color="#FDB022" />
-                <Text style={[styles.featureChipText, { color: '#FDB022' }]}>Box & Papers: Included</Text>
+                <Ionicons name="archive-outline" size={12} color="#FDB022" />
+                <Text style={[styles.featureChipText, { color: '#FDB022' }]}>Box & Papers</Text>
               </View>
             )}
           </View>

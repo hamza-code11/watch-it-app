@@ -4,29 +4,32 @@ import { Theme } from '../../constants/theme';
 export const getPartnersStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
-      paddingVertical: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
+      paddingVertical: theme.spacingMd,
     },
     label: {
       color: theme.accentPrimary,
-      fontSize: 13,
-      fontWeight: 'bold',
+      fontSize: 12,
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       letterSpacing: 1,
       marginBottom: 8,
+      paddingHorizontal: theme.spacingSm,
     },
     title: {
       color: theme.textPrimary,
       fontSize: 28,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
       marginBottom: 12,
+      paddingHorizontal: theme.spacingSm,
     },
     description: {
       color: theme.textSecondary,
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 22,
       marginBottom: 24,
+      fontFamily: theme.regular,
+      paddingHorizontal: theme.spacingSm,
     },
     grid: {
       flexDirection: 'row',
@@ -45,13 +48,12 @@ export const getPartnersStyles = (theme: Theme) =>
       borderRightWidth: 1,
       borderBottomWidth: 1,
       borderColor: theme.borderColor,
+      backgroundColor: theme.bgCard,
     },
     brandText: {
       color: theme.textPrimary,
-      fontSize: 13,
-      fontWeight: '600',
-      fontFamily: theme.fontFamily,
-      fontStyle: 'italic',
+      fontSize: 12,
+      fontFamily: theme.regular,
       textAlign: 'center',
     },
   });

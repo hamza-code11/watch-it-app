@@ -17,10 +17,10 @@ type TabItem = {
 };
 
 const TABS: TabItem[] = [
-  { key: "discover", route: "/pages/home", icon: "home-outline", activeIcon: "home", label: "Discover" },
+  { key: "home", route: "/pages/home", icon: "home-outline", activeIcon: "home", label: "Home" },
   { key: "timepieces", route: "/pages/swipe", icon: "time-outline", activeIcon: "time", label: "Explore" },
   { key: "list", route: "/pages/createListing", icon: "add", activeIcon: "add", label: "List", isCenter: true },
-  { key: "goldVip", route: "/pages/messages", icon: "chatbubble-ellipses-outline", activeIcon: "chatbubble-ellipses", label: "Gold VIP" },
+  { key: "goldVip", route: "/pages/messages", icon: "chatbubble-ellipses-outline", activeIcon: "chatbubble-ellipses", label: "Chat" },
   { key: "profile", route: "/pages/profile", icon: "person-outline", activeIcon: "person", label: "Profile" },
 ];
 

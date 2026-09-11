@@ -19,16 +19,16 @@ export const getDealerBannerStyles = (theme: Theme) =>
     },
     title: {
       color: '#FFFFFF',
-      fontSize: 32,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
-      lineHeight: 38,
+      fontSize: 28,
+      fontFamily: theme.bold,
+      lineHeight: 34,
       marginBottom: 8,
     },
     subtitle: {
       color: 'rgba(255,255,255,0.9)',
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 22,
+      fontFamily: theme.regular,
     },
   });
   

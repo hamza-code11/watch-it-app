@@ -4,22 +4,22 @@ import { Theme } from '../../constants/theme';
 export const getAboutBannerStyles = (theme: Theme) =>
   StyleSheet.create({
     banner: {
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingLg,
       width: '100%',
     },
     title: {
       color: '#FFFFFF',
       fontSize: 28,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
       marginBottom: 8,
     },
     description: {
       color: 'rgba(255,255,255,0.9)',
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 22,
       marginBottom: 20,
+      fontFamily: theme.regular,
     },
 
     // Stats Row (Single Row)
@@ -34,13 +34,14 @@ export const getAboutBannerStyles = (theme: Theme) =>
     },
     statNumber: {
       color: '#FFFFFF',
-      fontSize: 16,
-      fontWeight: 'bold',
+      fontSize: 14,
+      fontFamily: theme.bold,
     },
     statLabel: {
       color: 'rgba(255,255,255,0.8)',
-      fontSize: 10,
+      fontSize: 9,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
   });
   

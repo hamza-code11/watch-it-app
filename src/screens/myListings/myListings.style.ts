@@ -22,7 +22,7 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: '#FFFFFF',
       fontSize: 20,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     backBtn: {
       width: 36,
@@ -43,7 +43,7 @@ export const getStyles = (theme: Theme) =>
     createBtnText: {
       color: '#FFFFFF',
       fontSize: 13,
-      fontWeight: 'bold',
+      fontFamily: theme.regular,
     },
 
     // Filter Chips
@@ -53,7 +53,7 @@ export const getStyles = (theme: Theme) =>
       marginBottom: 8,
     },
     filterScrollContainer: {
-      paddingHorizontal: 16,
+      paddingHorizontal: theme.spacingSm,
       gap: 8,
       alignItems: 'center',
     },
@@ -72,7 +72,7 @@ export const getStyles = (theme: Theme) =>
     filterChipText: {
       color: '#8B92A5',
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
     filterChipTextActive: {
       color: '#FFFFFF',
@@ -84,15 +84,16 @@ export const getStyles = (theme: Theme) =>
       fontSize: 13,
       paddingHorizontal: 16,
       marginBottom: 12,
+      fontFamily: theme.regular,
     },
 
     listContainer: {
-      paddingBottom: 40,
+      paddingBottom: 10,
     },
     listingCard: {
       backgroundColor: '#13151F',
       borderRadius: 16,
-      marginHorizontal: 16,
+      marginHorizontal: theme.spacingSm,
       marginBottom: 12,
       padding: 14,
       borderWidth: 1,
@@ -119,7 +120,7 @@ export const getStyles = (theme: Theme) =>
     listingBrand: {
       color: '#38BDF8',
       fontSize: 11,
-      fontWeight: '700',
+      fontFamily: theme.bold,
       letterSpacing: 0.5,
       textTransform: 'uppercase',
       marginBottom: 2,
@@ -127,13 +128,13 @@ export const getStyles = (theme: Theme) =>
     listingTitle: {
       color: '#FFFFFF',
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 4,
     },
     listingPrice: {
       color: '#F3F4F6',
-      fontSize: 17,
-      fontWeight: 'bold',
+      fontSize: 15,
+      fontFamily: theme.bold,
     },
 
     // 3 Dots & Dropdown Container
@@ -173,7 +174,7 @@ export const getStyles = (theme: Theme) =>
     dropdownText: {
       color: '#38BDF8',
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
     dropdownTextDelete: {
       color: '#EF4444',
@@ -196,7 +197,7 @@ export const getStyles = (theme: Theme) =>
     },
     statusText: {
       fontSize: 11,
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
     listingMeta: {
       flexDirection: 'row',
@@ -206,6 +207,7 @@ export const getStyles = (theme: Theme) =>
     metaText: {
       color: '#8B92A5',
       fontSize: 12,
+      fontFamily: theme.regular,
     },
     metaDivider: {
       color: '#636B7E',
@@ -221,6 +223,7 @@ export const getStyles = (theme: Theme) =>
     emptyStateText: {
       color: '#636B7E',
       fontSize: 14,
+      fontFamily: theme.bold,
     },
   });
 

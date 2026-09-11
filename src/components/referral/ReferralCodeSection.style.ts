@@ -6,20 +6,20 @@ export const getReferralCodeStyles = (theme: Theme) =>
     // Single Box (Card) for Code + Tier
     mainCard: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       padding: theme.spacingLg,
-      marginHorizontal: theme.spacingLg,
-      marginBottom: theme.spacingLg,
+      marginHorizontal: theme.spacingSm,
+      marginBottom: theme.spacingSm,
       borderWidth: 1,
       borderColor: theme.borderColor,
     },
     codeLabel: {
       color: theme.textMuted,
       fontSize: 12,
-      fontWeight: '700',
+      fontFamily: theme.regular,
       textTransform: 'uppercase',
       letterSpacing: 1,
-      marginBottom: 12,
+      marginBottom: theme.spacingSm,
     },
     codeRow: {
       flexDirection: 'row',
@@ -30,7 +30,7 @@ export const getReferralCodeStyles = (theme: Theme) =>
     codeText: {
       color: theme.textPrimary,
       fontSize: 24,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       letterSpacing: 2,
     },
     copyBtn: {
@@ -45,7 +45,7 @@ export const getReferralCodeStyles = (theme: Theme) =>
     copyBtnText: {
       color: theme.accentPrimary,
       fontSize: 13,
-      fontWeight: 'bold',
+      fontFamily: theme.regular,
     },
     buttonsRow: {
       flexDirection: 'row',
@@ -67,7 +67,7 @@ export const getReferralCodeStyles = (theme: Theme) =>
     linkBtnText: {
       color: theme.accentPrimary,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.regular,
     },
     shareBtn: {
       flexDirection: 'row',
@@ -84,7 +84,7 @@ export const getReferralCodeStyles = (theme: Theme) =>
     shareBtnText: {
       color: theme.accentPrimary,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.regular,
     },
 
     // Tier Section (Now inside the card)
@@ -113,11 +113,12 @@ export const getReferralCodeStyles = (theme: Theme) =>
     tierText: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     tierProgressText: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
     },
     progressBar: {
       width: '100%',

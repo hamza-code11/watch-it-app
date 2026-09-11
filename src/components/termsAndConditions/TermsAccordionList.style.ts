@@ -5,13 +5,13 @@ import { Theme } from '../../constants/theme';
 export const getTermsAccordionStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
-      marginTop: 20,
+      paddingHorizontal: theme.spacingSm,
+      marginTop: theme.spacingMd,
     },
     sectionItem: {
       backgroundColor: 'rgba(20, 22, 35, 0.8)',
       borderRadius: theme.radiusMd,
-      marginBottom: 10,
+      marginBottom: theme.spacingSm,
       borderWidth: 1,
       borderColor: theme.borderColor,
     },
@@ -32,13 +32,13 @@ export const getTermsAccordionStyles = (theme: Theme) =>
     sectionNumberText: {
       color: theme.accentPrimary,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     sectionTitle: {
       flex: 1,
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     chevron: {
       padding: 4,
@@ -47,12 +47,13 @@ export const getTermsAccordionStyles = (theme: Theme) =>
       paddingHorizontal: 16,
       paddingBottom: 16,
       paddingTop: 0,
+      fontFamily: theme.bold,
     },
     sectionBody: {
       color: theme.textMuted,
-      fontSize: 13,
+      fontSize: 12,
       lineHeight: 20,
-      marginBottom: 8,
+      fontFamily: theme.regular,
     },
     bulletPoints: {
       paddingLeft: 8,

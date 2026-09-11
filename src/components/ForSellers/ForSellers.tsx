@@ -1,7 +1,7 @@
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { router } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
-
 import { useTheme } from "../../context/ThemeContext";
 import { getStyles } from "./ForSellers.styles";
 
@@ -12,7 +12,7 @@ const ForSellers = () => {
   const styles = getStyles(theme);
 
   const handleLearnMore = () => {
-    console.log("Learn More pressed");
+    router.push("/pages/createListing");
   };
 
   return (
@@ -31,7 +31,7 @@ const ForSellers = () => {
             activeOpacity={0.85}
           >
             <LinearGradient
-              colors={["#FFFFFF", "#E9EEF6"]}
+              colors={["#FFFFFF", "#E8EDF5", "#D5DCE8"]}
               start={{ x: 0, y: 0 }}
               end={{ x: 1, y: 1 }}
               style={styles.button}

@@ -6,21 +6,21 @@ export const getTermsBannerStyles = (theme: Theme) =>
   StyleSheet.create({
     banner: {
       width: '100%',
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingLg,
     },
     bannerTitle: {
       color: '#FFFFFF',
-      fontSize: 32,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontSize: 28,
+      fontFamily: theme.bold,
       marginBottom: 8,
     },
     bannerIntro: {
       color: 'rgba(255,255,255,0.9)',
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 22,
       marginBottom: 12,
+      fontFamily: theme.regular,
     },
     lastUpdatedRow: {
       flexDirection: 'row',
@@ -29,8 +29,8 @@ export const getTermsBannerStyles = (theme: Theme) =>
     },
     lastUpdatedText: {
       color: '#60A5FA',
-      fontSize: 13,
-      fontWeight: '600',
+      fontSize: 11,
+      fontFamily: theme.regular,
     },
   });
   

@@ -6,12 +6,11 @@ export const getStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: theme.bgPrimary,
     },
 
     contentContainer: {
-      paddingTop: 100,
-      paddingBottom: 100,
+      paddingTop: 80,
+      paddingBottom: 80,
     },
 
     // Profile Header Card
@@ -46,7 +45,7 @@ export const getStyles = (theme: Theme) =>
 
     avatarText: {
       fontSize: 22,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: "#0B0E14",
     },
 
@@ -56,14 +55,15 @@ export const getStyles = (theme: Theme) =>
 
     userName: {
       fontSize: 17,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: theme.textPrimary,
       marginBottom: 1,
     },
 
     userHandle: {
-      fontSize: 13,
+      fontSize: 11,
       color: theme.textMuted,
+      fontFamily: theme.regular,
     },
 
     settingsIcon: {
@@ -95,7 +95,7 @@ export const getStyles = (theme: Theme) =>
 
     statNumber: {
       fontSize: 20,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: theme.textPrimary,
     },
 
@@ -103,6 +103,7 @@ export const getStyles = (theme: Theme) =>
       fontSize: 12,
       color: theme.textMuted,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
 
     statDivider: {
@@ -125,7 +126,7 @@ export const getStyles = (theme: Theme) =>
 
     sectionTitle: {
       fontSize: 12,
-      fontWeight: "600",
+      fontFamily: theme.bold,
       color: theme.textMuted,
       textTransform: "uppercase",
       letterSpacing: 0.5,
@@ -157,7 +158,7 @@ export const getStyles = (theme: Theme) =>
     menuText: {
       fontSize: 14,
       color: theme.textPrimary,
-      fontWeight: "500",
+      fontFamily: theme.regular,
     },
 
     divider: {
@@ -197,7 +198,7 @@ export const getStyles = (theme: Theme) =>
 
     goldTitle: {
       fontSize: 15,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: theme.textPrimary,
       marginLeft: 8,
     },
@@ -205,14 +206,15 @@ export const getStyles = (theme: Theme) =>
     goldPrice: {
       fontSize: 13,
       color: theme.textMuted,
-      fontWeight: "500",
+      fontFamily: theme.regular,
       marginLeft: 20,
     },
 
     goldDescription: {
-      fontSize: 12,
+      fontSize: 11,
       color: theme.textSecondary,
       lineHeight: 16,
+      fontFamily: theme.regular,
     },
 
     upgradeButton: {
@@ -230,7 +232,7 @@ export const getStyles = (theme: Theme) =>
 
     upgradeText: {
       fontSize: 12,
-      fontWeight: "700",
+      fontFamily: theme.bold,
       color: "#0B0E14",
       letterSpacing: 0.3,
     },
@@ -252,7 +254,7 @@ export const getStyles = (theme: Theme) =>
 
     logoutText: {
       fontSize: 14,
-      fontWeight: "600",
+      fontFamily: theme.bold,
       color: "#F04438",
     },
   });

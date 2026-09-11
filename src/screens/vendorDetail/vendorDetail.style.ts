@@ -13,7 +13,8 @@ export const getStyles = (theme: Theme) =>
       alignItems: 'center', 
       gap: 8, 
       paddingHorizontal: theme.spacingMd,
-      paddingVertical: theme.spacingMd,
+      paddingVertical: theme.spacingSm,
+      backgroundColor: theme.bgPrimary,
     },
     backBtn: {
       padding: 4,
@@ -21,14 +22,14 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     // Filter Icon (Right Corner - Bilkul right mein)
     filterIconBtn: {
       marginLeft: 'auto', // Right corner mein push karega
-      width: 44,
-      height: 44,
+      width: 40,
+      height: 40,
       borderRadius: 22,
       backgroundColor: theme.bgCard,
       borderWidth: 1,
@@ -64,11 +65,11 @@ export const getStyles = (theme: Theme) =>
     dropdownHeaderText: {
       color: theme.textMuted,
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
     },
     dropdownItem: {
-      paddingVertical: 10,
+      paddingVertical: 8,
       paddingHorizontal: 12,
       borderRadius: theme.radiusMd,
     },
@@ -77,11 +78,10 @@ export const getStyles = (theme: Theme) =>
     },
     dropdownItemText: {
       color: theme.textPrimary,
-      fontSize: 14,
-      fontWeight: '500',
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
     dropdownItemTextSelected: {
       color: theme.accentPrimary,
-      fontWeight: 'bold',
     },
   });

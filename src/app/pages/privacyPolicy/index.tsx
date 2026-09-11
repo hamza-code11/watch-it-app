@@ -5,8 +5,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../../../context/ThemeContext';
 import { getStyles } from '../../../screens/privacyPolicy/privacyPolicy.style';
 
-import PrivacyBanner from '../../../components/privacyPolicy/PrivacyBanner';
 import PolicyAccordionList from '../../../components/privacyPolicy/PolicyAccordionList';
+import PrivacyBanner from '../../../components/privacyPolicy/PrivacyBanner';
 import PrivacyContactCard from '../../../components/privacyPolicy/PrivacyContactCard';
 
 export default function PrivacyPolicy() {
@@ -20,7 +20,6 @@ export default function PrivacyPolicy() {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainer}
       >
         {/* Header */}
         <View style={styles.header}>

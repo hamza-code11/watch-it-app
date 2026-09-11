@@ -12,7 +12,7 @@ export const getStyles = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       gap: 8,
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingMd,
       backgroundColor: theme.bgPrimary,
     },
@@ -22,18 +22,20 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     countText: {
       color: theme.textMuted,
       fontSize: 14,
-      paddingHorizontal: theme.spacingLg,
-      marginBottom: theme.spacingMd,
+      paddingHorizontal: theme.spacingMd,
+      marginTop: theme.spacingMd,
+      marginBottom: theme.spacingSm,
+      fontFamily: theme.bold,
     },
 
     // Vertical List
     listContainer: {
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
     },
     listItem: {
       flexDirection: 'row',
@@ -63,14 +65,14 @@ export const getStyles = (theme: Theme) =>
     itemBrand: {
       color: theme.accentPrimary,
       fontSize: 12,
-      fontWeight: '600',
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       letterSpacing: 0.5,
     },
     itemTitle: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginTop: 4,
     },
     itemSeller: {
@@ -87,7 +89,7 @@ export const getStyles = (theme: Theme) =>
     itemPrice: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     itemRating: {
       flexDirection: 'row',
@@ -97,6 +99,7 @@ export const getStyles = (theme: Theme) =>
     itemRatingText: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
     },
     
     // Item Action Buttons (Har card ke andar)
@@ -122,7 +125,7 @@ export const getStyles = (theme: Theme) =>
     moveToCartBtnText: {
       color: theme.accentPrimary,
       fontSize: 12,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     removeBtn: {
       flexDirection: 'row',
@@ -139,6 +142,6 @@ export const getStyles = (theme: Theme) =>
     removeBtnText: {
       color: theme.danger,
       fontSize: 12,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
   });

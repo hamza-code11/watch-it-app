@@ -4,22 +4,22 @@ import { Theme } from '../../constants/theme';
 export const getDealerStepsProgressStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
-      marginBottom: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
+      marginBottom: theme.spacingMd,
     },
     
     // Header / Step Counter
     stepTitle: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
       textAlign: 'center',
       marginBottom: 16,
       letterSpacing: 0.5,
     },
     stepTitleHighlight: {
       color: theme.accentPrimary,
-      fontWeight: '800',
+      fontFamily: theme.bold,
     },
 
     // Main Row
@@ -100,7 +100,7 @@ export const getDealerStepsProgressStyles = (theme: Theme) =>
     activeStepNumber: {
       color: '#000000', // White gradient par black number
       fontSize: 15,
-      fontWeight: '800',
+      fontFamily: theme.bold,
     },
     completedCheck: {
       color: '#FFFFFF', // Green gradient par white check
@@ -108,26 +108,26 @@ export const getDealerStepsProgressStyles = (theme: Theme) =>
     inactiveStepNumber: {
       color: theme.textMuted,
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     // Labels
     stepLabel: {
       fontSize: 11,
-      fontWeight: '500',
+      fontFamily: theme.bold,
       textAlign: 'center',
       letterSpacing: 0.3,
     },
     stepLabelActive: {
       color: '#FFFFFF', // White text for active
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
     stepLabelCompleted: {
       color: '#32D583', // Green for completed
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     stepLabelInactive: {
       color: theme.textMuted,
-      fontWeight: '400',
+      fontFamily: theme.bold,
     },
   });

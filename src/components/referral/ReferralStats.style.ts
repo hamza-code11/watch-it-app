@@ -7,14 +7,13 @@ export const getReferralStatsStyles = (theme: Theme) =>
     statsRow: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      gap: 10,
-      paddingHorizontal: theme.spacingLg,
-      marginBottom: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
+      marginBottom: theme.spacingSm,
     },
     statCard: {
       width: '31%',
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       padding: theme.spacingMd,
       borderWidth: 1,
       borderColor: theme.borderColor,
@@ -31,13 +30,14 @@ export const getReferralStatsStyles = (theme: Theme) =>
     statNumber: {
       color: theme.textPrimary,
       fontSize: 22,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     statLabel: {
       color: theme.textMuted,
       fontSize: 12,
       textAlign: 'center',
       marginTop: 2,
+      fontFamily: theme.regular,
     },
   });
   

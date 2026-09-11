@@ -8,6 +8,7 @@ export const getChatListStyles = (theme: Theme) =>
       marginTop: 70,
       marginBottom: 60,
     },
+
     scrollArea: {
       flex: 1,
     },
@@ -16,6 +17,7 @@ export const getChatListStyles = (theme: Theme) =>
       paddingHorizontal: theme.spacingLg,
       paddingVertical: theme.spacingSm,
     },
+
     searchBox: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -27,10 +29,12 @@ export const getChatListStyles = (theme: Theme) =>
       borderWidth: 1,
       borderColor: theme.borderLight,
     },
+
     searchInput: {
       flex: 1,
       color: theme.textPrimary,
       fontSize: 14,
+      fontFamily: theme.regular,
     },
 
     filterRow: {
@@ -38,9 +42,11 @@ export const getChatListStyles = (theme: Theme) =>
       paddingHorizontal: theme.spacingLg,
       paddingVertical: theme.spacingSm,
     },
+
     filterScrollView: {
       flex: 1,
     },
+
     filterBtn: {
       paddingHorizontal: 14,
       paddingVertical: 6,
@@ -52,18 +58,21 @@ export const getChatListStyles = (theme: Theme) =>
       justifyContent: 'center',
       alignItems: 'center',
     },
+
     filterBtnActive: {
       borderColor: 'transparent',
     },
+
     filterText: {
       color: theme.textMuted,
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
+
     filterTextActive: {
       color: '#FFFFFF',
       fontSize: 13,
-      fontWeight: 'bold',
+      fontFamily: theme.regular,
     },
 
     conversationItem: {
@@ -75,6 +84,7 @@ export const getChatListStyles = (theme: Theme) =>
       borderBottomWidth: 1,
       borderBottomColor: theme.borderLight,
     },
+
     avatar: {
       width: 50,
       height: 50,
@@ -82,65 +92,78 @@ export const getChatListStyles = (theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
     },
+
     avatarText: {
       color: '#FFFFFF',
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
+
     conversationInfo: {
       flex: 1,
       justifyContent: 'center',
     },
+
     conversationTopRow: {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
       marginBottom: 4,
     },
+
     participantName: {
       flex: 1,
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginRight: 8,
     },
+
     lastMessageTime: {
       color: theme.textMuted,
-      fontSize: 12,
+      fontSize: 11,
+      fontFamily: theme.regular,
     },
+
     conversationBottomRow: {
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
     },
+
     lastMessage: {
       flex: 1,
       color: theme.textMuted,
-      fontSize: 13,
+      fontSize: 12,
       marginRight: 8,
+      fontFamily: theme.regular,
     },
+
     unreadBadge: {
-      backgroundColor: '#25D366',
+      backgroundColor: '#ff3b5c',
       paddingHorizontal: 8,
       paddingVertical: 2,
       borderRadius: theme.radiusFull,
       minWidth: 22,
       alignItems: 'center',
     },
+
     unreadBadgeText: {
       color: '#FFFFFF',
       fontSize: 11,
       fontWeight: 'bold',
     },
+
     emptyState: {
       flex: 1,
       alignItems: 'center',
       justifyContent: 'center',
       paddingVertical: 60,
     },
+
     emptyStateText: {
       color: theme.textMuted,
       fontSize: 14,
+      fontFamily: theme.bold,
     },
   });
-  

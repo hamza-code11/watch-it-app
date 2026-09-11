@@ -5,8 +5,8 @@ import { Theme } from '../../constants/theme';
 export const getDealerBenefitsStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
-      marginTop: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
+      marginTop: theme.spacingMd,
     },
     benefitCard: {
       backgroundColor: 'rgba(20, 22, 35, 0.8)',
@@ -33,12 +33,13 @@ export const getDealerBenefitsStyles = (theme: Theme) =>
     benefitTitle: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     benefitDescription: {
       color: theme.textMuted,
-      fontSize: 13,
+      fontSize: 12,
       marginTop: 4,
+      fontFamily: theme.regular,
     },
   });
   

@@ -5,8 +5,8 @@ export const getPrivacyContactStyles = (theme: Theme) =>
   StyleSheet.create({
     // Card Container (Dark Boxed Style)
     container: {
-      paddingHorizontal: theme.spacingLg,
-      marginTop: theme.spacingMd,
+      paddingHorizontal: theme.spacingSm,
+      marginTop: theme.spacingSm,
       marginBottom: theme.spacingLg,
     },
     card: {
@@ -32,13 +32,14 @@ export const getPrivacyContactStyles = (theme: Theme) =>
     },
     contactTitle: {
       color: theme.textPrimary,
-      fontSize: 13,
-      fontWeight: 'bold',
+      fontSize: 14,
+      fontFamily: theme.bold,
     },
     contactSubtitle: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
   });
   

@@ -14,7 +14,7 @@ export const getStyles = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingMd,
       backgroundColor: theme.bgPrimary, 
     },
@@ -31,7 +31,6 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
     },
   });  

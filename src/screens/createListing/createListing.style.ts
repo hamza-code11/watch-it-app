@@ -9,7 +9,7 @@ export const getStyles = (theme: Theme) =>
       marginBottom: 60,
     },
 
-    // Header — Fixed Top Par, Full Width
+    // Header 
     headerWrapper: {
       backgroundColor: theme.bgPrimary,
       borderBottomWidth: 1,
@@ -27,7 +27,7 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     backBtn: {
       padding: 4,
@@ -35,14 +35,14 @@ export const getStyles = (theme: Theme) =>
 
     // ScrollView Container
     scrollContainer: {
-      padding: theme.spacingMd,
+      padding: theme.spacingSm,
       paddingBottom: 32,
     },
 
     // Pura form ek box mein
     formBox: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       padding: theme.spacingMd,
       borderWidth: 1,
       borderColor: theme.borderColor,
@@ -53,20 +53,21 @@ export const getStyles = (theme: Theme) =>
     pageTitle: {
       color: theme.textPrimary,
       fontSize: 19,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 3,
     },
     pageSubtitle: {
       color: theme.textMuted,
       fontSize: 12.5,
       marginBottom: 14,
+      fontFamily: theme.regular,
     },
 
     // Section Headers
     sectionHeader: {
       color: theme.textPrimary,
       fontSize: 12,
-      fontWeight: '700',
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       letterSpacing: 0.5,
       marginTop: 16,
@@ -77,7 +78,7 @@ export const getStyles = (theme: Theme) =>
     inputLabel: {
       color: theme.textSecondary,
       fontSize: 11.5,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     labelRow: {
@@ -89,14 +90,14 @@ export const getStyles = (theme: Theme) =>
     inputLabelOptional: {
       color: theme.textMuted,
       fontSize: 10.5,
-      fontWeight: '400',
+      fontFamily: theme.regular,
       marginLeft: 4,
     },
 
     requiredStar: {
       color: theme.danger,
       fontSize: 12,
-      fontWeight: '700',
+      fontFamily: theme.bold,
       marginLeft: 2,
     },
 
@@ -111,9 +112,10 @@ export const getStyles = (theme: Theme) =>
       paddingHorizontal: 12,
       paddingVertical: 9,
       color: theme.textPrimary,
-      fontSize: 13.5,
+      fontSize: 11,
       borderWidth: 1,
       borderColor: theme.borderLight,
+      fontFamily: theme.regular,
     },
 
     // Dropdown / Select
@@ -136,11 +138,13 @@ export const getStyles = (theme: Theme) =>
     selectText: {
       color: theme.textPrimary,
       fontSize: 13.5,
+      fontFamily: theme.regular,
     },
 
     selectPlaceholder: {
       color: theme.textMuted,
       fontSize: 13.5,
+      fontFamily: theme.regular,
     },
 
     // Inline dropdown options
@@ -171,11 +175,12 @@ export const getStyles = (theme: Theme) =>
     optionText: {
       color: theme.textPrimary,
       fontSize: 13,
+      fontFamily: theme.regular,
     },
 
     optionTextSelected: {
       color: theme.accentPrimary,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     // Checkboxes
@@ -237,11 +242,11 @@ export const getStyles = (theme: Theme) =>
     toggleTitle: {
       color: theme.textPrimary,
       fontSize: 13.5,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     toggleDescription: {
-      color: theme.textMuted,
+      color: theme.textMuted, 
       fontSize: 11.5,
       marginTop: 2,
     },
@@ -309,13 +314,14 @@ export const getStyles = (theme: Theme) =>
     photoUploadTitle: {
       color: theme.textSecondary,
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     photoUploadNote: {
       color: theme.textMuted,
       fontSize: 11,
       marginTop: 3,
+      fontFamily: theme.regular,
     },
 
     // Photo previews
@@ -405,7 +411,7 @@ export const getStyles = (theme: Theme) =>
     tagText: {
       color: theme.textPrimary,
       fontSize: 11.5,
-      fontWeight: '500',
+      fontFamily: theme.bold,
     },
 
     tagSelected: {
@@ -415,7 +421,7 @@ export const getStyles = (theme: Theme) =>
 
     tagSelectedText: {
       color: '#000',
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
 
     // Submit Button
@@ -437,7 +443,7 @@ export const getStyles = (theme: Theme) =>
     submitText: {
       color: '#000',
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
 
 
@@ -469,7 +475,7 @@ export const getStyles = (theme: Theme) =>
     coverBadgeText: {
       color: '#000',
       fontSize: 9,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
 
 
@@ -483,6 +489,7 @@ export const getStyles = (theme: Theme) =>
       color: theme.textMuted,
       fontSize: 11.5,
       marginBottom: 8,
+      fontFamily: theme.regular,
     },
 
     photoTipChip: {
@@ -495,6 +502,7 @@ export const getStyles = (theme: Theme) =>
     photoTipChipText: {
       color: theme.textSecondary,
       fontSize: 11,
+      fontFamily: theme.regular,
     },
 
 

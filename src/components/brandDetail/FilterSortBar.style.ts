@@ -7,7 +7,7 @@ export const getFilterSortBarStyles = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
       paddingVertical: theme.spacingMd,
     },
     filterBtn: {
@@ -15,7 +15,7 @@ export const getFilterSortBarStyles = (theme: Theme) =>
       alignItems: 'center',
       gap: 8,
       paddingHorizontal: 14,
-      paddingVertical: 10,
+      paddingVertical: 8,
       borderRadius: theme.radiusFull,
       borderWidth: 1,
       borderColor: theme.accentPrimary,
@@ -23,15 +23,15 @@ export const getFilterSortBarStyles = (theme: Theme) =>
     },
     filterBtnText: {
       color: theme.textPrimary,
-      fontSize: 14,
-      fontWeight: '600',
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
     sortBtn: {
       flexDirection: 'row',
       alignItems: 'center',
       gap: 6,
       paddingHorizontal: 14,
-      paddingVertical: 10,
+      paddingVertical: 8,
       borderRadius: theme.radiusFull,
       borderWidth: 1,
       borderColor: theme.borderColor,
@@ -39,12 +39,12 @@ export const getFilterSortBarStyles = (theme: Theme) =>
     },
     sortText: {
       color: theme.textPrimary,
-      fontSize: 14,
-      fontWeight: '600',
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
     sortLabel: {
       color: theme.textMuted,
-      fontSize: 14,
+      fontSize: 12,
     },
 
     // Dropdown Style
@@ -66,7 +66,7 @@ export const getFilterSortBarStyles = (theme: Theme) =>
       shadowRadius: 8,
     },
     dropdownItem: {
-      paddingVertical: 10,
+      paddingVertical: 6,
       paddingHorizontal: 12,
       borderRadius: theme.radiusMd,
     },
@@ -75,12 +75,12 @@ export const getFilterSortBarStyles = (theme: Theme) =>
     },
     dropdownItemText: {
       color: theme.textPrimary,
-      fontSize: 14,
-      fontWeight: '500',
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
     dropdownItemTextSelected: {
       color: theme.accentPrimary,
-      fontWeight: 'bold',
+      fontFamily: theme.regular,
     },
 
     // Filter Modal Styles
@@ -110,7 +110,7 @@ export const getFilterSortBarStyles = (theme: Theme) =>
     modalTitle: {
       color: theme.textPrimary,
       fontSize: 20,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     modalCloseBtn: {
       padding: 4,
@@ -118,7 +118,7 @@ export const getFilterSortBarStyles = (theme: Theme) =>
     sectionTitle: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginTop: 12,
       marginBottom: 6,
     },
@@ -141,8 +141,8 @@ export const getFilterSortBarStyles = (theme: Theme) =>
     },
     chipText: {
       color: theme.textPrimary,
-      fontSize: 13,
-      fontWeight: '500',
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
     chipTextSelected: {
       color: '#FFFFFF',
@@ -162,6 +162,7 @@ export const getFilterSortBarStyles = (theme: Theme) =>
     sliderMinMax: {
       color: theme.textMuted,
       fontSize: 14,
+      fontFamily: theme.regular,
     },
 
     // Reset Button Style
@@ -178,8 +179,8 @@ export const getFilterSortBarStyles = (theme: Theme) =>
     },
     resetBtnText: {
       color: theme.textPrimary,
-      fontSize: 13,
-      fontWeight: '600',
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
 
     // Apply Button (White Gradient)
@@ -198,7 +199,7 @@ export const getFilterSortBarStyles = (theme: Theme) =>
     applyBtnText: {
       color: '#000000',
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
   });
   

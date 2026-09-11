@@ -14,7 +14,7 @@ export const getStyles = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       gap: 8,
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingMd,
     },
     backBtn: {
@@ -23,12 +23,7 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: '600',
-    },
-
-    // Content Scroll
-    contentContainer: {
-      paddingBottom: 40,
+      fontFamily: theme.bold,
     },
 
     // Plan Cards Container (Style yahan define kar rahe hain)

@@ -5,14 +5,15 @@ export const getStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: theme.bgPrimary,
+      marginTop: 60,
     },
     header: {
       flexDirection: 'row',
       alignItems: 'center',
       gap: 8,
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingMd,
+      backgroundColor: theme.bgPrimary,
     },
     backBtn: {
       padding: 4,
@@ -20,7 +21,7 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     contentContainer: {
       paddingBottom: 80,
@@ -29,12 +30,12 @@ export const getStyles = (theme: Theme) =>
     // Profile Header
     profileHeader: {
       paddingHorizontal: theme.spacingLg,
-      marginBottom: 16,
+      marginBottom: theme.spacingMd,
     },
     profileTitle: {
       color: theme.textPrimary,
       fontSize: 24,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 4,
     },
     editBtn: {
@@ -47,7 +48,7 @@ export const getStyles = (theme: Theme) =>
     editBtnText: {
       color: '#FFFFFF',
       fontSize: 13,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
 
     // Form Section
@@ -57,8 +58,8 @@ export const getStyles = (theme: Theme) =>
       borderWidth: 1,
       borderColor: theme.borderColor,
       padding: 16,
-      marginHorizontal: theme.spacingLg,
-      marginBottom: 16,
+      marginHorizontal: theme.spacingSm,
+      marginBottom: theme.spacingSm,
     },
     sectionHeader: {
       flexDirection: 'row',
@@ -69,7 +70,7 @@ export const getStyles = (theme: Theme) =>
     sectionTitle: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     inputContainer: {
       marginBottom: 12,
@@ -77,7 +78,7 @@ export const getStyles = (theme: Theme) =>
     inputLabel: {
       color: theme.textSecondary,
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.bold,
       marginBottom: 6,
     },
     input: {
@@ -86,9 +87,10 @@ export const getStyles = (theme: Theme) =>
       paddingHorizontal: 12,
       paddingVertical: 10,
       color: theme.textPrimary,
-      fontSize: 14,
+      fontSize: 12,
       borderWidth: 1,
       borderColor: theme.borderLight,
+      fontFamily: theme.regular,
     },
     inputDisabled: {
       backgroundColor: theme.bgTertiary,
@@ -111,7 +113,7 @@ export const getStyles = (theme: Theme) =>
     verifyBtnText: {
       color: theme.accentPrimary,
       fontSize: 12,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     // Password Section
@@ -136,12 +138,12 @@ export const getStyles = (theme: Theme) =>
     stepCircleText: {
       color: '#FFFFFF',
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     stepCircleTextInactive: {
       color: theme.textMuted,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
 
     // Buttons
@@ -163,7 +165,7 @@ export const getStyles = (theme: Theme) =>
     cancelBtnText: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     saveBtn: {
       flex: 1,
@@ -175,7 +177,7 @@ export const getStyles = (theme: Theme) =>
     saveBtnText: {
       color: '#FFFFFF',
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
   });
   

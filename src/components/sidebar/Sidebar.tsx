@@ -166,14 +166,14 @@ const SidebarMenu = ({
     {
       title: "Actions",
       items: [
-        {
-          icon: "settings-outline",
-          title: "Settings",
-          onPress: () => {
-            router.push("/settings");
-            onItemPress();
-          },
-        },
+        // {
+        //   icon: "settings-outline",
+        //   title: "Settings",
+        //   onPress: () => {
+        //     router.push("/settings");
+        //     onItemPress();
+        //   },
+        // },
         { icon: "log-out-outline", title: "Logout", isLast: true },
       ],
     },

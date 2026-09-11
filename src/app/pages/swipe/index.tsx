@@ -19,15 +19,16 @@ const goldStyles = StyleSheet.create({
   scrollContent: {
     flexGrow: 1,
     justifyContent: 'center',
-    paddingHorizontal: 16,
-    paddingVertical: 24,
+    paddingHorizontal: 12,
+    paddingVertical: 12,
   },
   card: {
     backgroundColor: '#0D0F1A',
     borderWidth: 1,
     borderRadius: 24,
-    padding: 22,
+    padding: 16,
     alignItems: 'center',
+    marginBottom: 60,
   },
   crownWrap: {
     width: 56,
@@ -41,17 +42,17 @@ const goldStyles = StyleSheet.create({
   title: {
     color: '#F5F5FA',
     fontSize: 19,
-    fontWeight: '700',
-    fontFamily: 'Georgia',
+    fontFamily: "Bold",
     textAlign: 'center',
     marginBottom: 8,
   },
   subtitle: {
     color: '#8C8FAD',
-    fontSize: 12.5,
+    fontSize: 12,
     lineHeight: 18,
     textAlign: 'center',
     marginBottom: 16,
+    fontFamily: "Regular",
   },
   divider: {
     width: '100%',
@@ -67,7 +68,7 @@ const goldStyles = StyleSheet.create({
   },
   benefitsLabel: {
     fontSize: 11,
-    fontWeight: '700',
+    fontFamily: "Bold",
     letterSpacing: 1.2,
   },
   grid: {
@@ -91,7 +92,7 @@ const goldStyles = StyleSheet.create({
   benefitText: {
     color: '#E8E8E8',
     fontSize: 11,
-    fontWeight: '600',
+    fontFamily: "Bold",
     flex: 1,
   },
   ctaButton: {
@@ -106,12 +107,13 @@ const goldStyles = StyleSheet.create({
   ctaText: {
     color: '#0B0E14',
     fontSize: 14,
-    fontWeight: '700',
+    fontFamily: "Bold",
   },
   disclaimer: {
     color: '#5C5F7D',
     fontSize: 11,
     marginTop: 10,
+    fontFamily: "Regular",
   },
 });
 

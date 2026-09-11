@@ -8,9 +8,6 @@ export const getStyles = (theme: Theme) =>
       marginTop: 60,
       marginBottom: 60,
     },
-  
-
-
   });
 
 

@@ -9,7 +9,7 @@ import TermsBanner from '../../../components/termsAndConditions/TermsBanner';
 import TermsAccordionList from '../../../components/termsAndConditions/TermsAccordionList';
 import TermsContactCard from '../../../components/termsAndConditions/TermsContactCard';
 
-export default function TermsAndConditions() {
+export default function TermsAndConditions() { 
   const router = useRouter();
   const { theme } = useTheme();
   const styles = getStyles(theme);

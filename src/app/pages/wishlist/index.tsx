@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../../../context/ThemeContext';
 import { wishlistData } from '../../../data/wishlist';
 import { getStyles } from '../../../screens/wishlist/wishlist.style';
-
+ 
 export default function Wishlist() {
   const router = useRouter();
   const { theme } = useTheme();

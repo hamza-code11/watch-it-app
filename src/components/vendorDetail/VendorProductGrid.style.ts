@@ -5,7 +5,7 @@ export const getVendorProductGridStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
       paddingHorizontal: theme.spacingSm,
-      marginTop: 20,
+      marginTop: theme.spacingSm,
     },
     grid: {
       flexDirection: 'row',

@@ -10,7 +10,7 @@ export const getDealerApplicationFormStyles = (theme: Theme) =>
       flex: 1,
     },
     navButtons: {
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
       paddingVertical: theme.spacingMd,
       flexDirection: 'row',
       alignItems: 'center',
@@ -31,7 +31,7 @@ export const getDealerApplicationFormStyles = (theme: Theme) =>
     backBtnText: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     
     // White Gradient Button Wrapper
@@ -52,7 +52,7 @@ export const getDealerApplicationFormStyles = (theme: Theme) =>
     nextBtnText: {
       color: '#000000', // Text ka color black kiya
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
   });
 

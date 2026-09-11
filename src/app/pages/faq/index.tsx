@@ -19,7 +19,6 @@ export default function FAQ() {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainer}
       >
         {/* Header */}
         <View style={styles.header}>

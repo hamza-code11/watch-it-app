@@ -5,11 +5,11 @@ import { Theme } from '../../constants/theme';
 export const getStepPaymentStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
     },
     card: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       padding: theme.spacingMd,
       borderWidth: 1,
       borderColor: theme.borderColor,
@@ -17,13 +17,14 @@ export const getStepPaymentStyles = (theme: Theme) =>
     title: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 4,
     },
     subtitle: {
       color: theme.textMuted,
       fontSize: 13,
       marginBottom: 16,
+      fontFamily: theme.regular,
     },
     feeBox: {
       backgroundColor: theme.bgInput,
@@ -34,11 +35,12 @@ export const getStepPaymentStyles = (theme: Theme) =>
     feeLabel: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.bold,
     },
     feeAmount: {
       color: theme.textPrimary,
       fontSize: 24,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginTop: 4,
     },
     paymentMethodRow: {
@@ -62,7 +64,7 @@ export const getStepPaymentStyles = (theme: Theme) =>
     paymentText: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
       flex: 1,
     },
   });

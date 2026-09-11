@@ -6,22 +6,23 @@ export const getVendorBannerStyles = (theme: Theme) =>
     banner: {
       paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingSm,
-      backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      backgroundColor: theme.bgCard, 
+      borderRadius: theme.radiusLg,
       borderWidth: 1,
       borderColor: theme.borderColor,
-      flexDirection: 'column', // Column layout
+      flexDirection: 'column',
       gap: 20,
+      marginTop: theme.spacingXs,
     },
 
     // Top Row (Logo + Info)
     topRow: {
       flexDirection: 'row',
       alignItems: 'center',
-      gap: 16,
+      gap: 12,
     },
 
-    // Logo Container (Image se cover karega)
+    // Logo Container
     logoContainer: {
       width: 80,
       height: 80,
@@ -31,38 +32,39 @@ export const getVendorBannerStyles = (theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       backgroundColor: theme.bgInput,
-      overflow: 'hidden', // Image container se bahar na nikle
+      overflow: 'hidden',
     },
     logo: {
       width: '100%',
       height: '100%',
-      resizeMode: 'cover', // Image ko cover karega
+      resizeMode: 'cover',
     },
     infoContainer: {
       flex: 1,
     },
     vendorName: {
       color: theme.textPrimary,
-      fontSize: 24,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontSize: 22,
+      fontFamily: theme.bold,
     },
     vendorAddress: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
     vendorDescription: {
       color: theme.textSecondary,
       fontSize: 12,
       lineHeight: 18,
       marginTop: 4,
+      fontFamily: theme.regular,
     },
 
     // Badge
     verifiedBadge: {
-      width: 18,
-      height: 18,
+      width: 14,
+      height: 14,
       borderRadius: 9,
       backgroundColor: '#3B82F6',
       alignItems: 'center',
@@ -74,7 +76,6 @@ export const getVendorBannerStyles = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      marginTop: 2,
       paddingTop: 8,
       borderTopWidth: 1,
       borderTopColor: theme.borderColor,
@@ -85,15 +86,16 @@ export const getVendorBannerStyles = (theme: Theme) =>
     },
     statNumber: {
       color: theme.accentPrimary,
-      fontSize: 22,
-      fontWeight: 'bold',
+      fontSize: 18,
+      fontFamily: theme.bold,
     },
     statLabel: {
       color: theme.textMuted,
-      fontSize: 11,
+      fontSize: 10,
       textTransform: 'uppercase',
       letterSpacing: 0.5,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
     statDivider: {
       width: 1,

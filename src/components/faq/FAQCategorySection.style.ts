@@ -5,14 +5,14 @@ import { Theme } from '../../constants/theme';
 export const getFAQCategoryStyles = (theme: Theme) =>
   StyleSheet.create({
     categoryContainer: {
-      paddingHorizontal: theme.spacingLg,
-      marginTop: 20,
+      paddingHorizontal: theme.spacingSm,
+      marginTop: theme.spacingMd,
     },
     categoryTitle: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
-      marginBottom: 10,
+      fontFamily: theme.bold,
+      marginBottom: theme.spacingSm,
     },
     faqItem: {
       backgroundColor: 'rgba(20, 22, 35, 0.8)',
@@ -31,7 +31,7 @@ export const getFAQCategoryStyles = (theme: Theme) =>
       flex: 1,
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
       marginRight: 10,
     },
     faqChevron: {
@@ -42,20 +42,21 @@ export const getFAQCategoryStyles = (theme: Theme) =>
       paddingBottom: 16,
       paddingTop: 0,
       color: theme.textMuted,
-      fontSize: 13,
+      fontSize: 12,
       lineHeight: 20,
+      fontFamily: theme.regular,
     },
     supportSection: {
       backgroundColor: 'rgba(20, 22, 35, 0.8)',
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       padding: theme.spacingMd,
-      marginHorizontal: theme.spacingLg,
-      marginTop: theme.spacingLg,
+      marginHorizontal: theme.spacingSm,
       borderWidth: 1,
       borderColor: theme.borderColor,
       flexDirection: 'row',
       alignItems: 'center',
       gap: 12,
+      marginBottom: theme.spacingMd,
     },
     supportIcon: {
       width: 40,
@@ -71,12 +72,13 @@ export const getFAQCategoryStyles = (theme: Theme) =>
     supportTitle: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     supportSubtitle: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
   });
   

@@ -8,7 +8,7 @@ import ProductGrid from '../../../components/brandDetail/ProductGrid';
 import { useTheme } from '../../../context/ThemeContext';
 import { brandDetailsData } from '../../../data/brandDetails';
 import { getStyles } from '../../../screens/brandDetail/brandDetail.style';
-
+ 
 export default function BrandDetail() {
   const router = useRouter();
   const { theme } = useTheme();
@@ -34,7 +34,6 @@ export default function BrandDetail() {
 
       <ScrollView
         showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainer}
       >
         {/* Header */}
         <View style={styles.header}>
@@ -46,7 +45,7 @@ export default function BrandDetail() {
         </View>
 
         {/* Banner */}
-        <View style={{ paddingHorizontal: 16 }}>
+        <View style={{ paddingHorizontal: 6 }}>
           <BrandBanner brand={brand} />
         </View>
 

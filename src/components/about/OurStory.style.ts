@@ -4,14 +4,13 @@ import { Theme } from '../../constants/theme';
 export const getOurStoryStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingLg,
     },
     title: {
       color: theme.textPrimary,
       fontSize: 24,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
       marginBottom: 8,
     },
     subtitle: {
@@ -19,12 +18,14 @@ export const getOurStoryStyles = (theme: Theme) =>
       fontSize: 14,
       lineHeight: 20,
       marginBottom: 12,
+      fontFamily: theme.bold,
     },
     storyText: {
       color: theme.textMuted,
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 22,
       marginBottom: 16,
+      fontFamily: theme.regular,
     },
 
     // Timeline
@@ -50,13 +51,14 @@ export const getOurStoryStyles = (theme: Theme) =>
     timelineYear: {
       color: theme.accentPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     timelineText: {
       color: theme.textMuted,
       fontSize: 13,
       lineHeight: 20,
       marginTop: 4,
+      fontFamily: theme.regular,
     },
   });
 

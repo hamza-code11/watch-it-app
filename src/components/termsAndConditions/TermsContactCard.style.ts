@@ -5,9 +5,8 @@ import { Theme } from '../../constants/theme';
 export const getTermsContactStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingLg,
-      marginTop: theme.spacingMd,
-      marginBottom: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
+      marginBottom: theme.spacingMd,
     },
     card: {
       backgroundColor: 'rgba(20, 22, 35, 0.8)',
@@ -32,13 +31,14 @@ export const getTermsContactStyles = (theme: Theme) =>
     },
     contactTitle: {
       color: theme.textPrimary,
-      fontSize: 13,
-      fontWeight: 'bold',
+      fontSize: 14,
+      fontFamily: theme.bold,
     },
     contactSubtitle: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
   });
   

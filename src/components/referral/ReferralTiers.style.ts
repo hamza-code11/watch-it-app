@@ -6,17 +6,17 @@ export const getReferralTiersStyles = (theme: Theme) =>
     // Main Card (Box)
     mainCard: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       padding: theme.spacingMd,
-      marginHorizontal: theme.spacingLg,
-      marginBottom: theme.spacingLg,
+      marginHorizontal: theme.spacingSm,
+      marginBottom: theme.spacingSm,
       borderWidth: 1,
       borderColor: theme.borderColor,
     },
     sectionTitle: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 8,
     },
     tierItem: {
@@ -43,12 +43,13 @@ export const getReferralTiersStyles = (theme: Theme) =>
     tierName: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     tierRange: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
     tierBadge: {
       paddingHorizontal: 10,
@@ -60,7 +61,7 @@ export const getReferralTiersStyles = (theme: Theme) =>
     tierBadgeText: {
       color: '#FFFFFF',
       fontSize: 11,
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
   });
   

@@ -4,7 +4,7 @@ import { Theme } from '../../constants/theme';
 export const getVendorReviewsStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      marginTop: theme.spacingLg,
+      marginTop: theme.spacingMd,
     },
     tabsRow: {
       flexDirection: 'row',
@@ -21,11 +21,11 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     tabText: {
       color: theme.textMuted,
       fontSize: 16,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     activeTabText: {
       color: theme.accentPrimary,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
 
     // Vendor Information Section
@@ -56,7 +56,7 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     vendorAvatarText: {
       color: '#FFFFFF',
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     vendorInfo: {
       flex: 1,
@@ -70,7 +70,7 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     vendorName: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     verifiedBadge: {
       width: 18,
@@ -92,8 +92,8 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     },
     ratingText: {
       color: theme.textMuted,
-      fontSize: 13,
-      fontWeight: '600',
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
     metaRow: {
       flexDirection: 'row',
@@ -108,14 +108,16 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     metaText: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
     },
 
     // Vendor Description
     vendorDescription: {
       color: theme.textSecondary,
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 22,
       marginBottom: 12,
+      fontFamily: theme.regular,
     },
 
     // Vendor Stats (3 Columns)
@@ -123,7 +125,7 @@ export const getVendorReviewsStyles = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       justifyContent: 'space-between',
-      marginBottom: 12,
+      marginBottom: theme.spacingSm,
     },
     vendorStat: {
       alignItems: 'center',
@@ -131,7 +133,7 @@ export const getVendorReviewsStyles = (theme: Theme) =>
       margin: 6,
       backgroundColor: theme.bgSecondary,
       padding: 10,
-      borderRadius: theme.radiusLg,
+      borderRadius: theme.radiusMd,
     },
     vendorStatIcon: {
       width: 24,
@@ -142,12 +144,13 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     vendorStatNumber: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     vendorStatLabel: {
       color: theme.textMuted,
       fontSize: 11,
       marginTop: 2,
+      fontFamily: theme.bold,
     },
 
     // Visit Store Button (White Gradient)
@@ -166,7 +169,7 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     visitStoreText: {
       color: '#000000',
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
 
     // ===== REVIEWS SECTION (Image ke mutabiq) =====
@@ -190,7 +193,7 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     avgRatingNumber: {
       color: theme.textPrimary,
       fontSize: 32,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     avgRatingStars: {
       flexDirection: 'row',
@@ -201,6 +204,7 @@ export const getVendorReviewsStyles = (theme: Theme) =>
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 4,
+      fontFamily: theme.regular,
     },
     ratingBarsContainer: {
       flex: 1,
@@ -213,8 +217,9 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     },
     ratingBarLabel: {
       color: theme.textMuted,
-      fontSize: 12,
+      fontSize: 11,
       width: 20,
+      fontFamily: theme.regular,
     },
     ratingBarTrack: {
       flex: 1,
@@ -229,9 +234,10 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     },
     ratingBarCount: {
       color: theme.textMuted,
-      fontSize: 12,
+      fontSize: 11,
       width: 20,
       textAlign: 'right',
+      fontFamily: theme.regular,
     },
 
     // Reviews List
@@ -261,7 +267,7 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     reviewAvatarText: {
       color: '#FFFFFF',
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     reviewContent: {
       flex: 1,
@@ -275,16 +281,17 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     reviewerName: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     reviewDate: {
       color: theme.textMuted,
-      fontSize: 12,
+      fontSize: 10,
+      fontFamily: theme.regular,
     },
     reviewTitle: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.regular,
       marginTop: 4,
     },
     reviewStars: {
@@ -295,9 +302,10 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     },
     reviewText: {
       color: theme.textSecondary,
-      fontSize: 13,
+      fontSize: 12,
       lineHeight: 20,
       marginTop: 4,
+      fontFamily: theme.regular,
     },
     helpfulBtn: {
       flexDirection: 'row',
@@ -315,7 +323,7 @@ export const getVendorReviewsStyles = (theme: Theme) =>
     helpfulBtnText: {
       color: theme.textMuted,
       fontSize: 12,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
   });
 

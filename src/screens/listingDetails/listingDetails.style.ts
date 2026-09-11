@@ -5,7 +5,8 @@ export const getStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
       flex: 1,
-      backgroundColor: '#090A0F',
+      marginTop: 60,
+      marginBottom: 60,
     },
 
     // Header
@@ -32,7 +33,7 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: '#FFFFFF',
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     editBtn: {
       backgroundColor: '#181A24',
@@ -48,19 +49,19 @@ export const getStyles = (theme: Theme) =>
     editBtnText: {
       color: '#FFFFFF',
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
 
     // Main Content Scroll
     contentContainer: {
-      padding: 16,
-      paddingBottom: 40,
+      padding: theme.spacingSm,
+      paddingBottom: theme.spacingMd,
     },
 
     // Status Badge (Top Left of Image)
     imageContainer: {
       position: 'relative',
-      marginBottom: 16,
+      marginBottom: theme.spacingLg,
     },
     image: {
       width: '100%',
@@ -82,14 +83,14 @@ export const getStyles = (theme: Theme) =>
     statusText: {
       color: '#FFFFFF',
       fontSize: 12,
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
 
     // Product Info
     brand: {
       color: '#38BDF8',
       fontSize: 13,
-      fontWeight: '700',
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       letterSpacing: 0.5,
       marginBottom: 4,
@@ -97,13 +98,13 @@ export const getStyles = (theme: Theme) =>
     title: {
       color: '#FFFFFF',
       fontSize: 22,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 6,
     },
     price: {
       color: '#38BDF8',
       fontSize: 24,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 8,
     },
     metaRow: {
@@ -115,33 +116,34 @@ export const getStyles = (theme: Theme) =>
     metaText: {
       color: '#8B92A5',
       fontSize: 13,
+      fontFamily: theme.regular,
     },
 
     // Listing Features
     sectionTitle: {
       color: '#FFFFFF',
       fontSize: 16,
-      fontWeight: 'bold',
       marginBottom: 10,
+      fontFamily: theme.bold,
     },
     featuresRow: {
       flexDirection: 'row',
       flexWrap: 'wrap',
-      gap: 8,
+      gap: 4,
       marginBottom: 16,
     },
     featureChip: {
       flexDirection: 'row',
       alignItems: 'center',
-      gap: 6,
-      paddingHorizontal: 12,
+      gap: 2,
+      paddingHorizontal: 8,
       paddingVertical: 8,
       borderRadius: 8,
       borderWidth: 1,
     },
     featureChipText: {
-      fontSize: 13,
-      fontWeight: '600',
+      fontSize: 9,
+      fontFamily: theme.bold,
     },
 
     // Specifications
@@ -165,21 +167,24 @@ export const getStyles = (theme: Theme) =>
       color: '#8B92A5',
       fontSize: 11,
       marginBottom: 4,
+      fontFamily: theme.bold,
     },
     specValue: {
       color: '#FFFFFF',
       fontSize: 14,
       fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     // Condition & Details (Description)
     descriptionContainer: {
-      marginBottom: 24,
+      marginBottom: 12,
     },
     descriptionText: {
       color: '#C7C9DE',
       fontSize: 14,
       lineHeight: 22,
+      fontFamily: theme.regular,
     },
 
     // Buttons
@@ -191,7 +196,7 @@ export const getStyles = (theme: Theme) =>
       flex: 1,
       backgroundColor: '#13151F',
       borderRadius: 12,
-      paddingVertical: 14,
+      paddingVertical: 12,
       alignItems: 'center',
       borderWidth: 1,
       borderColor: '#222636',
@@ -199,13 +204,13 @@ export const getStyles = (theme: Theme) =>
     closeBtnText: {
       color: '#FFFFFF',
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     editBtnMain: {
       flex: 1,
       backgroundColor: '#0284C7',
       borderRadius: 12,
-      paddingVertical: 14,
+      paddingVertical: 12,
       alignItems: 'center',
       flexDirection: 'row',
       justifyContent: 'center',
@@ -214,7 +219,7 @@ export const getStyles = (theme: Theme) =>
     editBtnMainText: {
       color: '#FFFFFF',
       fontSize: 15,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
   });
 

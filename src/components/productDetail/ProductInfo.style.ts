@@ -14,48 +14,49 @@ export const getProductInfoStyles = (theme: Theme) =>
       alignItems: 'center',
       flexWrap: 'wrap',
       gap: 6,
-      marginBottom: 14,
+      marginBottom: theme.spacingXs,
     },
     breadcrumbText: {
       color: theme.textMuted,
-      fontSize: 13,
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
     breadcrumbActiveText: {
       color: theme.textSecondary,
     },
     breadcrumbSep: {
       color: theme.textMuted,
-      fontSize: 13,
+      fontSize: 16,
+      fontFamily: theme.regular,
     },
 
     // Title
     title: {
       color: theme.textPrimary,
       fontSize: 28,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
-      marginBottom: 12,
+      fontFamily: theme.bold,
+      marginBottom: theme.spacingXs,
     },
 
-    // Badges Row — horizontal scroll ki contentContainerStyle
+    // Badges Row
     badgesRow: {
       flexDirection: 'row',
-      gap: 8,
+      gap: 4,
       marginBottom: 14,
-      paddingRight: 4, // taake last badge screen edge se chip na jaye
+      paddingRight: 4,
     },
     badge: {
       flexDirection: 'row',
       alignItems: 'center',
-      gap: 4,
-      paddingHorizontal: 8, // pehle 12 tha — kam kar diya
+      gap: 2,
+      paddingHorizontal: 4, 
       paddingVertical: 7,
-      borderRadius: 999,
+      borderRadius: theme.radiusSm,
       borderWidth: 1,
     },
     badgeText: {
-      fontSize: 11,
-      fontWeight: '600',
+      fontSize: 10,
+      fontFamily: theme.bold,
     },
 
     // Brand & Model
@@ -68,11 +69,12 @@ export const getProductInfoStyles = (theme: Theme) =>
     brandText: {
       color: theme.accentPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     modelText: {
       color: theme.textMuted,
-      fontSize: 14,
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
 
     // Star Rating
@@ -88,7 +90,8 @@ export const getProductInfoStyles = (theme: Theme) =>
     },
     ratingText: {
       color: theme.textMuted,
-      fontSize: 14,
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
 
     // Divider between rating and price
@@ -107,20 +110,21 @@ export const getProductInfoStyles = (theme: Theme) =>
     priceLabel: {
       color: theme.textMuted,
       fontSize: 18,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
     price: {
       color: theme.textPrimary,
       fontSize: 28,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
 
     // Description
     description: {
       color: theme.textSecondary,
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 22,
       marginBottom: 14,
+      fontFamily: theme.regular,
     },
 
     // Sold By Row
@@ -133,11 +137,12 @@ export const getProductInfoStyles = (theme: Theme) =>
     soldByText: {
       color: theme.textMuted,
       fontSize: 14,
+      fontFamily: theme.bold,
     },
     soldByName: {
       color: theme.accentPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     goldBadge: {
       flexDirection: 'row',
@@ -151,7 +156,7 @@ export const getProductInfoStyles = (theme: Theme) =>
     goldBadgeText: {
       color: '#000000',
       fontSize: 11,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
 
     // In Stock
@@ -164,11 +169,12 @@ export const getProductInfoStyles = (theme: Theme) =>
     inStockText: {
       color: theme.success,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     stockUnits: {
       color: theme.textMuted,
       fontSize: 14,
+      fontFamily: theme.regular,
     },
 
     // Trade-in Accepted
@@ -176,7 +182,7 @@ export const getProductInfoStyles = (theme: Theme) =>
       backgroundColor: 'rgba(50, 213, 131, 0.1)',
       borderWidth: 1,
       borderColor: 'rgba(50, 213, 131, 0.3)',
-      borderRadius: theme.radiusLg,
+      borderRadius: theme.radiusMd,
       padding: 10,
       flexDirection: 'row',
       alignItems: 'center',
@@ -186,7 +192,7 @@ export const getProductInfoStyles = (theme: Theme) =>
     tradeInText: {
       color: theme.success,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
       flex: 1,
     },
 
@@ -220,11 +226,11 @@ export const getProductInfoStyles = (theme: Theme) =>
     quantityText: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     orderBtnWrapper: {
       flex: 1, // quantity box ke bache hue space ka zyada hissa le leta hai
-      borderRadius: theme.radiusLg,
+      borderRadius: theme.radiusMd,
       overflow: 'hidden',
       borderWidth: 1,
       borderColor: 'rgba(255,255,255,0.3)',
@@ -239,13 +245,13 @@ export const getProductInfoStyles = (theme: Theme) =>
     orderText: {
       color: '#111827',
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
 
     // Make an Offer
     makeOfferBtn: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusLg,
+      borderRadius: theme.radiusMd,
       borderWidth: 1,
       borderColor: theme.borderColor,
       paddingVertical: 10,
@@ -258,7 +264,7 @@ export const getProductInfoStyles = (theme: Theme) =>
     makeOfferText: {
       color: theme.accentPrimary,
       fontSize: 16,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     // Specifications (Accordion)
@@ -283,7 +289,7 @@ export const getProductInfoStyles = (theme: Theme) =>
     specsTitle: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     specRow: {
       flexDirection: 'row',
@@ -297,11 +303,12 @@ export const getProductInfoStyles = (theme: Theme) =>
     specLabel: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.bold,
     },
     specValue: {
       color: theme.textPrimary,
       fontSize: 12,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
 
     // Make an Offer Modal
@@ -329,12 +336,13 @@ export const getProductInfoStyles = (theme: Theme) =>
     modalTitle: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     modalSubtitle: {
       color: theme.textMuted,
       fontSize: 13,
       marginBottom: 16,
+      fontFamily: theme.regular,
     },
     modalInputBox: {
       flexDirection: 'row',
@@ -349,18 +357,19 @@ export const getProductInfoStyles = (theme: Theme) =>
     modalInputPrefix: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: '600',
+      fontFamily: theme.regular,
       marginRight: 6,
     },
     modalInput: {
       flex: 1,
       color: theme.textPrimary,
-      fontSize: 18,
+      fontSize: 14,
       paddingVertical: 14,
+      fontFamily: theme.regular,
     },
     modalSubmitBtn: {
       backgroundColor: theme.accentPrimary,
-      borderRadius: theme.radiusLg,
+      borderRadius: theme.radiusMd,
       paddingVertical: 14,
       alignItems: 'center',
       justifyContent: 'center',
@@ -368,6 +377,6 @@ export const getProductInfoStyles = (theme: Theme) =>
     modalSubmitText: {
       color: '#FFFFFF',
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
   });

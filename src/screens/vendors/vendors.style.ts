@@ -13,7 +13,7 @@ export const getStyles = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       gap: 8,
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingMd,
     },
     backBtn: {
@@ -22,7 +22,7 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     // Banner (Blue Gradient)
@@ -33,14 +33,14 @@ export const getStyles = (theme: Theme) =>
     bannerTitle: {
       color: '#FFFFFF',
       fontSize: 28,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
       marginBottom: 8,
     },
     bannerSubtitle: {
       color: 'rgba(255,255,255,0.9)',
-      fontSize: 14,
+      fontSize: 12,
       lineHeight: 22,
+      fontFamily: theme.regular,
     },
 
     // Search Bar
@@ -70,25 +70,29 @@ export const getStyles = (theme: Theme) =>
       flex: 1,
       color: theme.textPrimary,
       fontSize: 14,
+      fontFamily: theme.regular,
     },
 
     // Count
     countText: {
       color: theme.textMuted,
-      fontSize: 14,
+      fontSize: 12,
       paddingHorizontal: theme.spacingMd,
       marginBottom: theme.spacingSm,
+      fontFamily: theme.bold,
     },
 
     // Vendor List
     vendorsList: {
-      paddingHorizontal: theme.spacingMd,
+      paddingHorizontal: theme.spacingSm,
+      marginBottom: theme.spacingSm,
     },
     vendorCard: {
       flexDirection: 'row',
       alignItems: 'center',
       gap: 8,
-      paddingVertical: 12,
+      paddingVertical: theme.spacingSm,
+      paddingHorizontal: theme.spacingSm,
       backgroundColor: theme.bgCard,
       borderRadius: theme.radiusLg,
       borderWidth: 1,
@@ -113,7 +117,7 @@ export const getStyles = (theme: Theme) =>
     vendorName: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     verifiedBadge: {
       width: 16,
@@ -131,7 +135,8 @@ export const getStyles = (theme: Theme) =>
     },
     vendorRatingText: {
       color: theme.textMuted,
-      fontSize: 13,
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
     vendorMeta: {
       flexDirection: 'row',
@@ -142,14 +147,17 @@ export const getStyles = (theme: Theme) =>
     vendorProducts: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
     },
     vendorLocation: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
     },
     vendorCountry: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 4,
+      fontFamily: theme.regular,
     },
   });

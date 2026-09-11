@@ -7,7 +7,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../../../context/ThemeContext';
 import { alphabetFilters, brandsData } from '../../../data/brands';
 import { getStyles } from '../../../screens/brands/brands.style';
-
+ 
 export default function Brands() {
   const router = useRouter();
   const { theme } = useTheme();
@@ -40,9 +40,9 @@ export default function Brands() {
 
         {/* Banner */}
         <LinearGradient
-          colors={['#1B2B4B', '#121C33', '#0D1322']}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
+          colors={['#2c414b', '#152331', '#0a0a0c']}
+          start={{ x: 0.5, y: 0 }}
+          end={{ x: 0.5, y: 1 }}
           style={styles.banner}
         >
           <Text style={styles.bannerTitle}>Explore Premium Brands</Text>

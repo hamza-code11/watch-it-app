@@ -1,6 +1,6 @@
 // DealerBanner.tsx
-import { Text, View } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { Text } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 import { getDealerBannerStyles } from './DealerBanner.style';
 
@@ -10,9 +10,9 @@ export default function DealerBanner() {
 
   return (
     <LinearGradient
-      colors={['#1B2B4B', '#121C33', '#0D1322']}
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
+      colors={['#2c414b', '#152331', '#0a0a0c']}
+      start={{ x: 0.5, y: 0 }}
+      end={{ x: 0.5, y: 1 }}
       style={styles.banner}
     >
       <Text style={styles.label}>Dealer Partnership</Text>

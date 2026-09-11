@@ -9,12 +9,11 @@ export const getStyles = (theme: Theme) =>
             marginBottom: 40,
         },
 
-        // Top Header Row (Back Button + Title)
         header: {
             flexDirection: 'row',
             alignItems: 'center',
             gap: 8,
-            paddingHorizontal: theme.spacingLg,
+            paddingHorizontal: theme.spacingMd,
             paddingVertical: theme.spacingMd,
         },
         backBtn: {
@@ -23,30 +22,30 @@ export const getStyles = (theme: Theme) =>
         headerTitle: {
             color: theme.textPrimary,
             fontSize: 15,
-            fontWeight: '600',
+            fontFamily: theme.bold,
         },
 
         // Banner (Blue Gradient)
         banner: {
-            paddingHorizontal: theme.spacingLg,
+            paddingHorizontal: theme.spacingMd,
             paddingVertical: theme.spacingLg,
         },
         bannerTitle: {
             color: '#FFFFFF',
             fontSize: 28,
-            fontWeight: 'bold',
-            fontFamily: theme.fontFamily,
+            fontFamily: theme.bold,
             marginBottom: 8,
         },
         bannerSubtitle: {
             color: 'rgba(255,255,255,0.9)',
-            fontSize: 14,
+            fontSize: 12,
             lineHeight: 22,
+            fontFamily: theme.regular,
         },
 
         // Search Bar
         searchContainer: {
-            paddingHorizontal: theme.spacingMd,
+            paddingHorizontal: theme.spacingSm,
             marginBottom: theme.spacingMd,
             marginTop: theme.spacingMd,
         },
@@ -71,6 +70,7 @@ export const getStyles = (theme: Theme) =>
             flex: 1,
             color: theme.textPrimary,
             fontSize: 14,
+            fontFamily: theme.regular,
         },
         viewToggle: {
             flexDirection: 'row',
@@ -113,11 +113,11 @@ export const getStyles = (theme: Theme) =>
         filterText: {
             color: theme.textMuted,
             fontSize: 14,
-            fontWeight: '600',
+            fontFamily: theme.regular,
         },
         filterTextActive: {
             color: '#FFFFFF',
-            fontWeight: 'bold',
+            fontFamily: theme.bold,
         },
 
         // Count
@@ -125,7 +125,8 @@ export const getStyles = (theme: Theme) =>
             color: theme.textMuted,
             fontSize: 14,
             paddingHorizontal: theme.spacingMd,
-            marginBottom: theme.spacingMd,
+            marginBottom: theme.spacingSm,
+            fontFamily: theme.bold,
         },
 
         // Brands Grid (Grid View)
@@ -139,7 +140,7 @@ export const getStyles = (theme: Theme) =>
             aspectRatio: 1.2,
             backgroundColor: theme.bgCard,
             borderRadius: theme.radiusLg,
-            marginBottom: theme.spacingMd,
+            marginBottom: theme.spacingSm,
             marginHorizontal: '1%',
             borderWidth: 1,
             borderColor: theme.borderColor,
@@ -149,16 +150,18 @@ export const getStyles = (theme: Theme) =>
         },
         brandLogo: {
             width: '100%',
-            height: '70%',
+            height: '80%',
             resizeMode: 'contain',
             marginBottom: 8,
-            borderRadius: theme.radiusLg,
+            borderTopLeftRadius: theme.radiusLg,
+            borderTopRightRadius: theme.radiusLg,
         },
         brandName: {
             color: theme.textPrimary,
             fontSize: 14,
-            fontWeight: '600',
+            fontFamily: theme.bold,
             textAlign: 'center',
+            marginBottom: 10,
         },
 
         // Brands List (List View) - Detailed Design

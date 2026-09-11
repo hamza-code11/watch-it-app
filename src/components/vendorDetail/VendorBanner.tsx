@@ -1,8 +1,8 @@
 import { Ionicons } from '@expo/vector-icons';
 import { Image, Text, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
-import { getVendorBannerStyles } from './VendorBanner.style';
 import { VendorDetailData } from '../../types/vendorDetail.types';
+import { getVendorBannerStyles } from './VendorBanner.style';
 
 export default function VendorBanner({ vendor }: { vendor: VendorDetailData }) {
   const { theme } = useTheme();

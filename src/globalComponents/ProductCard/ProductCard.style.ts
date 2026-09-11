@@ -37,18 +37,19 @@ export const getProductCardStyles = (theme: Theme) =>
     brandName: {
       color: theme.accentPrimary,
       fontSize: 12,
-      fontWeight: '600',
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       letterSpacing: 0.5,
     },
     title: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     sellerName: {
       color: theme.textMuted,
-      fontSize: 12,
+      fontSize: 10,
+      fontFamily: theme.regular,
     },
     priceRow: {
       flexDirection: 'row',
@@ -59,7 +60,7 @@ export const getProductCardStyles = (theme: Theme) =>
     price: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     ratingContainer: {
       flexDirection: 'row',
@@ -68,7 +69,8 @@ export const getProductCardStyles = (theme: Theme) =>
     },
     ratingText: {
       color: theme.textMuted,
-      fontSize: 12,
+      fontSize: 10,
+      fontFamily: theme.regular,
     },
   });
 

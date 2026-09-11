@@ -46,7 +46,7 @@ export default function ProductCard({ product, onPress }: Props) {
         <View style={styles.priceRow}>
           <Text style={styles.price}>{product.price}</Text>
           <View style={styles.ratingContainer}>
-            <Ionicons name="star" size={14} color="#FDB022" />
+            <Ionicons name="star" size={12} color="#FDB022" />
             <Text style={styles.ratingText}>({product.rating})</Text>
           </View>
         </View>
