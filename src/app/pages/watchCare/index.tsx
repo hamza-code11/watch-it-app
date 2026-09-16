@@ -6,12 +6,11 @@ import { useTheme } from '../../../context/ThemeContext';
 import { watchServicesData } from '../../../data/watchCare';
 import { getStyles } from '../../../screens/watchCare/watchCare.style';
 
-import BeforeAfter from '../../../components/watchCare/BeforeAfter';
-import BookServiceForm from '../../../components/watchCare/BookServiceForm';
-import MyRequests from '../../../components/watchCare/MyRequests';
+import ExpertAdviceBanner from '../../../components/watchCare/ExpertAdviceBanner';
+import HowItWorks from '../../../components/watchCare/HowItWorks';
 import WatchCareBanner from '../../../components/watchCare/WatchCareBanner';
 import WatchServiceCard from '../../../components/watchCare/WatchServiceCard';
-import WhyChooseUs from '../../../components/watchCare/WhyChooseUs';
+import YourWatchCare from '../../../components/watchCare/YourWatchCare';
 
 export default function WatchCare() {
   const router = useRouter();
@@ -31,35 +30,32 @@ export default function WatchCare() {
         <View style={{ width: 24 }} />
       </View>
 
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-        contentContainerStyle={styles.contentContainer}
-      >
-        {/* Banner */}
+      <ScrollView showsVerticalScrollIndicator={false}>
+        {/* Banner (includes "Our Services" heading) */}
         <WatchCareBanner />
 
-        {/* Horizontal Scrollable Service Cards */}
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.servicesContainer}
-        >
+
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionTitle}>Our Services</Text>
+          <Text style={styles.sectionSubtitle}>
+            Everything your watch needs, in one place.
+          </Text>
+        </View>
+
+        {/* 2-column Service Cards Grid */}
+        <View style={styles.servicesGrid}>
           {watchServicesData.map((service) => (
             <WatchServiceCard key={service.id} service={service} />
           ))}
-        </ScrollView>
+        </View>
 
         {/* Before & After Section */}
-        <BeforeAfter />
+        <ExpertAdviceBanner />
 
         {/* Why Choose Us Section */}
-        <WhyChooseUs />
+        <HowItWorks />
 
-        {/* Book a Service Form */}
-        <BookServiceForm />
-
-        {/* My Requests Section */}
-        <MyRequests />
+        <YourWatchCare />
       </ScrollView>
     </SafeAreaView>
   );

@@ -5,18 +5,33 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../../../context/ThemeContext';
 import { plansData } from '../../../data/watchAuthentication';
 import { getStyles } from '../../../screens/watchAuthentication/watchAuthentication.style';
- 
-// Components import karein (CSS file nahi)
+
 import AuthenticationBanner from '../../../components/watchAuthentication/AuthenticationBanner';
-import AuthenticationForm from '../../../components/watchAuthentication/AuthenticationForm';
-import HowItWorks from '../../../components/watchAuthentication/HowItWorks';
-import MyRequests from '../../../components/watchAuthentication/MyRequests';
+import AuthProcess from '../../../components/watchAuthentication/AuthProcess';
+import CertificateCard from '../../../components/watchAuthentication/CertificateCard';
+import ManageRequests from '../../../components/watchAuthentication/ManageRequests';
 import PlanCard from '../../../components/watchAuthentication/PlanCard';
+import WhatWeCheck from '../../../components/watchAuthentication/WhatWeCheck';
 
 export default function WatchAuthentication() {
   const router = useRouter();
   const { theme } = useTheme();
   const styles = getStyles(theme);
+
+  const certificateFields = [
+    { label: 'Brand', value: 'Rolex' },
+    { label: 'Model', value: 'Submariner Date' },
+    { label: 'Reference', value: '126610LN' },
+    { label: 'Serial Number', value: '3R728945' },
+    { label: 'Case', value: 'Authentic' },
+    { label: 'Bezel', value: 'Authentic' },
+    { label: 'Dial', value: 'Authentic' },
+    { label: 'Bracelet', value: 'Authentic' },
+    { label: 'Movement', value: 'Authentic' },
+    { label: 'Authentication Date', value: '12 Aug 2026' },
+    { label: 'Result', value: 'Authentic' },
+    { label: 'Certified by', value: 'WatchIt Experts' },
+  ];
 
   return (
     <SafeAreaView style={styles.container}>
@@ -31,32 +46,35 @@ export default function WatchAuthentication() {
         <View style={{ width: 24 }} />
       </View>
 
-      <ScrollView
-        showsVerticalScrollIndicator={false}
-      >
+      <ScrollView showsVerticalScrollIndicator={false}>
         {/* Component 1: Banner */}
         <AuthenticationBanner />
 
         {/* Component 2: Plan Cards */}
-        <ScrollView
-          horizontal
-          showsHorizontalScrollIndicator={false}
-          contentContainerStyle={styles.plansContainer}
-        >
-          {plansData.map((plan) => (
-            <PlanCard key={plan.id} plan={plan} />
-          ))}
-        </ScrollView>
+        {plansData.map((plan) => (
+          <PlanCard
+            key={plan.id}
+            plan={plan}
+            onPress={() => console.log('Plan selected:', plan.name)}
+          />
+        ))}
 
-        {/* Component 5: How It Works */}
-        <HowItWorks />
+        {/* Component 3: Certificate Card */}
+        <CertificateCard
+          fields={certificateFields}
+          onViewCertificate={() => console.log('View certificate')}
+        />
 
-        {/* Component 3: Authentication Form */}
-        <AuthenticationForm />
+        {/* Component 4: Authentication Process */}
+        <AuthProcess />
 
-        {/* Component 4: My Requests */}
-        <MyRequests />
+        {/* Component 5: What We Check */}
+        <WhatWeCheck />
 
+        {/* Component 6: Manage Requests CTA → navigates to new screen */}
+        <ManageRequests
+          onPress={() => router.push('/pages/watchAuthentication/manageRequests')}
+        />
       </ScrollView>
     </SafeAreaView>
   );

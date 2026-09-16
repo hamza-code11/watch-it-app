@@ -3,29 +3,23 @@ import { Theme } from '../../constants/theme';
 
 export const getMyRequestsStyles = (theme: Theme) =>
   StyleSheet.create({
-    // Section Heading
     sectionTitle: {
       color: theme.textPrimary,
       fontSize: 22,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
-      paddingHorizontal: theme.spacingLg,
+      fontFamily: theme.bold,
+      paddingHorizontal: theme.spacingMd,
       paddingTop: theme.spacingLg,
-      marginBottom: theme.spacingMd,
+      marginBottom: theme.spacingSm,
     },
-
-    // Request Card
     requestCard: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
-      marginHorizontal: theme.spacingLg,
+      borderRadius: theme.radiusLg,
+      marginHorizontal: theme.spacingSm,
       marginBottom: theme.spacingMd,
       padding: theme.spacingMd,
       borderWidth: 1,
       borderColor: theme.borderColor,
     },
-
-    // Card Header (ID + Status)
     cardHeader: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -35,7 +29,7 @@ export const getMyRequestsStyles = (theme: Theme) =>
     requestId: {
       color: theme.textMuted,
       fontSize: 12,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
     statusBadge: {
       paddingHorizontal: 10,
@@ -47,10 +41,8 @@ export const getMyRequestsStyles = (theme: Theme) =>
     statusText: {
       color: '#FFFFFF',
       fontSize: 11,
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
-
-    // Main Row (Image + Info)
     mainRow: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -71,17 +63,15 @@ export const getMyRequestsStyles = (theme: Theme) =>
     watchName: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 4,
     },
     dateSubmitted: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
     },
-
-    // Details Grid
     detailsGrid: {
-      display: 'flex',
       flexDirection: 'row',
       flexWrap: 'wrap',
       marginBottom: theme.spacingMd,
@@ -93,14 +83,14 @@ export const getMyRequestsStyles = (theme: Theme) =>
     detailLabel: {
       color: theme.textMuted,
       fontSize: 11,
+      fontFamily: theme.regular,
       marginBottom: 2,
     },
     detailValue: {
       color: theme.textPrimary,
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
-
   });
 
-  
+

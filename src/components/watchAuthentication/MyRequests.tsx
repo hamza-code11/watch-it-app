@@ -3,7 +3,7 @@ import { Image, Text, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 import { getMyRequestsStyles } from './MyRequests.style';
 
-// Mock Data (Aap isay data file se bhi fetch kar sakte hain)
+// Mock Data
 const requestsData = [
   {
     id: 'AUTH-9F8A3C20D0EF',
@@ -16,7 +16,6 @@ const requestsData = [
       brand: 'Rolex',
       model: 'Datejust',
       reference: '126334',
-      serial: '1A2B3C4D',
       year: '2022',
       condition: 'Like New',
     },
@@ -32,7 +31,6 @@ const requestsData = [
       brand: 'Omega',
       model: 'Seamaster',
       reference: '1598.83',
-      serial: '89123576',
       year: '2021',
       condition: 'Excellent',
     },
@@ -86,10 +84,6 @@ export default function MyRequests() {
               <Text style={styles.detailValue}>{request.details.reference}</Text>
             </View>
             <View style={styles.detailItem}>
-              <Text style={styles.detailLabel}>Serial Number</Text>
-              <Text style={styles.detailValue}>{request.details.serial}</Text>
-            </View>
-            <View style={styles.detailItem}>
               <Text style={styles.detailLabel}>Year</Text>
               <Text style={styles.detailValue}>{request.details.year}</Text>
             </View>
@@ -98,10 +92,8 @@ export default function MyRequests() {
               <Text style={styles.detailValue}>{request.details.condition}</Text>
             </View>
           </View>
-
         </View>
       ))}
     </View>
   );
 }
-

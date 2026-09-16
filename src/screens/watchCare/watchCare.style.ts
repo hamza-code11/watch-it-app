@@ -12,7 +12,7 @@ export const getStyles = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       gap: 8,
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingMd,
     },
     backBtn: {
@@ -21,15 +21,31 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
-    contentContainer: {
-      paddingBottom: 40,
+    servicesGrid: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      justifyContent: 'space-between',
+      rowGap: theme.spacingSm,
+      paddingHorizontal: theme.spacingSm,
     },
-    servicesContainer: {
-      paddingLeft: theme.spacingLg,
-      paddingRight: theme.spacingSm,
-      marginTop: theme.spacingLg,
+
+    sectionHeader: {
+      margin: theme.spacingMd,
     },
+    sectionTitle: {
+      color: '#FFFFFF',
+      fontSize: 24,
+      fontFamily: theme.bold,
+      marginBottom: 4,
+    },
+    sectionSubtitle: {
+      color: 'rgba(255,255,255,0.6)',
+      fontSize: 13,
+      fontFamily: theme.regular,
+    },
+
+
   });
 

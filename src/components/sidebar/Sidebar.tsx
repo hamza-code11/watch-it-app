@@ -143,8 +143,8 @@ const SidebarMenu = ({
       isMain: true,
       items: [
         { icon: "home-outline", title: "Home", onPress: () => router.push("/") },
-        { icon: "information-circle-outline", title: "About", onPress: () => router.push("/about") },
-        { icon: "construct-outline", title: "Services", onPress: () => router.push("/services") },
+        { icon: "information-circle-outline", title: "About", onPress: () => router.push("/pages/about") },
+        { icon: "construct-outline", title: "Services", onPress: () => router.push("/pages/watchCare") },
         { icon: "hammer-outline", title: "Auctions", onPress: () => router.push("/pages/auction") },
         { icon: "people-outline", title: "Community", onPress: () => router.push("/pages/community") },
       ],

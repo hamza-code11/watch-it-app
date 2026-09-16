@@ -115,7 +115,7 @@ const Profile = () => {
                   else if (item.label === "Community") {
                     router.push("/pages/community");
                   } 
-                  else if (item.label === "Services") {
+                  else if (item.label === "Watch Care") {
                     router.push("/pages/watchCare");
                   } 
                   else if (item.label === "Watch Authnticate") {

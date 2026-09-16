@@ -6,8 +6,8 @@ export const getFormStyles = (theme: Theme) =>
     // Form Container
     formContainer: {
       padding: theme.spacingLg,
-      marginHorizontal: theme.spacingLg,
-      marginTop: theme.spacingLg,
+      marginHorizontal: theme.spacingSm,
+      marginTop: theme.spacingSm,
       backgroundColor: theme.bgCard,
       borderRadius: theme.radiusXl,
       borderWidth: 1,
@@ -18,14 +18,14 @@ export const getFormStyles = (theme: Theme) =>
     formTitle: {
       color: theme.textPrimary,
       fontSize: 24,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
       marginBottom: theme.spacingXs,
     },
     formSubtitle: {
       color: theme.textMuted,
       fontSize: 14,
       lineHeight: 20,
+      fontFamily: theme.regular,
       marginBottom: theme.spacingLg,
     },
 
@@ -41,18 +41,19 @@ export const getFormStyles = (theme: Theme) =>
     fieldLabel: {
       color: theme.textSecondary,
       fontSize: 13,
-      fontWeight: '700',
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
     },
     requiredStar: {
       color: theme.danger,
       fontSize: 13,
-      fontWeight: '700',
+      fontFamily: theme.bold,
       marginLeft: 2,
     },
     optionalText: {
       color: theme.textMuted,
       fontSize: 11,
+      fontFamily: theme.regular,
       marginLeft: 4,
     },
 
@@ -63,6 +64,7 @@ export const getFormStyles = (theme: Theme) =>
       paddingVertical: 10,
       color: theme.textPrimary,
       fontSize: 14,
+      fontFamily: theme.regular,
       borderWidth: 1,
       borderColor: theme.borderLight,
     },
@@ -85,10 +87,12 @@ export const getFormStyles = (theme: Theme) =>
     selectText: {
       color: theme.textPrimary,
       fontSize: 14,
+      fontFamily: theme.regular,
     },
     selectPlaceholder: {
       color: theme.textMuted,
       fontSize: 14,
+      fontFamily: theme.regular,
     },
     optionsDropdown: {
       backgroundColor: theme.bgInput,
@@ -110,10 +114,11 @@ export const getFormStyles = (theme: Theme) =>
     optionText: {
       color: theme.textPrimary,
       fontSize: 14,
+      fontFamily: theme.regular,
     },
     optionSelected: {
       color: theme.accentPrimary,
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
 
     // Inspection Type
@@ -123,7 +128,7 @@ export const getFormStyles = (theme: Theme) =>
     inspectionTypeLabel: {
       color: theme.textSecondary,
       fontSize: 13,
-      fontWeight: '700',
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       marginBottom: 8,
     },
@@ -146,11 +151,12 @@ export const getFormStyles = (theme: Theme) =>
     inspectionTypeText: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     inspectionTypeTime: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
       marginTop: 2,
     },
 
@@ -162,6 +168,7 @@ export const getFormStyles = (theme: Theme) =>
       paddingVertical: 10,
       color: theme.textPrimary,
       fontSize: 14,
+      fontFamily: theme.regular,
       height: 100,
       textAlignVertical: 'top',
       borderWidth: 1,
@@ -175,13 +182,14 @@ export const getFormStyles = (theme: Theme) =>
     photosLabel: {
       color: theme.textSecondary,
       fontSize: 13,
-      fontWeight: '700',
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       marginBottom: 8,
     },
     photosLimitText: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
     },
     photoUploadBox: {
       width: '100%',
@@ -203,11 +211,12 @@ export const getFormStyles = (theme: Theme) =>
     photoUploadText: {
       color: theme.textSecondary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     photoCounter: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
       marginTop: 4,
     },
     photoPreviewRow: {
@@ -239,27 +248,29 @@ export const getFormStyles = (theme: Theme) =>
       justifyContent: 'center',
     },
 
-    // Submit Button
+    // Submit Button (gradient wrapper)
     submitBtn: {
-      backgroundColor: theme.accentPrimary,
       borderRadius: theme.radiusXl,
+      overflow: 'hidden',
+      marginTop: theme.spacingLg,
+    },
+    submitGradient: {
       paddingVertical: 16,
       alignItems: 'center',
       justifyContent: 'center',
-      marginTop: theme.spacingLg,
+      borderRadius: theme.radiusXl,
     },
     submitBtnText: {
-      color: '#FFFFFF',
+      color: '#0A0A0C',
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     termsText: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
       textAlign: 'center',
       marginTop: 12,
       lineHeight: 18,
     },
   });
-
-  

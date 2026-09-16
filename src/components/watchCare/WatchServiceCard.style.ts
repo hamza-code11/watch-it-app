@@ -3,61 +3,95 @@ import { Theme } from '../../constants/theme';
 
 export const getServiceCardStyles = (theme: Theme) =>
   StyleSheet.create({
+    // Card (image background container)
     serviceCard: {
-      width: 240,
-      backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
-      padding: theme.spacingLg,
-      marginRight: theme.spacingMd,
+      width: '48%',
+      height: 180,
+      borderRadius: theme.radiusLg,
+      overflow: 'hidden',
+      marginBottom: theme.spacingSm,
+      justifyContent: 'flex-end',
       borderWidth: 1,
-      borderColor: theme.borderColor,
-    },
-    
-    // Icon aur Heading Ek Hi Row Mein
-    serviceHeader: {
-      flexDirection: 'row',
-      alignItems: 'center',
-      gap: 10,
-      marginBottom: theme.spacingMd,
-    },
-    
-    serviceIcon: {
-      width: 32,
-      height: 32,
-      borderRadius: 16,
-      backgroundColor: theme.accentUltraLight,
-      alignItems: 'center',
-      justifyContent: 'center',
-    },
-    
-    serviceName: {
-      color: theme.textPrimary,
-      fontSize: 20, // Heading ka size barha diya
-      fontWeight: 'bold',
+      borderColor: 'rgba(212, 175, 55, 0.25)',
     },
 
-    servicePrice: {
-      color: theme.accentPrimary,
-      fontSize: 18,
-      fontWeight: 'bold',
-      marginBottom: 2,
+    // Image fills entire card
+    serviceCardImage: {
+      width: '100%',
+      height: '100%',
     },
-    priceType: {
-      color: theme.textMuted,
-      fontSize: 11,
+
+    // Gradient overlay (transparent top -> dark bottom, image saaf dikhay upar se)
+    gradientOverlay: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
     },
-    serviceFeatures: {
-      marginTop: theme.spacingMd,
+
+    // Content wrapper
+    cardContent: {
+      flex: 1,
+      padding: theme.spacingMd,
+      justifyContent: 'space-between',
     },
-    serviceFeature: {
+
+    // Icon circle (gold outline)
+    iconCircle: {
+      width: 32,
+      height: 32,
+      borderRadius: 18,
+      borderWidth: 1.2,
+      borderColor: '#D4AF37',
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: 'rgba(212, 175, 55, 0.1)',
+      marginBottom: 8,
+    },
+
+    // Service name
+    serviceName: {
+      color: '#FFFFFF',
+      fontSize: 16,
+      fontFamily: theme.bold,
+      marginBottom: 4,
+      letterSpacing: 0.2,
+    },
+
+    // Description
+    serviceDescription: {
+      color: 'rgba(255,255,255,0.7)',
+      fontSize: 10,
+      lineHeight: 15,
+      fontFamily: theme.regular,
+      flex: 1,
+    },
+
+    // Bottom row: price + arrow
+    bottomRow: {
       flexDirection: 'row',
       alignItems: 'center',
-      gap: 6,
-      marginBottom: 6,
+      justifyContent: 'space-between',
+      marginTop: 8,
     },
-    serviceFeatureText: {
-      color: theme.textMuted,
+    servicePrice: {
+      color: '#D4AF37',
       fontSize: 13,
+      fontFamily: theme.bold,
+    },
+    arrowBtn: {
+      width: 28,
+      height: 28,
+      borderRadius: 16,
+      backgroundColor: '#F5E6B8',
+      alignItems: 'center',
+      justifyContent: 'center',
+      shadowColor: '#000',
+      shadowOffset: { width: 0, height: 2 },
+      shadowOpacity: 0.25,
+      shadowRadius: 4,
+      elevation: 3,
     },
   });
   

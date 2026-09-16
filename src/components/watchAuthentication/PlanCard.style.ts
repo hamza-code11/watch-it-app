@@ -3,68 +3,126 @@ import { Theme } from '../../constants/theme';
 
 export const getPlanCardStyles = (theme: Theme) =>
   StyleSheet.create({
-    planCard: {
-      width: 280,
-      backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
-      padding: theme.spacingLg,
-      marginRight: theme.spacingMd,
-      borderWidth: 1,
-      borderColor: theme.borderColor,
+    pageHeader: {
+      marginHorizontal: theme.spacingSm,
+      marginTop: theme.spacingSm,
+      marginBottom: theme.spacingXs,
     },
-    
-    // Icon aur Heading Ek Hi Row
+    pageTitle: {
+      color: '#FFFFFF',
+      fontSize: 18,
+      fontFamily: theme.bold,
+      marginBottom: 4,
+    },
+    pageSubtitle: {
+      color: '#94A3B8',
+      fontSize: 12,
+      lineHeight: 16,
+      fontFamily: theme.regular,
+    },
+
+    planCard: {
+      backgroundColor: '#0E1626',
+      borderRadius: theme.radiusLg,
+      margin: theme.spacingSm,
+      padding: theme.spacingSm,
+      borderWidth: 1,
+      borderColor: 'rgba(212, 175, 55, 0.15)',
+    },
+
+    // Row: left column (header + image) + right column (content)
+    planRow: {
+      flexDirection: 'row',
+      gap: 10,
+      alignItems: 'stretch',
+    },
+
+    // Left column: holds header on top and image below
+    planLeft: {
+      width: 130,
+    },
+
+    // Header (Number + Title) — now inside left column
     planHeader: {
       flexDirection: 'row',
       alignItems: 'center',
-      gap: 10,
-      marginBottom: theme.spacingMd,
+      gap: 6,
+      marginBottom: 6,
     },
-    
-    planIcon: {
-      width: 28,
-      height: 28,
-      borderRadius: 14,
-      backgroundColor: theme.accentUltraLight,
+    numberBadge: {
+      width: 22,
+      height: 22,
+      borderRadius: 11,
+      backgroundColor: '#D4AF37',
       alignItems: 'center',
       justifyContent: 'center',
     },
-    
+    numberText: {
+      color: '#0A0A0C',
+      fontSize: 13,
+      fontFamily: theme.regular,
+    },
     planName: {
-      color: theme.textPrimary,
-      fontSize: 16,
-      fontWeight: 'bold',
+      color: '#FFFFFF',
+      fontSize: 14,
+      fontFamily: theme.bold,
+      flexShrink: 1,
     },
 
-    planPrice: {
-      color: theme.accentPrimary,
-      fontSize: 20,
-      fontWeight: 'bold',
-      marginBottom: 2,
+    // Image fills remaining height of left column
+    planImage: {
+      width: '100%',
+      flex: 1,
+      borderRadius: theme.radiusLg,
+      backgroundColor: '#1E293B',
     },
-    planDuration: {
-      color: theme.textMuted,
-      fontSize: 12,
-      marginBottom: theme.spacingMd,
+
+    // Right column
+    planContent: {
+      flex: 1,
+      justifyContent: 'space-between',
     },
+
     planDescription: {
-      color: theme.textSecondary,
-      fontSize: 13,
-      lineHeight: 20,
-      marginBottom: theme.spacingMd,
+      color: '#94A3B8',
+      fontSize: 11,
+      lineHeight: 16,
+      marginBottom: 8,
+      fontFamily: theme.regular,
     },
+
+    // Features
     planFeatures: {
-      marginBottom: 0, // Button remove hone ki wajah se margin bhi hata diya
+      marginBottom: 10,
     },
     planFeature: {
       flexDirection: 'row',
-      alignItems: 'center',
-      gap: 8,
-      marginBottom: 8,
+      alignItems: 'flex-start',
+      gap: 5,
+      marginBottom: 4,
     },
     planFeatureText: {
-      color: theme.textMuted,
-      fontSize: 13,
+      color: '#CBD5E1',
+      fontSize: 10,
+      flexShrink: 1,
+      lineHeight: 14,
+      fontFamily: theme.regular,
+    },
+
+    // Gold Button
+    planButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: 6,
+      backgroundColor: '#F5E6B8',
+      borderRadius: 10,
+      paddingVertical: 9,
+      paddingHorizontal: 12,
+    },
+    planButtonText: {
+      color: '#0A0A0C',
+      fontSize: 12,
+      fontFamily: theme.bold,
     },
   });
-  

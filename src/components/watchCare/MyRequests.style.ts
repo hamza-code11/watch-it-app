@@ -5,22 +5,21 @@ export const getMyRequestsStyles = (theme: Theme) =>
   StyleSheet.create({
     // Section Container
     container: {
-      paddingHorizontal: theme.spacingLg,
-      paddingVertical: theme.spacingLg,
+      paddingHorizontal: theme.spacingSm,
+      paddingVertical: theme.spacingMd,
     },
 
     // Section Heading
     sectionTitle: {
       color: theme.textPrimary,
       fontSize: 24,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
       marginBottom: 4,
     },
     sectionSubtitle: {
       color: theme.textMuted,
       fontSize: 14,
-      marginBottom: theme.spacingLg,
+      marginBottom: theme.spacingSm,
     },
 
     // Request Card
@@ -43,7 +42,7 @@ export const getMyRequestsStyles = (theme: Theme) =>
     requestId: {
       color: theme.textMuted,
       fontSize: 12,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
     statusBadge: {
       paddingHorizontal: 10,
@@ -55,7 +54,7 @@ export const getMyRequestsStyles = (theme: Theme) =>
     statusText: {
       color: '#FFFFFF',
       fontSize: 11,
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
 
     // Main Row (Image + Info)
@@ -79,12 +78,13 @@ export const getMyRequestsStyles = (theme: Theme) =>
     serviceName: {
       color: theme.textPrimary,
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 4,
     },
     dateSubmitted: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
     },
 
     // Details Grid
@@ -102,12 +102,12 @@ export const getMyRequestsStyles = (theme: Theme) =>
       color: theme.textMuted,
       fontSize: 11,
       marginBottom: 2,
+      fontFamily: theme.bold,
     },
     detailValue: {
       color: theme.textPrimary,
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
-
   });
   

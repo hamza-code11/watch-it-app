@@ -1,16 +1,15 @@
-export interface AuthenticationPlan {
-  id: number;
+export interface AuthenticationMethod {
+  id: string;
+  number: string;
   name: string;
+  description: string;
+  image: string;
+  features: string[];
+  buttonLabel: string;
   price: string;
   duration: string;
   time: string;
-  description: string;
   icon: string;
-  features: string[];
 }
 
-export interface BannerFeatures {
-  icon: string;
-  text: string;
-}
-
+export type AuthenticationPlan = AuthenticationMethod;

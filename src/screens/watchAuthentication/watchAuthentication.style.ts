@@ -26,11 +26,5 @@ export const getStyles = (theme: Theme) =>
       fontFamily: theme.bold,
     },
 
-    // Plan Cards Container (Style yahan define kar rahe hain)
-    plansContainer: {
-      paddingLeft: theme.spacingLg,
-      paddingRight: theme.spacingSm,
-      paddingTop: theme.spacingMd,
-    },
   });
 

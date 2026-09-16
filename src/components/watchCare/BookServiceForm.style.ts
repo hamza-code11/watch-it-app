@@ -5,28 +5,27 @@ export const getBookServiceStyles = (theme: Theme) =>
   StyleSheet.create({
     // Form Container (Background + Border Radius)
     formContainer: {
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingLg,
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       borderWidth: 1,
       borderColor: theme.borderColor,
-      marginTop: theme.spacingLg,
-      marginHorizontal: theme.spacingLg,
+      marginHorizontal: theme.spacingSm,
     },
 
     // Headings
     formTitle: {
       color: theme.textPrimary,
       fontSize: 24,
-      fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
       marginBottom: 4,
     },
     formSubtitle: {
       color: theme.textMuted,
-      fontSize: 14,
+      fontSize: 12,
       marginBottom: theme.spacingLg,
+      fontFamily: theme.regular,
     },
 
     // Input Groups
@@ -40,20 +39,20 @@ export const getBookServiceStyles = (theme: Theme) =>
     },
     fieldLabel: {
       color: theme.textSecondary,
-      fontSize: 13,
-      fontWeight: '700',
-      textTransform: 'uppercase',
+      fontSize: 12,
+      fontFamily: theme.bold,
     },
     requiredStar: {
       color: theme.danger,
       fontSize: 13,
-      fontWeight: '700',
+      fontFamily: theme.bold,
       marginLeft: 2,
     },
     optionalText: {
       color: theme.textMuted,
       fontSize: 11,
       marginLeft: 4,
+      fontFamily: theme.regular,
     },
 
     // Inputs
@@ -63,9 +62,10 @@ export const getBookServiceStyles = (theme: Theme) =>
       paddingHorizontal: 12,
       paddingVertical: 10,
       color: theme.textPrimary,
-      fontSize: 14,
+      fontSize: 12,
       borderWidth: 1,
       borderColor: theme.borderLight,
+      fontFamily: theme.regular,
     },
 
     // Dropdown
@@ -85,11 +85,12 @@ export const getBookServiceStyles = (theme: Theme) =>
     },
     selectText: {
       color: theme.textPrimary,
-      fontSize: 14,
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
     selectPlaceholder: {
       color: theme.textMuted,
-      fontSize: 14,
+      fontSize: 12,
     },
     optionsDropdown: {
       backgroundColor: theme.bgInput,
@@ -110,11 +111,12 @@ export const getBookServiceStyles = (theme: Theme) =>
     },
     optionText: {
       color: theme.textPrimary,
-      fontSize: 14,
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
     optionSelected: {
       color: theme.accentPrimary,
-      fontWeight: '700',
+      fontFamily: theme.bold,
     },
 
     // Collection Method
@@ -124,7 +126,7 @@ export const getBookServiceStyles = (theme: Theme) =>
     collectionMethodLabel: {
       color: theme.textSecondary,
       fontSize: 13,
-      fontWeight: '700',
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       marginBottom: 8,
     },
@@ -147,7 +149,7 @@ export const getBookServiceStyles = (theme: Theme) =>
     collectionOptionText: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
 
     // Photos Section
@@ -156,8 +158,8 @@ export const getBookServiceStyles = (theme: Theme) =>
     },
     photosLabel: {
       color: theme.textSecondary,
-      fontSize: 13,
-      fontWeight: '700',
+      fontSize: 12,
+      fontFamily: theme.regular,
       textTransform: 'uppercase',
       marginBottom: 8,
     },
@@ -181,12 +183,13 @@ export const getBookServiceStyles = (theme: Theme) =>
     photoUploadText: {
       color: theme.textSecondary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.regular,
     },
     photoCounter: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 4,
+      fontFamily: theme.regular,
     },
     photoPreviewRow: {
       flexDirection: 'row',
@@ -224,11 +227,12 @@ export const getBookServiceStyles = (theme: Theme) =>
       paddingHorizontal: 12,
       paddingVertical: 10,
       color: theme.textPrimary,
-      fontSize: 14,
+      fontSize: 12,
       height: 100,
       textAlignVertical: 'top',
       borderWidth: 1,
       borderColor: theme.borderLight,
+      fontFamily: theme.regular,
     },
 
     // Submit Button (White Gradient)
@@ -247,7 +251,7 @@ export const getBookServiceStyles = (theme: Theme) =>
     submitBtnText: {
       color: '#000000',
       fontSize: 16,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     termsText: {
       color: theme.textMuted,
@@ -255,6 +259,7 @@ export const getBookServiceStyles = (theme: Theme) =>
       textAlign: 'center',
       marginTop: 12,
       lineHeight: 18,
+      fontFamily: theme.regular,
     },
   });
 

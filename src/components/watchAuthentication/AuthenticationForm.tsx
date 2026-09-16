@@ -1,5 +1,6 @@
 import { Ionicons } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
+import { LinearGradient } from 'expo-linear-gradient';
 import { useState } from 'react';
 import { Image, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
@@ -20,7 +21,6 @@ export default function AuthenticationForm() {
   const [brand, setBrand] = useState('');
   const [model, setModel] = useState('');
   const [referenceNumber, setReferenceNumber] = useState('');
-  const [serialNumber, setSerialNumber] = useState('');
   const [year, setYear] = useState('');
   const [condition, setCondition] = useState('');
   const [inspectionType, setInspectionType] = useState('remote');
@@ -48,7 +48,7 @@ export default function AuthenticationForm() {
   };
 
   const handleSubmit = () => {
-    if (!watchName || !brand || !serialNumber || !condition) {
+    if (!watchName || !brand || !condition) {
       alert('Please fill in all required fields!');
       return;
     }
@@ -57,7 +57,6 @@ export default function AuthenticationForm() {
       brand,
       model,
       referenceNumber,
-      serialNumber,
       year,
       condition,
       inspectionType,
@@ -75,7 +74,7 @@ export default function AuthenticationForm() {
         Fill in the details below to get your watch verified by our certified UAE experts
       </Text>
 
-      {/* Required Fields */}
+      {/* Watch Name */}
       <View style={styles.inputContainer}>
         <View style={styles.labelRow}>
           <Text style={styles.fieldLabel}>Watch Name</Text>
@@ -90,6 +89,7 @@ export default function AuthenticationForm() {
         />
       </View>
 
+      {/* Brand */}
       <View style={styles.inputContainer}>
         <View style={styles.labelRow}>
           <Text style={styles.fieldLabel}>Brand</Text>
@@ -104,6 +104,7 @@ export default function AuthenticationForm() {
         />
       </View>
 
+      {/* Model */}
       <View style={styles.inputContainer}>
         <View style={styles.labelRow}>
           <Text style={styles.fieldLabel}>Model</Text>
@@ -118,6 +119,7 @@ export default function AuthenticationForm() {
         />
       </View>
 
+      {/* Reference Number */}
       <View style={styles.inputContainer}>
         <View style={styles.labelRow}>
           <Text style={styles.fieldLabel}>Reference Number</Text>
@@ -132,20 +134,7 @@ export default function AuthenticationForm() {
         />
       </View>
 
-      <View style={styles.inputContainer}>
-        <View style={styles.labelRow}>
-          <Text style={styles.fieldLabel}>Serial Number</Text>
-          <Text style={styles.requiredStar}>*</Text>
-        </View>
-        <TextInput
-          style={styles.input}
-          value={serialNumber}
-          onChangeText={setSerialNumber}
-          placeholder="e.g., 132163"
-          placeholderTextColor={theme.textMuted}
-        />
-      </View>
-
+      {/* Year */}
       <View style={styles.inputContainer}>
         <View style={styles.labelRow}>
           <Text style={styles.fieldLabel}>Year</Text>
@@ -267,9 +256,16 @@ export default function AuthenticationForm() {
         )}
       </View>
 
-      {/* Submit Button */}
-      <TouchableOpacity style={styles.submitBtn} onPress={handleSubmit}>
-        <Text style={styles.submitBtnText}>Submit for Authentication</Text>
+      {/* Submit Button — White Gradient */}
+      <TouchableOpacity style={styles.submitBtn} onPress={handleSubmit} activeOpacity={0.85}>
+        <LinearGradient
+          colors={['#FFFFFF', '#E5E7EB']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
+          style={styles.submitGradient}
+        >
+          <Text style={styles.submitBtnText}>Submit for Authentication</Text>
+        </LinearGradient>
       </TouchableOpacity>
 
       {/* Terms */}
@@ -279,4 +275,3 @@ export default function AuthenticationForm() {
     </View>
   );
 }
-
