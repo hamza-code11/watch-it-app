@@ -33,7 +33,7 @@ export default function WatchServiceCard({ service }: Props) {
       <View style={styles.cardContent}>
         {/* Icon circle */}
         <View style={styles.iconCircle}>
-          <Ionicons name={service.icon as any} size={16} color="#D4AF37" />
+          <Ionicons name={service.icon as any} size={16} color="#8bbdd9" />
         </View>
 
         {/* Title */}
@@ -56,7 +56,7 @@ export default function WatchServiceCard({ service }: Props) {
             activeOpacity={0.85}
             onPress={() => router.push('/pages/watchCare/bookService')}
           >
-            <Ionicons name="arrow-forward" size={14} color="#0A0A0C" />
+            <Ionicons name="arrow-forward" size={14} color="#fafafd" />
           </TouchableOpacity>
         </View>
       </View>

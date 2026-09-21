@@ -2,7 +2,7 @@ import { VendorDetailData } from '../types/vendorDetail.types';
 
 export const vendorDetailsData: VendorDetailData[] = [
   {
-    id: 'vendor-1',
+    id: '1',
     name: 'Heritage Timepieces',
     logo: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
     address: 'London, UK',
@@ -15,7 +15,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     isVerified: true,
     products: [
       {
-        id: 'prod-1',
+        id: '1',
         brandName: 'Rolex',
         title: 'Submariner Date',
         sellerName: 'Heritage Timepieces',
@@ -26,7 +26,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2024,
       },
       {
-        id: 'prod-2',
+        id: '2',
         brandName: 'Rolex',
         title: 'Nautilus',
         sellerName: 'Heritage Timepieces',
@@ -37,7 +37,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2021,
       },
       {
-        id: 'prod-3',
+        id: '3',
         brandName: 'Rolex',
         title: 'Carrera Chronograph 6',
         sellerName: 'Heritage Timepieces',
@@ -48,7 +48,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2023,
       },
       {
-        id: 'prod-4',
+        id: '4',
         brandName: 'Rolex',
         title: 'Speedmaster Professional',
         sellerName: 'Heritage Timepieces',
@@ -61,7 +61,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     ],
   },
   {
-    id: 'vendor-2',
+    id: '2',
     name: 'Time Vault Karachi',
     logo: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=800&auto=format&fit=crop',
     address: 'Dubai, UAE',
@@ -74,7 +74,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     isVerified: false,
     products: [
       {
-        id: 'prod-5',
+        id: '5',
         brandName: 'Omega',
         title: 'Seamaster Aqua Terra',
         sellerName: 'Time Vault Karachi',
@@ -85,7 +85,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2023,
       },
       {
-        id: 'prod-6',
+        id: '6',
         brandName: 'Tag Heuer',
         title: 'Carrera Calibre 5',
         sellerName: 'Time Vault Karachi',
@@ -96,7 +96,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2022,
       },
       {
-        id: 'prod-7',
+        id: '7',
         brandName: 'Breitling',
         title: 'Navitimer 01',
         sellerName: 'Time Vault Karachi',
@@ -109,7 +109,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     ],
   },
   {
-    id: 'vendor-3',
+    id: '3',
     name: 'Swiss Watch Imports',
     logo: 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=800&auto=format&fit=crop',
     address: 'Geneva, Switzerland',
@@ -122,7 +122,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     isVerified: true,
     products: [
       {
-        id: 'prod-8',
+        id: '8',
         brandName: 'Patek Philippe',
         title: 'Nautilus 5711',
         sellerName: 'Swiss Watch Imports',
@@ -133,7 +133,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2020,
       },
       {
-        id: 'prod-9',
+        id: '9',
         brandName: 'Audemars Piguet',
         title: 'Royal Oak 15500',
         sellerName: 'Swiss Watch Imports',
@@ -144,7 +144,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2024,
       },
       {
-        id: 'prod-10',
+        id: '10',
         brandName: 'IWC',
         title: 'Pilot’s Chronograph',
         sellerName: 'Swiss Watch Imports',
@@ -157,7 +157,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     ],
   },
   {
-    id: 'vendor-4',
+    id: '4',
     name: 'Chrono House',
     logo: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
     address: 'New York, USA',
@@ -170,7 +170,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     isVerified: true,
     products: [
       {
-        id: 'prod-11',
+        id: '11',
         brandName: 'Cartier',
         title: 'Santos de Cartier',
         sellerName: 'Chrono House',
@@ -181,7 +181,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2023,
       },
       {
-        id: 'prod-12',
+        id: '12',
         brandName: 'Jaeger-LeCoultre',
         title: 'Reverso Classic',
         sellerName: 'Chrono House',
@@ -194,7 +194,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     ],
   },
   {
-    id: 'vendor-5',
+    id: '5',
     name: 'Dubai Watch Traders',
     logo: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=800&auto=format&fit=crop',
     address: 'Dubai, UAE',
@@ -207,7 +207,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     isVerified: true,
     products: [
       {
-        id: 'prod-13',
+        id: '13',
         brandName: 'Rolex',
         title: 'Daytona 116500',
         sellerName: 'Dubai Watch Traders',
@@ -218,7 +218,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2019,
       },
       {
-        id: 'prod-14',
+        id: '14',
         brandName: 'Grand Seiko',
         title: 'Spring Drive',
         sellerName: 'Dubai Watch Traders',
@@ -229,7 +229,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2024,
       },
       {
-        id: 'prod-15',
+        id: '15',
         brandName: 'Panerai',
         title: 'Luminor Marina',
         sellerName: 'Dubai Watch Traders',
@@ -242,7 +242,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     ],
   },
   {
-    id: 'vendor-6',
+    id: '6',
     name: 'Vintage Vault',
     logo: 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=800&auto=format&fit=crop',
     address: 'Paris, France',
@@ -255,7 +255,7 @@ export const vendorDetailsData: VendorDetailData[] = [
     isVerified: true,
     products: [
       {
-        id: 'prod-16',
+        id: '16',
         brandName: 'Vacheron Constantin',
         title: 'Overseas',
         sellerName: 'Vintage Vault',
@@ -266,7 +266,7 @@ export const vendorDetailsData: VendorDetailData[] = [
         year: 2021,
       },
       {
-        id: 'prod-17',
+        id: '17',
         brandName: 'Rolex',
         title: 'Explorer II',
         sellerName: 'Vintage Vault',

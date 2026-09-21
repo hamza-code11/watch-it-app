@@ -30,9 +30,9 @@ export default function AuthenticationBanner() {
 
   return (
     <LinearGradient
-      colors={['#2c414b', '#152331', '#0a0a0c']}
-      start={{ x: 0.5, y: 0 }}
-      end={{ x: 0.5, y: 1 }}
+      colors={['#0a1628', '#0f4c81']}
+      start={{ x: 0, y: 0 }}
+      end={{ x: 1, y: 1 }}
       style={styles.banner}
     >
       {/* UAE Certified Badge */}
@@ -53,7 +53,7 @@ export default function AuthenticationBanner() {
       <View style={styles.trustRow}>
         {trustItems.map((item, index) => (
           <View key={index} style={styles.trustItem}>
-            <Ionicons name={item.icon} size={16} color="#D4AF37" />
+            <Ionicons name={item.icon} size={16} color="#2f95c8" />
             <Text style={styles.trustTitle} numberOfLines={1}>
               {item.title}
             </Text>

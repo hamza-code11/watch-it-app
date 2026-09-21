@@ -20,7 +20,7 @@ export default function ManageRequests({ onPress }: Props) {
 
       <TouchableOpacity style={styles.button} onPress={onPress} activeOpacity={0.85}>
         <Text style={styles.buttonText}>Go to My Requests</Text>
-        <Ionicons name="arrow-forward" size={16} color="#0A0A0C" />
+        <Ionicons name="arrow-forward" size={16} color="#fcfcfe" />
       </TouchableOpacity>
     </View>
   );

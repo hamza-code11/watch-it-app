@@ -50,7 +50,7 @@ const BottomTabBar = () => {
                     activeOpacity={0.85}
                     onPress={() => router.push(tab.route as any)}
                   >
-                    <Ionicons name="add" size={26} color="#0B0E14" />
+                    <Ionicons name="add" size={26} color="#fbfcfd" />
                   </TouchableOpacity>
                   <Text style={styles.centerLabel}>{tab.label}</Text>
                 </View>
@@ -67,7 +67,7 @@ const BottomTabBar = () => {
                 <Ionicons
                   name={active ? tab.activeIcon : tab.icon}
                   size={22}
-                  color={active ? "#F0B429" : theme.textMuted}
+                  color={active ? "#4a94c4" : theme.textMuted}
                 />
                 <Text style={[styles.label, active && styles.labelActive]}>
                   {tab.label}

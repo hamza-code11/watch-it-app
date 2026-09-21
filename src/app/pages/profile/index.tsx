@@ -6,6 +6,7 @@ import { ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { useTheme } from "../../../context/ThemeContext";
 import { getStyles } from "../../../screens/Profile/Profile.styles";
 
+
 const Profile = () => {
   const { theme } = useTheme();
   const styles = getStyles(theme);
@@ -96,43 +97,43 @@ const Profile = () => {
           <Text style={styles.sectionTitle}>{section.title}</Text>
           {section.items.map((item, itemIndex) => (
             <View key={item.label}>
-              <TouchableOpacity 
-                style={styles.menuItem} 
+              <TouchableOpacity
+                style={styles.menuItem}
                 activeOpacity={0.7}
                 onPress={() => {
                   if (item.label === "Create Listings") {
                     router.push("/pages/createListing");
-                  } 
+                  }
                   else if (item.label === "My Listings") {
                     router.push("/pages/myListings");
-                  } 
+                  }
                   else if (item.label === "Become a Dealer") {
                     router.push("/pages/dealer");
-                  } 
+                  }
                   else if (item.label === "Auctions") {
                     router.push("/pages/auction");
-                  } 
+                  }
                   else if (item.label === "Community") {
                     router.push("/pages/community");
-                  } 
+                  }
                   else if (item.label === "Watch Care") {
                     router.push("/pages/watchCare");
-                  } 
+                  }
                   else if (item.label === "Watch Authnticate") {
-                      router.push("/pages/watchAuthentication");
-                  } 
+                    router.push("/pages/watchAuthentication");
+                  }
                   else if (item.label === "Earn AED 100") {
                     router.push("/pages/referral");
-                  } 
+                  }
                   else if (item.label === "Watch It Gold") {
                     router.push("/pages/subscription");
-                  } 
+                  }
                   else if (item.label === "FAQ") {
                     router.push("/pages/faq");
-                  } 
+                  }
                   else if (item.label === "Terms of service") {
                     router.push("/pages/termsAndConditions");
-                  } 
+                  }
                   else if (item.label === "User policy") {
                     router.push("/pages/privacyPolicy");
                   }
@@ -151,32 +152,36 @@ const Profile = () => {
       ))}
 
 
-    {/* Watch It Gold Section */}
-    <View style={styles.goldCard}>
-      <View style={styles.goldRow}>
-        <View style={styles.goldContent}>
-          <View style={styles.goldHeader}>
-            <Ionicons name="diamond" size={20} color="#D4AF37" />
-            <Text style={styles.goldTitle}>Watch It Gold</Text>
+      {/* Watch It Gold Section */}
+      <View style={styles.goldCard}>
+        <View style={styles.goldRow}>
+          <View style={styles.goldContent}>
+            <View style={styles.goldHeader}>
+              <Ionicons name="diamond" size={20} color="#D4AF37" />
+              <Text style={styles.goldTitle}>Watch It Gold</Text>
+            </View>
+            <Text style={styles.goldPrice}>· AED 50/month</Text>
+            <Text style={styles.goldDescription}>
+              Unlimited swipes, priority listings, VIP events & more
+            </Text>
           </View>
-          <Text style={styles.goldPrice}>· AED 50/month</Text>
-          <Text style={styles.goldDescription}>
-            Unlimited swipes, priority listings, VIP events & more
-          </Text>
-        </View>
-        <TouchableOpacity style={styles.upgradeButton} activeOpacity={0.7}>
-          <LinearGradient
-            colors={["#D4AF37", "#F7E7B4", "#D4AF37"]}
-            start={{ x: 0, y: 0 }}
-            end={{ x: 1, y: 1 }}
-            style={styles.upgradeGradient}
+          <TouchableOpacity
+            style={styles.upgradeButton}
+            activeOpacity={0.7}
+            onPress={() => router.push("/subscription")}
           >
-            <Text style={styles.upgradeText}>Upgrade</Text>
-            <Ionicons name="arrow-forward" size={16} color="#0B0E14" />
-          </LinearGradient>
-        </TouchableOpacity>
+            <LinearGradient
+              colors={["#D4AF37", "#F7E7B4", "#D4AF37"]}
+              start={{ x: 0, y: 0 }}
+              end={{ x: 1, y: 1 }}
+              style={styles.upgradeGradient}
+            >
+              <Text style={styles.upgradeText}>Upgrade</Text>
+              <Ionicons name="arrow-forward" size={16} color="#0B0E14" />
+            </LinearGradient>
+          </TouchableOpacity>
+        </View>
       </View>
-    </View>
 
       {/* Log Out */}
       <TouchableOpacity style={styles.logoutButton} activeOpacity={0.7}>

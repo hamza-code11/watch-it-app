@@ -100,6 +100,6 @@ export default function VendorDetail() {
           onProductPress={(productId) => router.push(`/pages/productDetail/${productId}`)}
         />
       </ScrollView>
-    </SafeAreaView>
+    </SafeAreaView> 
   );
 }

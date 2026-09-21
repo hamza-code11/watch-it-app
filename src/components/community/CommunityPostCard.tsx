@@ -1,27 +1,30 @@
 import { Ionicons } from '@expo/vector-icons';
-import { useRouter } from 'expo-router';
 import { useRef, useState } from 'react';
-import { Image, Modal, Pressable, Share, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { Modal, Pressable, Share, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
 import { CommunityPost } from '../../types/community.types';
 import { getCommunityPostStyles } from './CommunityPostCard.style';
 
+const GOLD = '#E3A85A';
+
 const categoryColors: Record<string, string> = {
-  Showcase: '#60A5FA',
-  Sale: '#10B981',
-  Wanted: '#F59E0B',
-  News: '#8B5CF6',
+  general: '#60A5FA',
+  buyingAdvice: '#F59E0B',
+  selling: '#10B981',
+  events: '#8B5CF6',
+  uaeCollectors: '#EC4899',
+  offTopic: '#6B7280',
 };
 
 export default function CommunityPostCard({ post }: { post: CommunityPost }) {
-  const router = useRouter();
   const { theme } = useTheme();
   const styles = getCommunityPostStyles(theme);
 
-  const [activeImage, setActiveImage] = useState(0);
   const [comment, setComment] = useState('');
   const [liked, setLiked] = useState(false);
   const [likesCount, setLikesCount] = useState(post.likes);
+  const [saved, setSaved] = useState(false);
+  const [following, setFollowing] = useState(false);
   const [commentsVisible, setCommentsVisible] = useState(false);
   const [menuVisible, setMenuVisible] = useState(false);
   const [menuPosition, setMenuPosition] = useState({ top: 0, right: 0 });
@@ -67,17 +70,26 @@ export default function CommunityPostCard({ post }: { post: CommunityPost }) {
           <View style={styles.avatar}>
             <Text style={styles.avatarText}>{post.user.initials}</Text>
           </View>
+
           <View style={styles.userInfo}>
             <Text style={styles.userName} numberOfLines={1} ellipsizeMode="tail">
               {post.user.name}
             </Text>
-            <Text style={styles.date}>{post.date}</Text>
+            <View style={styles.dateRow}>
+              <Ionicons name="time-outline" size={12} color={theme.textMuted} />
+              <Text style={styles.date}>{post.date}</Text>
+            </View>
           </View>
-          <View style={[styles.categoryBadge, { borderColor: `${categoryColors[post.category]}40` }]}>
-            <Text style={[styles.categoryText, { color: categoryColors[post.category] }]}>
-              {post.category}
+
+          <TouchableOpacity
+            style={[styles.followBtn, following && styles.followBtnActive]}
+            onPress={() => setFollowing((prev) => !prev)}
+            activeOpacity={0.8}
+          >
+            <Text style={[styles.followText, following && styles.followTextActive]}>
+              {following ? 'Following' : 'Follow'}
             </Text>
-          </View>
+          </TouchableOpacity>
 
           <TouchableOpacity ref={menuBtnRef} style={styles.menuBtn} onPress={openMenu}>
             <Ionicons name="ellipsis-vertical" size={18} color={theme.textMuted} />
@@ -85,60 +97,60 @@ export default function CommunityPostCard({ post }: { post: CommunityPost }) {
         </View>
 
         <View style={styles.postContent}>
-          <Text style={styles.postTitle}>{post.title}</Text>
+          {!!post.title && <Text style={styles.postTitle}>{post.title}</Text>}
           <Text style={styles.postText}>{post.content}</Text>
         </View>
 
-        <View style={styles.imageSection}>
-          <Image
-            source={{ uri: post.images[activeImage] }}
-            style={styles.postImage}
-            resizeMode="cover"
-          />
-          {post.images.length > 1 && (
-            <>
-              <View style={styles.imageCounter}>
-                <Text style={styles.imageCounterText}>{activeImage + 1}/{post.images.length}</Text>
-              </View>
-              <View style={styles.sliderDots}>
-                {post.images.map((_, index) => (
-                  <View
-                    key={index}
-                    style={[styles.dot, index === activeImage && styles.activeDot]}
-                  />
-                ))}
-              </View>
-            </>
-          )}
-        </View>
+        {post.hashtags.length > 0 && (
+          <View style={styles.hashtagsRow}>
+            {post.hashtags.map((tag) => (
+              <Text key={tag} style={styles.hashtag}>{tag}</Text>
+            ))}
+          </View>
+        )}
 
-        <View style={styles.hashtagsRow}>
-          {post.hashtags.map((tag) => (
-            <Text key={tag} style={styles.hashtag}>{tag}</Text>
-          ))}
+        <View
+          style={[
+            styles.categoryBadge,
+            { borderColor: `${categoryColors[post.category]}40` },
+          ]}
+        >
+          <Text style={[styles.categoryText, { color: categoryColors[post.category] }]}>
+            {post.category}
+          </Text>
         </View>
 
         <View style={styles.statsRow}>
-          <TouchableOpacity style={styles.statItem} onPress={handleLike}>
+          <View style={styles.statsLeft}>
+            <TouchableOpacity style={styles.statItem} onPress={handleLike}>
+              <Ionicons
+                name={liked ? 'heart' : 'heart-outline'}
+                size={20}
+                color={liked ? '#EF4444' : '#FFFFFF'}
+              />
+              <Text style={[styles.statText, liked && styles.statTextActive]}>{likesCount}</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity
+              style={styles.statItem}
+              onPress={() => setCommentsVisible((prev) => !prev)}
+            >
+              <Ionicons name="chatbubble-outline" size={20} color="#FFFFFF" />
+              <Text style={styles.statText}>{post.comments.length}</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.statItem} onPress={handleShare}>
+              <Ionicons name="repeat-outline" size={20} color="#FFFFFF" />
+              <Text style={styles.statText}>{post.shares}</Text>
+            </TouchableOpacity>
+          </View>
+
+          <TouchableOpacity onPress={() => setSaved((prev) => !prev)}>
             <Ionicons
-              name={liked ? 'heart' : 'heart-outline'}
+              name={saved ? 'bookmark' : 'bookmark-outline'}
               size={20}
-              color={liked ? '#EF4444' : '#FFFFFF'}
+              color={saved ? GOLD : '#FFFFFF'}
             />
-            <Text style={[styles.statText, liked && styles.statTextActive]}>{likesCount}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity
-            style={styles.statItem}
-            onPress={() => setCommentsVisible((prev) => !prev)}
-          >
-            <Ionicons name="chatbubble-outline" size={20} color="#FFFFFF" />
-            <Text style={styles.statText}>{post.comments.length}</Text>
-          </TouchableOpacity>
-
-          <TouchableOpacity style={styles.statItem} onPress={handleShare}>
-            <Ionicons name="share-social-outline" size={20} color="#FFFFFF" />
-            <Text style={styles.statText}>{post.shares}</Text>
           </TouchableOpacity>
         </View>
 

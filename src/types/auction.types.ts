@@ -1,26 +1,46 @@
-export interface Bid {
-  initials: string;
-  name: string;
-  time: string;
-  amount: string;
+export type AuctionCategory = 'live' | 'endingSoon' | 'upcoming' | 'myBids';
+
+export interface BidEntry {
+  id: number;
+  user: { name: string; initials: string };
+  amount: number;
+  timeAgo: string;
 }
 
-export interface AuctionItem {
+export interface ProductDetails {
+  brand: string;
+  model: string;
+  referenceNumber: string;
+  caseDiameter: string;
+  caseMaterial: string;
+  movement: string;
+  waterResistance: string;
+  boxPapers: string;
+  condition: string;
+}
+
+export interface SimilarLot {
   id: number;
   brand: string;
-  title: string;
-  startingPrice: string;
-  currentPrice: string;
-  bids: number;
-  endsAt: string; // ISO format (e.g., 2026-09-15T18:00:00)
+  name: string;
+  reference: string;
+  price: number;
+  status: 'live' | 'endingSoon' | 'upcoming';
   image: string;
-  gallery: string[];
-  description: string;
-  features: string[];
-  seller: {
-    name: string;
-    rating: number;
-    reviews: number;
-  };
-  bidHistory: Bid[];
+}
+
+export interface Auction {
+  id: number;
+  category: AuctionCategory;
+  brand: string;
+  name: string;              // "Daytona"
+  reference: string;         // "Ref. 116500LN | 40mm | Stainless Steel"
+  images: string[];
+  currentBid: number;
+  startingBid: number;
+  bidders: number;
+  endsAt: string;            // ISO timestamp
+  bidHistory: BidEntry[];
+  details: ProductDetails;
+  similarLots: Auction[];
 }

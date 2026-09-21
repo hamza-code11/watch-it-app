@@ -8,12 +8,14 @@
     "scheme": "app",
     "userInterfaceStyle": "automatic",
     "ios": {
+      "bundleIdentifier": "com.fusixtech.watchit",
       "icon": "./assets/expo.icon"
     },
     "android": {
       "predictiveBackGestureEnabled": false,
       "softwareKeyboardLayoutMode": "pan",
-      "package": "com.anonymous.app",
+      "package": "com.fusixtech.watchit",
+      // "package": "com.anonymous.app",
       "adaptiveIcon": {
         "backgroundColor": "#E6F4FE",
         "foregroundImage": "./assets/images/android-icon-foreground.png",

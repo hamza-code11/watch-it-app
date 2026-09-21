@@ -1,16 +1,30 @@
 import { Ionicons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
+import { useState } from 'react';
 import { ScrollView, StatusBar, Text, TouchableOpacity, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useTheme } from '../../../context/ThemeContext';
-import { communityProfileUser, communityStats, topTrends } from '../../../data/communityProfile';
+import {
+  communityProfileUser,
+  communityStats,
+  topTrends,
+} from '../../../data/communityProfile';
+import { suggestedPeople } from '../../../data/community';
 import { getStyles } from '../../../screens/communityProfile/communityProfile.style';
 
 export default function CommunityProfile() {
   const router = useRouter();
   const { theme } = useTheme();
   const styles = getStyles(theme);
+
+  const [followed, setFollowed] = useState<number[]>([]);
+
+  const toggleFollow = (id: number) => {
+    setFollowed((prev) =>
+      prev.includes(id) ? prev.filter((x) => x !== id) : [...prev, id]
+    );
+  };
 
   return (
     <SafeAreaView style={styles.container}>
@@ -32,7 +46,6 @@ export default function CommunityProfile() {
         {/* Profile Card */}
         <View style={styles.profileCard}>
           <View style={styles.profileRow}>
-            {/* Gradient Avatar */}
             <LinearGradient
               colors={['#4F9FFF', '#3560D9']}
               start={{ x: 0, y: 0 }}
@@ -52,7 +65,6 @@ export default function CommunityProfile() {
             </View>
           </View>
 
-          {/* Stats */}
           <View style={styles.statsRow}>
             <View style={styles.statItem}>
               <Text style={styles.statNumber}>{communityStats.posts}</Text>
@@ -66,7 +78,7 @@ export default function CommunityProfile() {
           </View>
         </View>
 
-        {/* Create Post (Menu Item) */}
+        {/* Menu Items */}
         <TouchableOpacity style={styles.menuItem} onPress={() => router.push('/pages/createPost')}>
           <View style={styles.menuIcon}>
             <Ionicons name="add-circle-outline" size={22} color={theme.textPrimary} />
@@ -77,7 +89,6 @@ export default function CommunityProfile() {
           </View>
         </TouchableOpacity>
 
-        {/* View Profile (Menu Item) */}
         <TouchableOpacity style={styles.menuItem} onPress={() => router.push('/pages/profile')}>
           <View style={styles.menuIcon}>
             <Ionicons name="person-outline" size={20} color={theme.textPrimary} />
@@ -88,7 +99,6 @@ export default function CommunityProfile() {
           </View>
         </TouchableOpacity>
 
-        {/* View Listings (Menu Item) */}
         <TouchableOpacity style={styles.menuItem} onPress={() => router.push('/pages/myListings')}>
           <View style={styles.menuIcon}>
             <Ionicons name="list-outline" size={20} color={theme.textPrimary} />
@@ -99,8 +109,7 @@ export default function CommunityProfile() {
           </View>
         </TouchableOpacity>
 
-        {/* Messages (Menu Item) */}
-        <TouchableOpacity style={styles.menuItem} onPress={() => router.push('/pages/chat')}>
+        <TouchableOpacity style={styles.menuItem} onPress={() => router.push('/pages/messages')}>
           <View style={styles.menuIcon}>
             <Ionicons name="mail-outline" size={20} color={theme.textPrimary} />
           </View>
@@ -113,16 +122,48 @@ export default function CommunityProfile() {
           </View>
         </TouchableOpacity>
 
-        {/* Joined Row */}
-        <View style={{ paddingHorizontal: theme.spacingLg }}>
-          <View style={styles.joinedRow}>
-            <Ionicons name="calendar-outline" size={14} color={theme.textMuted} />
-            <Text style={styles.joinedText}>Joined Jun 15, 2023</Text>
+        {/* Suggested People Card */}
+        <View style={styles.sectionCard}>
+          <View style={styles.suggestedHeader}>
+            <Ionicons name="people-outline" size={20} color={theme.accentPrimary} />
+            <Text style={styles.suggestedTitle}>Suggested People</Text>
           </View>
+
+          {suggestedPeople.map((person) => {
+            const isFollowed = followed.includes(person.id);
+            return (
+              <View key={person.id} style={styles.suggestedItem}>
+                <View style={styles.suggestedAvatar}>
+                  <Text style={styles.suggestedAvatarText}>{person.initials}</Text>
+                </View>
+
+                <View style={styles.suggestedInfo}>
+                  <Text style={styles.suggestedName}>{person.name}</Text>
+                  <Text style={styles.suggestedUsername}>{person.username}</Text>
+                </View>
+
+                <TouchableOpacity
+                  style={[styles.followBtn, isFollowed && styles.followBtnActive]}
+                  onPress={() => toggleFollow(person.id)}
+                  activeOpacity={0.85}
+                >
+                  <Text
+                    style={[
+                      styles.followBtnText,
+                      isFollowed && styles.followBtnTextActive,
+                    ]}
+                  >
+                    {isFollowed ? 'Following' : 'Follow'}
+                  </Text>
+                </TouchableOpacity>
+              </View>
+            );
+          })}
         </View>
 
-        {/* Top Trends */}
-        <View style={styles.trendsContainer}>
+
+        {/* Top Trends Card */}
+        <View style={styles.sectionCard}>
           <View style={styles.trendsHeader}>
             <Ionicons name="trending-up" size={20} color={theme.accentPrimary} />
             <Text style={styles.trendsTitle}>Top Trends</Text>
@@ -140,4 +181,3 @@ export default function CommunityProfile() {
     </SafeAreaView>
   );
 }
-

@@ -1,6 +1,7 @@
 // components/Header/Header.tsx
 import { Ionicons } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import { useRouter } from "expo-router";
 import { Image, Text, TouchableOpacity, View } from "react-native";
 
 import { useTheme } from "../../context/ThemeContext";
@@ -19,6 +20,7 @@ const Header = ({
 }: HeaderProps) => {
   const { theme } = useTheme();
   const styles = getStyles(theme);
+  const router = useRouter();
 
   return (
     <LinearGradient
@@ -45,8 +47,8 @@ const Header = ({
         <View style={styles.rightGroup}>
           <TouchableOpacity
             style={styles.notificationButton}
-            onPress={onNotificationPress}
-          >
+            onPress={() => router.push("/pages/notifications")}
+          > 
             <Ionicons
               name="notifications-outline"
               size={20}

@@ -13,7 +13,6 @@ export interface ProductDetailData {
   brandName: string;
   title: string;
   price: string;
-  oldPrice?: string;
   description: string;
   images: string[];
   rating: number;

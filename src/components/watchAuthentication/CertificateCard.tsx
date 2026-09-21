@@ -53,7 +53,7 @@ export default function CertificateCard({
           onPress={onViewCertificate}
           activeOpacity={0.85}
         >
-          <Ionicons name="eye-outline" size={16} color="#D4AF37" />
+          <Ionicons name="eye-outline" size={16} color="#4a94c4" />
           <Text style={styles.viewButtonText}>View Certificate</Text>
         </TouchableOpacity>
       </View>

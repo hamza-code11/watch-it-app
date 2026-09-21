@@ -46,7 +46,7 @@ export const getStyles = (theme: Theme, bottomInset: number = 0) =>
 
     labelActive: {
       fontFamily: theme.bold,
-      color: "#F0B429",
+      color: theme.accentTertiary,
     },
 
     // Center raised "List" button
@@ -60,17 +60,17 @@ export const getStyles = (theme: Theme, bottomInset: number = 0) =>
       width: 52,
       height: 52,
       borderRadius: 26,
-      backgroundColor: "#F0B429",
+      backgroundColor: theme.accentPrimary, 
       alignItems: "center",
       justifyContent: "center",
       marginTop: -30,
-      shadowColor: "#F0B429",
+      shadowColor: "#2989f0",
       shadowOffset: { width: 0, height: 4 },
       shadowOpacity: 0.4,
       shadowRadius: 8,
       elevation: 8,
       borderWidth: 3,
-      borderColor: theme.bgCard ?? "#0B0B0B",
+      borderColor: theme.bgCard ?? "#fdfbfb",
     },
 
     centerLabel: {

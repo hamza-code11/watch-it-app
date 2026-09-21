@@ -20,14 +20,14 @@ export const styles = StyleSheet.create({
   subtitle: {
     marginTop: 10,
     fontSize: 12,
-    color: "#c9a45c",
+    color: "#4a94c4",
     letterSpacing: 3,
     fontFamily: "Bold",
   },
   divider: {
     width: 40,
     height: 1,
-    backgroundColor: "#c9a45c",
+    backgroundColor: "#8bbdd9",
     marginVertical: 20,
   },
   tagline: {

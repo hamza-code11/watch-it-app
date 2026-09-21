@@ -28,12 +28,12 @@ export default function WhatWeCheck() {
       <View style={styles.grid}>
         {ITEMS.map((item, i) => (
           <View key={i} style={styles.gridItem}>
-            <Ionicons name={item.icon} size={16} color="#D4AF37" />
+            <Ionicons name={item.icon} size={16} color="#4a94c4" />
             <Text style={styles.itemTitle} numberOfLines={1}>
               {item.title}
             </Text>
             <Text style={styles.itemDesc} numberOfLines={3}>
-              {item.desc}
+              {item.desc}   
             </Text>
           </View>
         ))}

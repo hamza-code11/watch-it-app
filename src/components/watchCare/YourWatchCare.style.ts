@@ -63,7 +63,7 @@ export const getYourWatchCareStyles = (theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       gap: 8,
-      backgroundColor: '#F5E6B8',
+      backgroundColor: theme.accentPrimary,
       borderRadius: 10,
       paddingVertical: 11,
       paddingHorizontal: 18,
@@ -71,7 +71,7 @@ export const getYourWatchCareStyles = (theme: Theme) =>
     },
 
     bookBtnText: {
-      color: '#0A0A0C',
+      color: 'white',
       fontSize: 13,
       fontFamily: theme.bold,
     },
@@ -102,7 +102,7 @@ export const getYourWatchCareStyles = (theme: Theme) =>
       height: 32,
       borderRadius: 9,
       borderWidth: 1,
-      borderColor: '#D4AF37',
+      borderColor: theme.accentSecondary,
       backgroundColor: 'rgba(212, 175, 55, 0.08)',
       alignItems: 'center',
       justifyContent: 'center',

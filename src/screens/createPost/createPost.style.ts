@@ -6,13 +6,13 @@ export const getStyles = (theme: Theme) =>
     container: {
       flex: 1,
       marginTop: 60,
-      marginBottom: 50,
+      marginBottom: 40,
     },
     header: {
       flexDirection: 'row',
       alignItems: 'center',
       gap: 8,
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingMd,
     },
     backBtn: {
@@ -21,7 +21,7 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     contentContainer: {
       paddingBottom: 40,
@@ -30,7 +30,7 @@ export const getStyles = (theme: Theme) =>
     // Form Card
     formCard: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       padding: theme.spacingMd,
       borderWidth: 1,
       borderColor: theme.borderColor,
@@ -41,7 +41,7 @@ export const getStyles = (theme: Theme) =>
     formTitle: {
       color: theme.textPrimary,
       fontSize: 22,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 16,
     },
 
@@ -51,8 +51,8 @@ export const getStyles = (theme: Theme) =>
     },
     categoryLabel: {
       color: theme.textSecondary,
-      fontSize: 13,
-      fontWeight: '700',
+      fontSize: 12,
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       marginBottom: 8,
     },
@@ -63,7 +63,7 @@ export const getStyles = (theme: Theme) =>
       marginBottom: 8,
     },
     categoryOption: {
-      paddingHorizontal: 16,
+      paddingHorizontal: 14,
       paddingVertical: 8,
       borderRadius: theme.radiusMd,
       borderWidth: 1,
@@ -76,12 +76,12 @@ export const getStyles = (theme: Theme) =>
     },
     categoryText: {
       color: theme.textPrimary,
-      fontSize: 13,
-      fontWeight: '600',
+      fontSize: 11,
+      fontFamily: theme.regular,
     },
     categoryTextSelected: {
       color: theme.accentPrimary,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
 
     // Title Input
@@ -90,8 +90,8 @@ export const getStyles = (theme: Theme) =>
     },
     label: {
       color: theme.textSecondary,
-      fontSize: 13,
-      fontWeight: '700',
+      fontSize: 12,
+      fontFamily: theme.bold,
       textTransform: 'uppercase',
       marginBottom: 6,
     },
@@ -101,9 +101,10 @@ export const getStyles = (theme: Theme) =>
       paddingHorizontal: 12,
       paddingVertical: 10,
       color: theme.textPrimary,
-      fontSize: 14,
+      fontSize: 12,
       borderWidth: 1,
       borderColor: theme.borderLight,
+      fontFamily: theme.regular,
     },
     textArea: {
       backgroundColor: theme.bgInput,
@@ -111,61 +112,12 @@ export const getStyles = (theme: Theme) =>
       paddingHorizontal: 12,
       paddingVertical: 10,
       color: theme.textPrimary,
-      fontSize: 14,
+      fontSize: 12,
       height: 120,
       textAlignVertical: 'top',
       borderWidth: 1,
       borderColor: theme.borderLight,
-    },
-
-    // Images Section
-    imagesSection: {
-      marginBottom: 14,
-    },
-    imageUploadBox: {
-      width: '100%',
-      height: 100,
-      borderRadius: theme.radiusMd,
-      backgroundColor: theme.bgInput,
-      justifyContent: 'center',
-      alignItems: 'center',
-      borderWidth: 1,
-      borderColor: theme.borderLight,
-      borderStyle: 'dashed',
-      marginBottom: 10,
-    },
-    imageUploadIcon: {
-      fontSize: 32,
-      color: theme.textMuted,
-      marginBottom: 4,
-    },
-    imageUploadText: {
-      color: theme.textSecondary,
-      fontSize: 13,
-      fontWeight: '600',
-    },
-    imagePreviewRow: {
-      flexDirection: 'row',
-      flexWrap: 'wrap',
-      gap: 8,
-    },
-    imagePreview: {
-      width: 60,
-      height: 60,
-      borderRadius: theme.radiusMd,
-      borderWidth: 1,
-      borderColor: theme.borderLight,
-    },
-    imageRemoveBtn: {
-      position: 'absolute',
-      top: -4,
-      right: -4,
-      width: 18,
-      height: 18,
-      borderRadius: 9,
-      backgroundColor: theme.danger,
-      alignItems: 'center',
-      justifyContent: 'center',
+      fontFamily: theme.regular,
     },
 
     // Hashtags Section (Tag Input)
@@ -203,8 +155,9 @@ export const getStyles = (theme: Theme) =>
       flex: 1,
       minWidth: 80,
       color: theme.textPrimary,
-      fontSize: 14,
+      fontSize: 12,
       paddingVertical: 4,
+      fontFamily: theme.regular,
     },
 
     // Buttons Row
@@ -225,7 +178,7 @@ export const getStyles = (theme: Theme) =>
     cancelBtnText: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     // Post Button (White Gradient)
@@ -242,7 +195,7 @@ export const getStyles = (theme: Theme) =>
     postBtnText: {
       color: '#000000',
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
   });
 

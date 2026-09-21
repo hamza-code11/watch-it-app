@@ -25,7 +25,7 @@ export const getHowItWorksStyles = (theme: Theme) =>
       color: theme.textPrimary,
       fontSize: 26,
       fontWeight: 'bold',
-      fontFamily: theme.fontFamily,
+      fontFamily: theme.bold,
       marginBottom: 4,
     },
 

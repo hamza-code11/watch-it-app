@@ -16,7 +16,7 @@ export const getStyles = (theme: Theme) =>
     // Profile Header Card
     profileCard: {
       backgroundColor: theme.bgCard,
-      marginHorizontal: 16,
+      marginHorizontal: theme.spacingSm,
       marginBottom: 12,
       borderRadius: theme.radiusLg,
       borderWidth: 1,
@@ -73,7 +73,7 @@ export const getStyles = (theme: Theme) =>
     // Stats Card
     statsCard: {
       backgroundColor: theme.bgCard,
-      marginHorizontal: 16,
+      marginHorizontal: theme.spacingSm,
       marginBottom: 12,
       borderRadius: theme.radiusLg,
       borderWidth: 1,
@@ -115,7 +115,7 @@ export const getStyles = (theme: Theme) =>
     // Sections
     section: {
       backgroundColor: theme.bgCard,
-      marginHorizontal: 16,
+      marginHorizontal: theme.spacingSm,
       marginBottom: 12,
       borderRadius: theme.radiusLg,
       borderWidth: 1,
@@ -170,7 +170,7 @@ export const getStyles = (theme: Theme) =>
     // Watch It Gold Card
     goldCard: {
       backgroundColor: theme.bgCard,
-      marginHorizontal: 16,
+      marginHorizontal: theme.spacingSm,
       marginBottom: 12,
       borderRadius: theme.radiusLg,
       borderWidth: 1,
@@ -244,8 +244,7 @@ export const getStyles = (theme: Theme) =>
       justifyContent: "center",
       gap: 10,
       backgroundColor: theme.bgCard,
-      marginHorizontal: 16,
-      marginTop: 4,
+      marginHorizontal: theme.spacingSm,
       paddingVertical: 14,
       borderRadius: theme.radiusLg,
       borderWidth: 1,

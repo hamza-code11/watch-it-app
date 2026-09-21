@@ -14,7 +14,7 @@ export const brandDetailsData: BrandDetailData[] = [
     },
     products: [
       {
-        id: 'prod-1',
+        id: '1',
         brandId: 'rolex',
         brandName: 'Rolex',
         title: 'Submariner Date',
@@ -26,7 +26,7 @@ export const brandDetailsData: BrandDetailData[] = [
         year: 2024,
       },
       {
-        id: 'prod-2',
+        id: '2',
         brandId: 'rolex',
         brandName: 'Rolex',
         title: 'Nautilus',
@@ -38,7 +38,7 @@ export const brandDetailsData: BrandDetailData[] = [
         year: 2021,
       },
       {
-        id: 'prod-3',
+        id: '3',
         brandId: 'rolex',
         brandName: 'Rolex',
         title: 'Carrera Chronograph 6',
@@ -50,7 +50,7 @@ export const brandDetailsData: BrandDetailData[] = [
         year: 2023,
       },
       {
-        id: 'prod-4',
+        id: '4',
         brandId: 'rolex',
         brandName: 'Rolex',
         title: 'Speedmaster Professional',

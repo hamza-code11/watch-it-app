@@ -40,7 +40,7 @@ export const getExpertAdviceBannerStyles = (theme: Theme) =>
     },
 
     bannerLabel: {
-      color: "#D4AF37",
+      color: theme.accentSecondary,
       fontSize: 8,
       fontFamily: theme.bold,
       letterSpacing: 1.1,
@@ -69,7 +69,7 @@ export const getExpertAdviceBannerStyles = (theme: Theme) =>
       flexDirection: 'row',
       alignItems: 'center',
       alignSelf: 'flex-start',
-      backgroundColor: '#F6D79A',
+      backgroundColor: theme.accentPrimary,
       paddingVertical: 8,
       paddingHorizontal: 12,
       borderRadius: 7,
@@ -77,7 +77,7 @@ export const getExpertAdviceBannerStyles = (theme: Theme) =>
     },
 
     bannerBtnText: {
-      color: '#111111',
+      color: 'white',
       fontSize: 11,
       fontFamily: theme.bold,
     },

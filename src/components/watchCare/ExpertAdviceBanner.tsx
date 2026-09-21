@@ -74,7 +74,7 @@ export default function ExpertAdviceBanner({
             <Ionicons
               name="arrow-forward"
               size={13}
-              color="#111111"
+              color="#fbf9f9"
             />
           </TouchableOpacity>
         </View>

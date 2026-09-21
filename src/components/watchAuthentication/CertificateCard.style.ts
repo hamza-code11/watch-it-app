@@ -22,7 +22,7 @@ export const getCertificateStyles = (theme: Theme) =>
       padding: 10,
       alignItems: 'center',
       borderWidth: 1,
-      borderColor: '#C9B47C',
+      borderColor: theme.borderColor,
     },
     certTitle: {
       color: '#3A2E14',
@@ -41,14 +41,14 @@ export const getCertificateStyles = (theme: Theme) =>
     certTable: {
       width: '100%',
       borderTopWidth: 0.5,
-      borderColor: '#C9B47C',
+      borderColor: theme.borderColor,
     },
     certRow: {
       flexDirection: 'row',
       justifyContent: 'space-between',
       paddingVertical: 2.5,
       borderBottomWidth: 0.5,
-      borderColor: '#DDD0A8',
+      borderColor: theme.borderColor,
     },
     certLabel: {
       color: '#5A4A28',
@@ -92,14 +92,14 @@ export const getCertificateStyles = (theme: Theme) =>
       justifyContent: 'center',
       gap: 8,
       borderWidth: 1,
-      borderColor: '#D4AF37',
+      borderColor: theme.borderColor,
       borderRadius: 10,
       paddingVertical: 10,
       paddingHorizontal: 14,
       alignSelf: 'flex-start',
     },
     viewButtonText: {
-      color: '#D4AF37',
+      color: theme.accentSecondary,
       fontSize: 12,
       fontFamily: theme.bold,
     },

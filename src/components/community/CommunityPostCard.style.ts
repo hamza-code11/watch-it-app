@@ -1,12 +1,15 @@
 import { StyleSheet } from 'react-native';
 import { Theme } from '../../constants/theme';
 
+const GOLD = '#8bbdd9';
+
 export const getCommunityPostStyles = (theme: Theme) =>
   StyleSheet.create({
     // Main Card Container
     container: {
       paddingHorizontal: theme.spacingXs,
       marginBottom: theme.spacingMd,
+      marginTop: theme.spacingSm,
     },
     card: {
       backgroundColor: theme.bgCard,
@@ -24,17 +27,19 @@ export const getCommunityPostStyles = (theme: Theme) =>
       marginBottom: theme.spacingMd,
     },
     avatar: {
-      width: 48,
-      height: 48,
-      borderRadius: 24,
-      backgroundColor: theme.accentUltraLight,
+      width: 44,
+      height: 44,
+      borderRadius: 22,
+      backgroundColor: theme.bgSecondary,
+      borderWidth: 1,
+      borderColor: 'rgba(255,255,255,0.15)',
       alignItems: 'center',
       justifyContent: 'center',
     },
     avatarText: {
-      color: theme.accentPrimary,
-      fontSize: 18,
-      fontWeight: 'bold',
+      color: theme.textPrimary,
+      fontSize: 15,
+      fontFamily: theme.bold,
     },
     userInfo: {
       flex: 1,
@@ -42,27 +47,52 @@ export const getCommunityPostStyles = (theme: Theme) =>
     },
     userName: {
       color: theme.textPrimary,
-      fontSize: 16,
-      fontWeight: 'bold',
+      fontSize: 15,
+      fontFamily: theme.bold,
       flexShrink: 1,
       overflow: 'hidden',
+    },
+    dateRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 4,
+      marginTop: 2,
     },
     date: {
       color: theme.textMuted,
       fontSize: 12,
-      marginTop: 2,
+      fontFamily: theme.regular,
+    },
+    followBtn: {
+      paddingHorizontal: 14,
+      paddingVertical: 6,
+      borderRadius: theme.radiusFull,
+      borderWidth: 1,
+      borderColor: GOLD,
+      backgroundColor: 'transparent',
+    },
+    followBtnActive: {
+      backgroundColor: GOLD,
+    },
+    followText: {
+      color: GOLD,
+      fontSize: 12,
+      fontFamily: theme.bold,
+    },
+    followTextActive: {
+      color: '#0D1322',
     },
     categoryBadge: {
+      alignSelf: 'flex-start',
       paddingHorizontal: 10,
       paddingVertical: 4,
       borderRadius: theme.radiusFull,
       borderWidth: 1,
-      borderColor: 'rgba(59, 130, 246, 0.3)',
+      marginBottom: 14,
     },
     categoryText: {
-      color: '#60A5FA',
       fontSize: 11,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     menuBtn: {
       padding: 4,
@@ -75,61 +105,14 @@ export const getCommunityPostStyles = (theme: Theme) =>
     postTitle: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
       marginBottom: 6,
     },
     postText: {
       color: theme.textSecondary,
       fontSize: 14,
       lineHeight: 22,
-    },
-
-    // Image Slider Section
-    imageSection: {
-      position: 'relative',
-      marginBottom: 12,
-    },
-    postImage: {
-      width: '100%',
-      height: 220,
-      borderRadius: 12,
-      backgroundColor: theme.bgTertiary,
-    },
-    imageCounter: {
-      position: 'absolute',
-      bottom: 10,
-      right: 10,
-      backgroundColor: 'rgba(0,0,0,0.7)',
-      paddingHorizontal: 8,
-      paddingVertical: 4,
-      borderRadius: 4,
-    },
-    imageCounterText: {
-      color: '#FFFFFF',
-      fontSize: 12,
-      fontWeight: 'bold',
-    },
-    sliderDots: {
-      position: 'absolute',
-      bottom: 10,
-      left: 0,
-      right: 0,
-      flexDirection: 'row',
-      alignItems: 'center',
-      justifyContent: 'center',
-      gap: 6,
-    },
-    dot: {
-      width: 20,
-      height: 4,
-      borderRadius: 2,
-      backgroundColor: 'rgba(255,255,255,0.4)',
-    },
-    activeDot: {
-      width: 20,
-      height: 4,
-      borderRadius: 2,
-      backgroundColor: '#60A5FA',
+      fontFamily: theme.regular,
     },
 
     // Hashtags
@@ -142,15 +125,20 @@ export const getCommunityPostStyles = (theme: Theme) =>
     hashtag: {
       color: '#60A5FA',
       fontSize: 13,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
 
     // Stats Row
     statsRow: {
       flexDirection: 'row',
       alignItems: 'center',
-      gap: 24,
+      justifyContent: 'space-between',
       marginBottom: 14,
+    },
+    statsLeft: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 24,
     },
     statItem: {
       flexDirection: 'row',
@@ -160,9 +148,10 @@ export const getCommunityPostStyles = (theme: Theme) =>
     statText: {
       color: theme.textMuted,
       fontSize: 14,
+      fontFamily: theme.regular,
     },
 
-    // COMMENT SECTION BOX (Naya Box)
+    // Comment Section Box
     commentSectionBox: {
       backgroundColor: theme.bgInput,
       borderRadius: theme.radiusMd,
@@ -172,7 +161,6 @@ export const getCommunityPostStyles = (theme: Theme) =>
       marginTop: 10,
     },
 
-    // Comment Input Row (Avatar + Input + Send)
     commentInputRow: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -189,8 +177,7 @@ export const getCommunityPostStyles = (theme: Theme) =>
     miniAvatarText: {
       color: '#FFFFFF',
       fontSize: 14,
-      fontWeight: 'bold',
-      fontFamily: 'Arial',
+      fontFamily: theme.bold,
     },
     commentInput: {
       flex: 1,
@@ -199,6 +186,7 @@ export const getCommunityPostStyles = (theme: Theme) =>
       paddingHorizontal: 6,
       color: theme.textPrimary,
       fontSize: 13,
+      fontFamily: theme.regular,
       borderWidth: 1,
       borderColor: theme.borderLight,
     },
@@ -232,7 +220,7 @@ export const getCommunityPostStyles = (theme: Theme) =>
     commentAvatarText: {
       color: '#334155',
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     commentContent: {
       flex: 1,
@@ -245,23 +233,20 @@ export const getCommunityPostStyles = (theme: Theme) =>
     commentName: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     commentDate: {
       color: theme.textMuted,
       fontSize: 11,
+      fontFamily: theme.regular,
     },
     commentText: {
       color: theme.textSecondary,
       fontSize: 13,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
 
-
-
-    menuWrapper: {
-      position: 'relative',
-    },
     statTextActive: {
       color: '#EF4444',
     },
@@ -287,9 +272,6 @@ export const getCommunityPostStyles = (theme: Theme) =>
     menuItemText: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
-
-
   });
-

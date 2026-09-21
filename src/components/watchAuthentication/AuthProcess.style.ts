@@ -16,7 +16,7 @@ export const getProcessStyles = (theme: Theme) =>
     },
     step: { flex: 1 },
     stepNum: {
-      color: '#D4AF37',
+      color: theme.accentSecondary,
       fontSize: 16,
       fontFamily: theme.bold,
       marginBottom: 2,

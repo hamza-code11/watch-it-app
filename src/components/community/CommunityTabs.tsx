@@ -17,7 +17,7 @@ export default function CommunityTabs({ activeTab, onTabChange, tabs }: Props) {
     <View style={styles.container}>
       <ScrollView
         horizontal
-        showsHorizontalScrollIndicator={false}
+        showsHorizontalScrollIndicator={false} 
         contentContainerStyle={styles.tabsRow}
       >
         {tabs.map((tab) => (
@@ -25,6 +25,7 @@ export default function CommunityTabs({ activeTab, onTabChange, tabs }: Props) {
             key={tab}
             style={[styles.tabButton, activeTab === tab && styles.tabActive]}
             onPress={() => onTabChange(tab)}
+            activeOpacity={0.8}
           >
             <Text style={[styles.tabText, activeTab === tab && styles.tabTextActive]}>
               {tab}

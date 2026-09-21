@@ -2,7 +2,7 @@ import { Vendor } from '../types/vendor.types';
 
 export const vendorsData: Vendor[] = [
   {
-    id: 'vendor-1',
+    id: '1',
     name: 'Heritage Timepieces',
     logo: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
     country: 'London, UK',
@@ -14,7 +14,7 @@ export const vendorsData: Vendor[] = [
     isVerified: true, 
   },
   {
-    id: 'vendor-2',
+    id: '2',
     name: 'Time Vault Karachi',
     logo: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=800&auto=format&fit=crop',
     country: 'Dubai, UAE',
@@ -26,7 +26,7 @@ export const vendorsData: Vendor[] = [
     isVerified: true, 
   },
   {
-    id: 'vendor-3',
+    id: '3',
     name: 'Swiss Watch Imports',
     logo: 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=800&auto=format&fit=crop',
     country: 'Geneva, Switzerland',
@@ -38,7 +38,7 @@ export const vendorsData: Vendor[] = [
     isVerified: true, 
   },
   {
-    id: 'vendor-4',
+    id: '4',
     name: 'Chrono House',
     logo: 'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
     country: 'New York, USA',
@@ -50,7 +50,7 @@ export const vendorsData: Vendor[] = [
     isVerified: true, 
   },
   {
-    id: 'vendor-5',
+    id: '5',
     name: 'Dubai Watch Traders',
     logo: 'https://images.unsplash.com/photo-1522312346375-d1a52e2b99b3?q=80&w=800&auto=format&fit=crop',
     country: 'Dubai, UAE',
@@ -62,7 +62,7 @@ export const vendorsData: Vendor[] = [
     isVerified: true, 
   },
   {
-    id: 'vendor-6',
+    id: '6',
     name: 'Vintage Vault',
     logo: 'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=800&auto=format&fit=crop',
     country: 'Paris, France',

@@ -9,19 +9,22 @@ interface Props {
   onProductPress?: (productId: string) => void;
 }
 
-export default function VendorProductGrid({ products, onProductPress }: Props) {
+export default function VendorProductGrid({
+  products,
+  onProductPress,
+}: Props) {
   const { theme } = useTheme();
   const styles = getVendorProductGridStyles(theme);
-
+ 
   return (
     <View style={styles.container}>
-      {/* Product Grid (Bina count ke) */}
       <View style={styles.grid}>
         {products.map((product) => (
           <ProductCard
             key={product.id}
             product={product}
-            onPress={onProductPress}
+            // Product ID Grid se ProductCard ke onPress ko pass ho rahi hai
+            onPress={() => onProductPress?.(product.id)}
           />
         ))}
       </View>

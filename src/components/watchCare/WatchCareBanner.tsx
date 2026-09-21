@@ -73,14 +73,14 @@ export default function WatchCareBanner() {
             onPress={() => router.push('/pages/watchCare/bookService')}
           >
             <Text style={styles.bookBtnText}>Book a Service</Text>
-            <Ionicons name="arrow-forward" size={16} color="#0A0A0C" />
+            <Ionicons name="arrow-forward" size={16} color="#ffffff" />
           </TouchableOpacity>
 
           {/* Trust Items Row */}
           <View style={styles.trustRow}>
             {TRUST_ITEMS.map((item, i) => (
               <View key={i} style={styles.trustItem}>
-                <Ionicons name={item.icon} size={16} color="#D4AF37" />
+                <Ionicons name={item.icon} size={16} color="#8bbdd9" />
                 <Text style={styles.trustTitle} numberOfLines={1}>
                   {item.title}
                 </Text>

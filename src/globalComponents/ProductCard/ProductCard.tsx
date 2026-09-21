@@ -1,4 +1,5 @@
 import { Ionicons } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 import { useTheme } from '../../context/ThemeContext';
@@ -11,6 +12,7 @@ interface Props {
 }
 
 export default function ProductCard({ product, onPress }: Props) {
+  const router = useRouter();
   const { theme } = useTheme();
   const styles = getProductCardStyles(theme);
   const [isWishlisted, setIsWishlisted] = useState(false); // State for wishlist
@@ -22,7 +24,7 @@ export default function ProductCard({ product, onPress }: Props) {
   return (
     <TouchableOpacity
       style={styles.card}
-      onPress={() => onPress && onPress(product.id)}
+      onPress={() => router.push(`/pages/productDetail/${product.id}`)}
     >
       {/* Image + Heart */}
       <View style={styles.imageContainer}>

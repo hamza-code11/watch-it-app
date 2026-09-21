@@ -6,13 +6,13 @@ export const getStyles = (theme: Theme) =>
     container: {
       flex: 1,
       marginTop: 60,
-      marginBottom: 60,
+      marginBottom: 30,
     },
     header: {
       flexDirection: 'row',
       alignItems: 'center',
       gap: 8,
-      paddingHorizontal: theme.spacingLg,
+      paddingHorizontal: theme.spacingMd,
       paddingVertical: theme.spacingMd,
     },
     backBtn: {
@@ -21,7 +21,7 @@ export const getStyles = (theme: Theme) =>
     headerTitle: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     contentContainer: {
       paddingBottom: 40,
@@ -30,7 +30,7 @@ export const getStyles = (theme: Theme) =>
     // Profile Card
     profileCard: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       padding: theme.spacingMd,
       borderWidth: 1,
       borderColor: theme.borderColor,
@@ -58,7 +58,7 @@ export const getStyles = (theme: Theme) =>
     avatarText: {
       color: '#FFFFFF',
       fontSize: 28,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     userInfo: {
       flex: 1,
@@ -66,12 +66,13 @@ export const getStyles = (theme: Theme) =>
     userName: {
       color: theme.textPrimary,
       fontSize: 20,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     userRole: {
       color: theme.textMuted,
-      fontSize: 13,
+      fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.regular,
     },
     locationRow: {
       flexDirection: 'row',
@@ -82,6 +83,7 @@ export const getStyles = (theme: Theme) =>
     locationText: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
     },
 
     // Stats Row
@@ -99,12 +101,13 @@ export const getStyles = (theme: Theme) =>
     statNumber: {
       color: theme.textPrimary,
       fontSize: 22,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     statLabel: {
       color: theme.textMuted,
       fontSize: 12,
       marginTop: 2,
+      fontFamily: theme.bold,
     },
     statDivider: {
       width: 1,
@@ -115,7 +118,7 @@ export const getStyles = (theme: Theme) =>
     // Sab Menu Items (Create Post, View Profile, View Listings, Messages)
     menuItem: {
       backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusXl,
+      borderRadius: theme.radiusLg,
       paddingVertical: theme.spacingMd, // Vertical padding barha di
       paddingHorizontal: theme.spacingMd,
       borderWidth: 1,
@@ -135,7 +138,7 @@ export const getStyles = (theme: Theme) =>
     menuText: {
       color: theme.textPrimary,
       fontSize: 15,
-      fontWeight: '600',
+      fontFamily: theme.bold,
       flex: 1,
     },
     menuArrow: {
@@ -155,23 +158,98 @@ export const getStyles = (theme: Theme) =>
       fontWeight: 'bold',
     },
 
-    // Joined Row
-    joinedRow: {
+
+
+
+
+
+
+
+    // Shared card wrapper for Suggested People + Top Trends
+    sectionCard: {
+      backgroundColor: theme.bgCard,
+      borderRadius: theme.radiusLg,
+      borderWidth: 1,
+      borderColor: theme.borderColor,
+      padding: theme.spacingMd,
+      marginHorizontal: theme.spacingSm,
+      marginBottom: theme.spacingSm,
+    },
+
+    // Suggested People Section
+    suggestedHeader: {
       flexDirection: 'row',
       alignItems: 'center',
       gap: 8,
-      marginTop: 12,
+      marginBottom: 12,
     },
-    joinedText: {
+    suggestedTitle: {
+      color: theme.textPrimary,
+      fontSize: 18,
+      fontFamily: theme.bold,
+    },
+    suggestedItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 12,
+      paddingVertical: 10,
+      borderBottomWidth: 1,
+      borderBottomColor: theme.borderColor,
+    },
+    suggestedAvatar: {
+      width: 40,
+      height: 40,
+      borderRadius: 20,
+      backgroundColor: 'rgba(212, 175, 55, 0.15)',
+      borderWidth: 1,
+      borderColor: 'rgba(212, 175, 55, 0.4)',
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+    suggestedAvatarText: {
+      color: '#D4AF37',
+      fontSize: 16,
+      fontFamily: theme.bold,
+    },
+    suggestedInfo: {
+      flex: 1,
+    },
+    suggestedName: {
+      color: theme.textPrimary,
+      fontSize: 14,
+      fontFamily: theme.bold,
+    },
+    suggestedUsername: {
       color: theme.textMuted,
       fontSize: 12,
+      fontFamily: theme.regular,
+      marginTop: 2,
+    },
+
+    // Follow Button (default: gold outline)
+    followBtn: {
+      borderWidth: 1,
+      borderColor: '#D4AF37',
+      borderRadius: 999,
+      paddingHorizontal: 14,
+      paddingVertical: 6,
+    },
+    followBtnText: {
+      color: '#D4AF37',
+      fontSize: 12,
+      fontFamily: theme.bold,
+    },
+
+    // Follow Button (active: gold filled)
+    followBtnActive: {
+      backgroundColor: '#D4AF37',
+      borderColor: '#D4AF37',
+    },
+    followBtnTextActive: {
+      color: '#0A0A0C',
     },
 
     // Top Trends Section
-    trendsContainer: {
-      marginHorizontal: theme.spacingMd,
-      marginTop: theme.spacingSm,
-    },
     trendsHeader: {
       flexDirection: 'row',
       alignItems: 'center',
@@ -181,7 +259,7 @@ export const getStyles = (theme: Theme) =>
     trendsTitle: {
       color: theme.textPrimary,
       fontSize: 18,
-      fontWeight: 'bold',
+      fontFamily: theme.bold,
     },
     trendItem: {
       flexDirection: 'row',
@@ -195,16 +273,18 @@ export const getStyles = (theme: Theme) =>
     trendNumber: {
       color: theme.textMuted,
       fontSize: 14,
-      fontWeight: 'bold',
+      fontFamily: theme.regular,
     },
     trendHashtag: {
       color: theme.textPrimary,
       fontSize: 14,
-      fontWeight: '600',
+      fontFamily: theme.regular,
       flex: 1,
     },
     trendCount: {
       color: theme.textMuted,
-      fontSize: 13,
+      fontSize: 12,
+      fontFamily: theme.regular,
     },
+
   });

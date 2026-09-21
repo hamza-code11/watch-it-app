@@ -2,39 +2,38 @@
 import { StyleSheet } from 'react-native';
 import { Theme } from '../../constants/theme';
 
+const GOLD = '#1e6fa8';
+
 export const getCommunityTabsStyles = (theme: Theme) =>
   StyleSheet.create({
     container: {
-      paddingHorizontal: theme.spacingXs,
+      paddingHorizontal: theme.spacingSm,
       marginBottom: theme.spacingSm,
       marginTop: theme.spacingMd,
     },
     tabsRow: {
       flexDirection: 'row',
-      gap: 0,
-      backgroundColor: theme.bgCard,
-      borderRadius: theme.radiusMd,
-      paddingVertical: 4,
-      paddingHorizontal: 4,
+      gap: 4,
     },
     tabButton: {
-      paddingHorizontal: 8,
-      paddingVertical: 8,
-      borderRadius: theme.radiusMd,
+      paddingHorizontal: 12,
+      paddingVertical: 6,
+      borderRadius: theme.radiusFull,
       borderWidth: 1,
-      borderColor: 'transparent',
+      borderColor: 'rgba(255,255,255,0.15)',
+      backgroundColor: 'rgba(255,255,255,0.03)',
     },
     tabActive: {
-      backgroundColor: theme.bgSecondary,
-      borderColor: theme.accentPrimary,
+      backgroundColor: GOLD,
+      borderColor: GOLD,
     },
     tabText: {
-      color: theme.textSecondary,
+      color: 'rgba(255,255,255,0.75)',
       fontSize: 12,
-      fontWeight: '600',
+      fontFamily: theme.bold,
     },
     tabTextActive: {
-      color: theme.accentPrimary,
-      fontWeight: 'bold',
+      color: 'white',
+      fontFamily: theme.bold,
     },
   });

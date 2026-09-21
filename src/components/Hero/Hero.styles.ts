@@ -85,7 +85,7 @@ export const getStyles = (theme: Theme) =>
       fontSize: 11,
       letterSpacing: 0.3,
       textAlign: "center",
-      fontFamily: theme.regular,
+      fontFamily: theme.bold,
     },
 
     secondaryWrapper: {
@@ -108,7 +108,7 @@ export const getStyles = (theme: Theme) =>
       fontSize: 11,
       letterSpacing: 0.3,
       textAlign: "center",
-      fontFamily: theme.regular,
+      fontFamily: theme.bold,
     },
   });
 

@@ -1,5 +1,20 @@
 import { CommunityPost, CreatePostFormData } from '../types/community.types';
-export const postCategories = ['Showcase', 'Sale', 'Wanted', 'News'];
+export const postCategories = [
+  'All',
+  'General',
+  'Buying Advice',
+  'Selling',
+  'Events',
+  'UAE Collectors',
+  'Off Topic',
+];
+
+export const suggestedPeople = [
+  { id: 1, initials: 'K', name: 'Karim Al Zahra',    username: '@karimz' },
+  { id: 2, initials: 'S', name: 'Sara Khan',         username: '@sarakhan' },
+  { id: 3, initials: 'T', name: 'The Vintage Hour',  username: '@thevintagehour' },
+  { id: 4, initials: 'A', name: 'Ahmed Al Mansoori', username: '@ahmedmansoori' },
+];
 
 export const communityPosts: CommunityPost[] = [
   {
@@ -9,14 +24,10 @@ export const communityPosts: CommunityPost[] = [
       initials: 'AM',
     },
     date: 'Jun 15, 2024',
-    category: 'Showcase',
+    category: 'general',
     title: 'My New Rolex Submariner',
     content:
       'Just added this beauty to my collection. The Rolex Submariner Date with the black dial is an absolute classic. Can\'t stop staring at it! 🔥',
-    images: [
-      'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
-      'https://images.unsplash.com/photo-1614164185128-e4ec99c436d7?q=80&w=800&auto=format&fit=crop',
-    ],
     hashtags: ['#Rolex', '#Submariner', '#LuxuryWatch', '#WatchCollection'],
     likes: 24,
     shares: 0,
@@ -39,12 +50,9 @@ export const communityPosts: CommunityPost[] = [
       initials: 'AM',
     },
     date: 'Jun 11, 2024',
-    category: 'Sale',
+    category: 'events',
     title: 'Rolex Submariner 126610LN - Full Set',
     content: 'Selling my Rolex Submariner Date with full box and papers. Excellent condition.',
-    images: [
-      'https://images.unsplash.com/photo-1523170335258-f5ed11844a49?q=80&w=800&auto=format&fit=crop',
-    ],
     hashtags: ['#Rolex', '#Submariner', '#ForSale'],
     likes: 12,
     shares: 2,
@@ -59,9 +67,8 @@ export const communityPosts: CommunityPost[] = [
 
 
 export const initialCreatePostFormData: CreatePostFormData = {
-  category: 'Showcase',
+  category: 'general',
   title: '',
   content: '',
-  images: [],
   hashtags: '',
 };

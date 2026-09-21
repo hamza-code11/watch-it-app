@@ -6,6 +6,9 @@ import { useEffect, useRef, useState } from "react";
 import { Animated, Dimensions, Image, Modal, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import { SafeAreaView, useSafeAreaInsets } from "react-native-safe-area-context";
 
+import ProductDetailsInline from '../../../components/swipe/ProductDetailsInline';
+import { getProductById } from '../../../data/productDetails';
+
 import { useTheme } from "../../../context/ThemeContext";
 import { AUTHENTICATION_STATUS, BRANDS, CONDITIONS, EMIRATES } from "../../../data/filtersData";
 import { WATCHES as ALL_WATCHES, getWatches } from "../../../data/watchesData";
@@ -128,6 +131,8 @@ const SwipePage = () => {
   // stale indices to collide, producing duplicate React keys and crashes.
   const swipedItems = useRef<Set<string>>(new Set());
 
+  const [selectedProductId, setSelectedProductId] = useState<string | null>(null);
+
   // State
   const [watches, setWatches] = useState<Watch[]>(ALL_WATCHES);
   const [index, setIndex] = useState(0);
@@ -156,6 +161,7 @@ const SwipePage = () => {
 
   // Reset animations on index change
   useEffect(() => {
+    setSelectedProductId(null);
     translateX.setValue(0);
     rotate.setValue(0);
     opacity.setValue(1);
@@ -329,7 +335,7 @@ const SwipePage = () => {
               ))}
             </View>
 
-            <TouchableOpacity activeOpacity={0.85} onPress={() => router.push('/pages/gold' as any)}>
+            <TouchableOpacity activeOpacity={0.85} onPress={() => router.push('/pages/subscription' as any)}>
               <LinearGradient
                 colors={["#D4AF37", "#F7E7B4", "#D4AF37"]}
                 start={{ x: 0, y: 0 }}
@@ -367,57 +373,102 @@ const SwipePage = () => {
         </View>
       </View>
 
-      {/* Swipe Card */}
-      <View style={styles.cardContainer}>
-        {watches.length > 0 && currentWatch && (
-          <Animated.View
-            style={[
-              styles.cardWrapper,
-              {
-                transform: [{ translateX }, { rotate: rotateInterpolate }],
-                opacity,
-              }
-            ]}
-          >
-            <TouchableOpacity
-              activeOpacity={0.95}
-              onPress={() => router.push(`/product/${currentWatch.id}` as any)}
-              style={styles.card}
+
+      <ScrollView
+        style={{ flex: 1 }}
+        contentContainerStyle={{ flexGrow: 1, paddingBottom: 40 }}
+        showsVerticalScrollIndicator={false}
+        scrollEnabled={selectedProductId !== null}  // sirf details khuli ho to scroll
+      >
+
+        {/* Swipe Card */}
+        <View style={styles.cardContainer}>
+          {watches.length > 0 && currentWatch && (
+            <Animated.View
+              style={[
+                styles.cardWrapper,
+                {
+                  transform: [{ translateX }, { rotate: rotateInterpolate }],
+                  opacity,
+                }
+              ]}
             >
-              <Image source={{ uri: currentWatch.image }} style={styles.cardImage} resizeMode="cover" />
-              <LinearGradient colors={["transparent", "rgba(0,0,0,0.85)"]} style={styles.cardOverlay} />
+              <TouchableOpacity
+                activeOpacity={0.95}
+                onPress={() => setSelectedProductId(currentWatch.id)}
+                style={styles.card}
+              >
+                <Image source={{ uri: currentWatch.image }} style={styles.cardImage} resizeMode="cover" />
+                <LinearGradient colors={["transparent", "rgba(0,0,0,0.85)"]} style={styles.cardOverlay} />
 
-              <View style={styles.cardContent}>
-                <Text style={styles.cardBrand}>{currentWatch.brand}</Text>
-                <Text style={styles.cardName}>{currentWatch.name}</Text>
-                <View style={styles.cardMeta}>
-                  <Ionicons name="location-outline" size={12} color="rgba(255,255,255,0.7)" />
-                  <Text style={styles.cardMetaText}>{currentWatch.location}</Text>
-                  <View style={styles.metaDot} />
-                  <Text style={styles.cardMetaText}>{currentWatch.year}</Text>
-                  <View style={styles.metaDot} />
-                  <Text style={styles.cardMetaText}>{currentWatch.condition}</Text>
-                  <View style={styles.metaDot} />
-                  <Text style={styles.cardMetaText}>{currentWatch.reference}</Text>
+                <View style={styles.cardContent}>
+                  <Text style={styles.cardBrand}>{currentWatch.brand}</Text>
+                  <Text style={styles.cardName}>{currentWatch.name}</Text>
+                  <View style={styles.cardMeta}>
+                    <Ionicons name="location-outline" size={12} color="rgba(255,255,255,0.7)" />
+                    <Text style={styles.cardMetaText}>{currentWatch.location}</Text>
+                    <View style={styles.metaDot} />
+                    <Text style={styles.cardMetaText}>{currentWatch.year}</Text>
+                    <View style={styles.metaDot} />
+                    <Text style={styles.cardMetaText}>{currentWatch.condition}</Text>
+                    <View style={styles.metaDot} />
+                    <Text style={styles.cardMetaText}>{currentWatch.reference}</Text>
+                  </View>
+                  <Text style={styles.cardPrice}>{currentWatch.price} AED</Text>
                 </View>
-                <Text style={styles.cardPrice}>{currentWatch.price} AED</Text>
-              </View>
-            </TouchableOpacity>
+              </TouchableOpacity>
 
-            {/* Action Buttons */}
-            <View style={styles.actionRow}>
-              <TouchableOpacity style={[styles.actionBtn, styles.passBtn]} onPress={handlePass} disabled={isAnimating}>
-                <Ionicons name="close" size={24} color="#FF6B6B" />
-                <Text style={styles.passText}>Pass</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={[styles.actionBtn, styles.interestBtn]} onPress={handleInterest} disabled={isAnimating}>
-                <Ionicons name="heart" size={24} color="#4F9FFF" />
-                <Text style={styles.interestText}>Interest</Text>
-              </TouchableOpacity>
-            </View>
-          </Animated.View>
-        )}
-      </View>
+              {/* Action Buttons */}
+              <View style={styles.actionRow}>
+                <TouchableOpacity
+                  style={styles.passBtn}
+                  onPress={handlePass}
+                  disabled={isAnimating}
+                  activeOpacity={0.85}
+                >
+                  <LinearGradient
+                    colors={['#FFFFFF', '#E8E8E8']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                    style={styles.actionBtn}
+                  >
+                    <Ionicons name="close" size={24} color="#FF6B6B" />
+                    <Text style={styles.passText}>Pass</Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+
+                <TouchableOpacity
+                  style={styles.interestBtn}
+                  onPress={handleInterest}
+                  disabled={isAnimating}
+                  activeOpacity={0.85}
+                >
+                  <LinearGradient
+                    colors={['#FFFFFF', '#E8E8E8']}
+                    start={{ x: 0, y: 0 }}
+                    end={{ x: 1, y: 1 }}
+                    style={styles.actionBtn}
+                  >
+                    <Ionicons name="heart" size={24} color="#4F9FFF" />
+                    <Text style={styles.interestText}>Interest</Text>
+                  </LinearGradient>
+                </TouchableOpacity>
+              </View>
+            </Animated.View>
+          )}
+        </View>
+
+        {selectedProductId && (() => {
+          const product = getProductById(selectedProductId);
+          if (!product) return null;
+          return (
+            <ProductDetailsInline
+              product={product}
+              onClose={() => setSelectedProductId(null)}
+            />
+          );
+        })()}
+      </ScrollView>
 
       {/* Filters Modal */}
       <Modal visible={showFilters} animationType="slide" transparent onRequestClose={() => setShowFilters(false)}>

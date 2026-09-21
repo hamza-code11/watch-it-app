@@ -38,7 +38,7 @@ export const getBannerStyles = (theme: Theme) =>
 
     // SERVICES label
     serviceLabel: {
-      color: '#D4AF37',
+      color: theme.accentSecondary,
       fontSize: 11,
       fontFamily: theme.bold,
       letterSpacing: 2,
@@ -69,7 +69,7 @@ export const getBannerStyles = (theme: Theme) =>
       alignItems: 'center',
       justifyContent: 'center',
       gap: 8,
-      backgroundColor: '#F5E6B8',
+      backgroundColor: theme.accentPrimary,
       borderRadius: 12,
       paddingVertical: 12,
       paddingHorizontal: 18,
@@ -77,7 +77,7 @@ export const getBannerStyles = (theme: Theme) =>
       marginBottom: theme.spacingLg,
     },
     bookBtnText: {
-      color: '#0A0A0C',
+      color: 'white',
       fontSize: 14,
       fontFamily: theme.bold,
     },

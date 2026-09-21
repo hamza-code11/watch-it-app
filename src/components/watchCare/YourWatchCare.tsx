@@ -69,7 +69,7 @@ export default function YourWatchCare({
         <Ionicons
           name="arrow-forward"
           size={15}
-          color="#0A0A0C"
+          color="#f8f8fa"
         />
       </TouchableOpacity>
 
@@ -87,7 +87,7 @@ export default function YourWatchCare({
               <Ionicons
                 name={item.icon}
                 size={16}
-                color="#D4AF37"
+                color="#308ace"
               />
             </View>
 

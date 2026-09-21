@@ -11,7 +11,6 @@ import { getStyles } from '../../../screens/createPost/createPost.style';
 import { CreatePostFormData } from '../../../types/community.types';
 
 const MAX_TAGS = 10;
-const MAX_IMAGES = 10;
 
 export default function CreatePost() {
   const router = useRouter();
@@ -26,35 +25,6 @@ export default function CreatePost() {
     setFormData((prev) => ({ ...prev, [field]: value }));
   };
 
-  const handleUploadImages = async () => {
-    const remainingSlots = MAX_IMAGES - formData.images.length;
-    if (remainingSlots <= 0) {
-      Alert.alert('Limit reached', `You can upload up to ${MAX_IMAGES} images.`);
-      return;
-    }
-
-    const result = await ImagePicker.launchImageLibraryAsync({
-      mediaTypes: ['images'],
-      allowsMultipleSelection: true,
-      quality: 0.8,
-      selectionLimit: remainingSlots,
-    });
-
-    if (!result.canceled) {
-      const uris = result.assets.map((asset) => asset.uri);
-      setFormData((prev) => ({
-        ...prev,
-        images: [...prev.images, ...uris].slice(0, MAX_IMAGES),
-      }));
-    }
-  };
-
-  const handleRemoveImage = (uri: string) => {
-    setFormData((prev) => ({
-      ...prev,
-      images: prev.images.filter((img) => img !== uri),
-    }));
-  };
 
   const addTag = (rawTag: string) => {
     const cleaned = rawTag.trim().replace(/^#+/, '');
@@ -185,32 +155,6 @@ export default function CreatePost() {
               multiline
               maxLength={2000}
             />
-          </View>
-
-          <View style={styles.imagesSection}>
-            <Text style={styles.label}>Images</Text>
-            <TouchableOpacity style={styles.imageUploadBox} onPress={handleUploadImages}>
-              <Ionicons name="images-outline" size={32} color={theme.textMuted} />
-              <Text style={styles.imageUploadText}>
-                {formData.images.length > 0
-                  ? `Add More (${formData.images.length}/${MAX_IMAGES})`
-                  : 'Add Images'}
-              </Text>
-            </TouchableOpacity>
-
-            <View style={styles.imagePreviewRow}>
-              {formData.images.map((uri) => (
-                <View key={uri} style={{ position: 'relative' }}>
-                  <Image source={{ uri }} style={styles.imagePreview} />
-                  <TouchableOpacity
-                    style={styles.imageRemoveBtn}
-                    onPress={() => handleRemoveImage(uri)}
-                  >
-                    <Ionicons name="close" size={12} color="#FFFFFF" />
-                  </TouchableOpacity>
-                </View>
-              ))}
-            </View>
           </View>
 
           <View style={styles.inputContainer}>

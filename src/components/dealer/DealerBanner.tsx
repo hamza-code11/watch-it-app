@@ -10,9 +10,9 @@ export default function DealerBanner() {
 
   return (
     <LinearGradient
-      colors={['#2c414b', '#152331', '#0a0a0c']}
-      start={{ x: 0.5, y: 0 }}
-      end={{ x: 0.5, y: 1 }}
+      colors={['#0a1628', '#0f4c81']}
+          start={{ x: 0, y: 0 }}
+          end={{ x: 1, y: 1 }}
       style={styles.banner}
     >
       <Text style={styles.label}>Dealer Partnership</Text>

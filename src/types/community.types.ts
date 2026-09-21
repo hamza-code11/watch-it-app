@@ -1,4 +1,11 @@
-export type CommunityTab = 'all' | 'showcase' | 'sale' | 'wanted' | 'news' | 'myPosts';
+export type CommunityTab =
+  | 'all'
+  | 'general'
+  | 'buyingAdvice'
+  | 'selling'
+  | 'events'
+  | 'uaeCollectors'
+  | 'offTopic';
 
 export interface Comment {
   id: number;
@@ -19,10 +26,9 @@ export interface CommunityPost {
     avatar?: string;
   };
   date: string;
-  category: 'Showcase' | 'Sale' | 'Wanted' | 'News';
+  category: 'general' | 'buyingAdvice' | 'selling' | 'events' | 'uaeCollectors' | 'offTopic';
   title: string;
   content: string;
-  images: string[];
   hashtags: string[];
   likes: number;
   comments: Comment[];
@@ -33,6 +39,6 @@ export interface CreatePostFormData {
   category: string;
   title: string;
   content: string;
-  images: string[];
   hashtags: string;
 }
+

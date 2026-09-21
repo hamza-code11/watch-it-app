@@ -42,7 +42,7 @@ export const getHowItWorksStyles = (theme: Theme) =>
       height: 0,
       borderTopWidth: 1,
       borderStyle: 'dashed',
-      borderTopColor: "#D4AF37" + '55', // faint gold
+      borderTopColor: theme.accentSecondary + '55', // faint gold
       zIndex: 0,
     },
 
@@ -61,13 +61,13 @@ export const getHowItWorksStyles = (theme: Theme) =>
       borderRadius: 20,
       backgroundColor: theme.bgInput, 
       borderWidth: 1.5,
-      borderColor: "#D4AF37",
+      borderColor: theme.accentSecondary,
       alignItems: 'center',
       justifyContent: 'center',
       marginBottom: 10,
     },
     numberText: {
-      color: "#D4AF37",
+      color: theme.accentSecondary,
       fontSize: 16,
       fontFamily: theme.bold,
     },

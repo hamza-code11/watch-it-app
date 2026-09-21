@@ -12,7 +12,15 @@ import CommunityBanner from '../../../components/community/CommunityBanner';
 import CommunityPostCard from '../../../components/community/CommunityPostCard';
 import CommunityTabs from '../../../components/community/CommunityTabs';
 
-const TABS = ['All Posts', 'Showcase', 'Sale', 'Wanted', 'News', 'My Posts'];
+const TABS = [
+  'All',
+  'General',
+  'Buying Advice',
+  'Selling',
+  'Events',
+  'UAE Collectors',
+  'Off Topic',
+];
 
 export default function Community() {
   const router = useRouter();
